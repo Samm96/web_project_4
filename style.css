@@ -1,0 +1,11 @@
+@import url(./vendor/fonts/inter.css);
+
+.page {
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #000000;
+  font-family: "Inter", Arial, sans-serif;
+  color: #000000;
+  box-sizing: border-box;
+}
+
