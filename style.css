@@ -98,7 +98,7 @@
 
 .elements {
     width: 880px;
-    margin: 0 auto;
+    margin: 50px auto;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -130,6 +130,7 @@
     object-fit: cover;
     object-position: top;
 }
+
 
 .element__title {
     margin: 0;
