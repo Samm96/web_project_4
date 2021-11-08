@@ -95,3 +95,48 @@
     grid-area: button;
     justify-self: flex-end;
 }
+
+.elements {
+    margin: 0;
+    padding: 0;
+}
+
+.element {
+    margin: 0;
+    padding: 0;
+    width: 282px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.element__card {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.element__image {
+    margin: 0;
+    padding: 0;
+    width: 282px;
+    height: 282px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.element__title {
+    margin: 0;
+    padding: 25px 0 31px 21px;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.like-button {
+    margin: 0;
+    padding: 25px 18px 31px 0;
+    background-color: #ffffff;
+    border: none;
+}
