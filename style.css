@@ -153,15 +153,16 @@
 }
 
 .popup-form {
-
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-.close-button {
-    background-color: #000000;
-    border: none;
-
-}
-
 
 .popup-form__container {
     width: 430px;
@@ -170,25 +171,32 @@
     border-radius: 10px;
 }
 
+.close-button {
+    background-color: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+    position: relative;
+
+}
+
 .popup-form__title {
     margin: 0;
     padding: 0;
     font-size: 24px;
     font-weight: 900;
     line-height: 29px;
+    display: flex;
+    justify-content: center;
 }
 
 .popup-form__input-container {
-
 }
 
 .submit-button {
     border: none;
     background-color: #ffffff;
 }
-
-
-
 
 
 .footer {
