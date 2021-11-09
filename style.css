@@ -32,6 +32,15 @@
     color: #ffffff;
 }
 
+@media screen and (max-width: 880px) {
+    .profile {
+        max-width: 581px;
+    }
+}
+
+
+
+
 .profile__group {
     display: grid;
     grid-template-columns: 120px 30px 373px 1fr;
@@ -42,6 +51,23 @@
         "image . info . button"
         "image . info . button";
 }
+
+
+@media screen and (max-width: 880px) {
+    .profile__group {
+        grid-template-columns: 120px 30px 373px;
+        grid-template-areas: 
+            "image . info ."
+            "image . info edit"
+            "image . info button"
+            "image . info button";
+    }
+}
+
+
+
+
+
 
 .profile__image {
     width: 120px;
@@ -97,6 +123,17 @@
     justify-self: flex-end;
 }
 
+@media screen and (max-width: 880px) {
+    .add-button {
+        width: 282px;
+        grid-column: 3;
+        padding-top: 20px;
+        justify-content: space-between;
+    }
+}
+
+
+
 .elements {
     width: 880px;
     margin: 50px auto;
@@ -105,6 +142,14 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 21px 17px;
+}
+
+@media screen and (max-width: 880px) {
+    .elements {
+        width: 581px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
 }
 
 .element {
