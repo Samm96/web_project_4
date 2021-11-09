@@ -10,26 +10,26 @@
 }
 
 .header {
-    width: 100%;
-    margin: 0 auto 0;
-    padding: 45px 0 0;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  margin: 0 auto 0;
+  padding: 45px 0 0;
+  display: flex;
+  justify-content: center;
 }
 
 .header__logo {
-    margin: 0;
-    padding: 0;
-    max-width: 880px;
-    width: 100%;
+  margin: 0;
+  padding: 0;
+  max-width: 880px;
+  width: 100%;
 }
 
 .profile {
-    max-width: 880px;
-    width: 100%;
-    margin: 0 auto 0;
-    padding: 40px 0 0;
-    color: #ffffff;
+  max-width: 880px;
+  width: 100%;
+  margin: 0 auto 0;
+  padding: 40px 0 0;
+  color: #ffffff;
 }
 
 @media screen and (max-width: 880px) {
@@ -42,14 +42,14 @@
 
 
 .profile__group {
-    display: grid;
-    grid-template-columns: 120px 30px 373px 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-areas: 
-        "image . info . ."
-        "image . info edit button"
-        "image . info . button"
-        "image . info . button";
+  display: grid;
+  grid-template-columns: 120px 30px 373px 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "image . info . ."
+    "image . info edit button"
+    "image . info . button"
+    "image . info . button";
 }
 
 
@@ -70,57 +70,60 @@
 
 
 .profile__image {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: top;
-    grid-column: 1;
-    grid-area: image;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  grid-column: 1;
+  grid-area: image;
 }
 
 .profile__info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    grid-area: info;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-area: info;
 }
 
 .profile__name {
-    margin: 0;
-    padding: 0;
-    font-weight: 500;
-    font-size: 42px;
-    line-height: 48px;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
 }
 
 .profile__description {
-    margin: 0;
-    padding: 16px 0 0 0;;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
+  margin: 0;
+  padding: 16px 0 0 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 .edit-button {
-    margin: 0;
-    padding: 0;
-    width: 24px;
-    height: 24px;
-    background-color: #000000;
-    border: none;
-    grid-area: edit;
+  margin: 0;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  background-image: url(/images/Edit\ Button.svg);
+  background-color: transparent;
+  border: none;
+  grid-area: edit;
 }
 
 .add-button {
-    margin: 0;
-    padding: 0;
-    width: 150px;
-    height: 50px;
-    background-color: #000000;
-    border: none;
-    grid-area: button;
-    justify-self: flex-end;
+  margin: 0;
+  padding: 0;
+  width: 150px;
+  height: 50px;
+  background-image: url(/images/Add\ Button.png);
+  background-size: 150px 50px;
+  background-color: transparent;
+  border: none;
+  grid-area: button;
+  justify-self: flex-end;
 }
 
 @media screen and (max-width: 880px) {
@@ -135,13 +138,13 @@
 
 
 .elements {
-    width: 880px;
-    margin: 50px auto;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-gap: 21px 17px;
+  width: 880px;
+  margin: 50px auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 21px 17px;
 }
 
 @media screen and (max-width: 880px) {
@@ -153,59 +156,132 @@
 }
 
 .element {
-    margin: 0;
-    padding: 0;
-    width: 282px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 282px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .element__card {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .element__image {
-    margin: 0;
-    padding: 0;
-    width: 282px;
-    height: 282px;
-    object-fit: cover;
-    object-position: top;
+  margin: 0;
+  padding: 0;
+  width: 282px;
+  height: 282px;
+  object-fit: cover;
+  object-position: top;
 }
 
-
 .element__title {
-    width: 246px;
-    margin: 0;
-    padding: 25px 0 31px 21px;
-    font-weight: 900;
-    font-size: 24px;
-    line-height: 29px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+  width: 246px;
+  margin: 0;
+  padding: 25px 0 31px 21px;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .like-button {
-    margin: 0;
-    padding: 25px 18px 31px 0;
-    background-color: #ffffff;
-    border: none;
+  margin: 0;
+  padding: 25px 18px 31px 0;
+  background-color: #ffffff;
+  border: none;
+}
+
+.popup-form {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-form_open {
+  display: flex;
+}
+
+.popup-form__container {
+  max-width: 430px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.close-button {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  background-image: url(/images/Close\ Icon.svg);
+  background-repeat: no-repeat;
+  border: none;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -42px;
+  right: -47px;
+}
+
+.popup-form__title {
+  margin: 0;
+  padding: 34px 64px 0 36px;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+}
+
+.popup-form__input-container {
+  margin: 54px 36px 48px;
+  max-width: 358px;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-form__input {
+  margin: 0 0 30px;
+  padding: 0;
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: rgba(84, 84, 84, 0.2);
+}
+
+.popup-form__input:last-child {
+  margin: 0;
+}
+
+.submit-button {
+  margin: 0;
+  padding: 0 36px 36px;
+  border: none;
+  background-color: #ffffff;
+  border-radius: 10px;
 }
 
 .footer {
-    margin: 67px auto 0;
-    padding: 0 0 60px;
-    width: 880px;
-    color: #545454;
+  margin: 67px auto 0;
+  padding: 0 0 60px;
+  width: 880px;
+  color: #545454;
 }
 
 .footer__copyright {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
 }
