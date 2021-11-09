@@ -160,9 +160,13 @@
     top: 0;
     bottom: 0;
     background-color: rgba(0,0,0,0.5);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
+}
+
+.popup-form_open {
+    display: flex;
 }
 
 .popup-form__container {
@@ -186,7 +190,6 @@
     position: absolute;
     top: -42px;
     right: -47px;
-
 }
 
 .popup-form__title {
