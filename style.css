@@ -18,9 +18,9 @@
 }
 
 @media screen and (max-width: 580px) {
-    .header {
-        padding: 28px 0 0 0;
-    }
+  .header {
+    padding: 28px 0 0 0;
+  }
 }
 
 .header__logo {
@@ -31,17 +31,16 @@
 }
 
 @media screen and (max-width: 880px) {
-    .header__logo {
-        max-width: 581px;
-    }
+  .header__logo {
+    max-width: 581px;
+  }
 }
 
 @media screen and (max-width: 580px) {
-    .header__logo {
-        max-width: 320px;
-    }
+  .header__logo {
+    max-width: 320px;
+  }
 }
-
 
 .profile {
   max-width: 880px;
@@ -52,20 +51,17 @@
 }
 
 @media screen and (max-width: 880px) {
-    .profile {
-        max-width: 581px;
-    }
+  .profile {
+    max-width: 581px;
+  }
 }
 
 @media screen and (max-width: 580px) {
-    .profile {
-        max-width: 282px;
-        padding: 42px 0 0 0;
-    }
+  .profile {
+    max-width: 282px;
+    padding: 42px 0 0 0;
+  }
 }
-
-
-
 
 .profile__group {
   display: grid;
@@ -78,30 +74,28 @@
     "image . info . button";
 }
 
-
 @media screen and (max-width: 880px) {
-    .profile__group {
-        grid-template-columns: 120px 30px 373px;
-        grid-template-areas: 
-            "image . info ."
-            "image . info edit"
-            "image . info button"
-            "image . info button";
-    }
+  .profile__group {
+    grid-template-columns: 120px 30px 373px;
+    grid-template-areas:
+      "image . info ."
+      "image . info edit"
+      "image . info button"
+      "image . info button";
+  }
 }
 
 @media screen and (max-width: 580px) {
-    .profile__group {
-        display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
-        grid-template-rows: 120px 1fr;
-        grid-template-areas: 
-        ". image ."
-        ". info edit"
-        ". button .";
-    }
+  .profile__group {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 120px 1fr;
+    grid-template-areas:
+      ". image ."
+      ". info edit"
+      ". button .";
+  }
 }
-
 
 .profile__image {
   width: 120px;
@@ -114,11 +108,11 @@
 }
 
 @media screen and (max-width: 580px) {
-    .profile__image {
-        grid-column: 2;
-        grid-row: 1;
-        justify-self: center;
-    }
+  .profile__image {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+  }
 }
 
 .profile__info {
@@ -128,12 +122,12 @@
   grid-area: info;
 }
 
-@media screen and (max-width: 580px){
-    .profile__info {
-        grid-column: 2;
-        grid-row: 2;
-        text-align: center;
-    }
+@media screen and (max-width: 580px) {
+  .profile__info {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: center;
+  }
 }
 
 .profile__name {
@@ -145,11 +139,11 @@
 }
 
 @media screen and (max-width: 580px) {
-    .profile__name {
-        margin: 30px 0 0 0;
-        font-size: 22px;
-        line-height: 27px;
-    }
+  .profile__name {
+    margin: 30px 0 0 0;
+    font-size: 22px;
+    line-height: 27px;
+  }
 }
 
 .profile__description {
@@ -161,11 +155,11 @@
 }
 
 @media screen and (max-width: 580px) {
-    .profile__description {
-        margin: 14px 0 36px 0;
-        font-size: 14px;
-        line-height: 17px;
-    }
+  .profile__description {
+    margin: 14px 0 36px 0;
+    font-size: 14px;
+    line-height: 17px;
+  }
 }
 
 .edit-button {
@@ -180,18 +174,18 @@
   grid-area: edit;
 }
 
-@media screen and (max-width: 580px){
-    .edit-button {
-        padding: 0;
-        margin: 32px 19px 0 0;
-        width: 18px;
-        height: 18px;
-        background-size: 18px 18px;
-        grid-column: 2;
-        grid-row: 2;
-        display: flex;
-        justify-self: flex-end;
-    }
+@media screen and (max-width: 580px) {
+  .edit-button {
+    padding: 0;
+    margin: 32px 19px 0 0;
+    width: 18px;
+    height: 18px;
+    background-size: 18px 18px;
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    justify-self: flex-end;
+  }
 }
 
 .add-button {
@@ -209,23 +203,22 @@
 }
 
 @media screen and (max-width: 880px) {
-    .add-button {
-        width: 282px;
-        grid-column: 3;
-        grid-row: 5;
-        background-image: url(/images/Add\ Button-mobile.svg);
-        background-size: 282px 50px;
-        justify-self: flex-start;
-    }
+  .add-button {
+    width: 282px;
+    grid-column: 3;
+    grid-row: 5;
+    background-image: url(/images/Add\ Button-mobile.svg);
+    background-size: 282px 50px;
+    justify-self: flex-start;
+  }
 }
 
-@media screen and (max-width: 580px){
-    .add-button {
-        grid-column: 2;
-        grid-row: span 2;
-    }
+@media screen and (max-width: 580px) {
+  .add-button {
+    grid-column: 2;
+    grid-row: span 2;
+  }
 }
-
 
 .elements {
   width: 880px;
@@ -238,10 +231,19 @@
 }
 
 @media screen and (max-width: 880px) {
+  .elements {
+    width: 581px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 580px) {
     .elements {
-        width: 581px;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(3, 1fr);
+        width: 320px;
+        grid-template-columns: 1fr;
+        grid-row-gap: 20px;
+        justify-items: center;
     }
 }
 
@@ -371,9 +373,9 @@
 }
 
 @media screen and (max-width: 880px) {
-    .footer {
-        width: 581px;
-    }
+  .footer {
+    width: 581px;
+  }
 }
 
 .footer__copyright {
