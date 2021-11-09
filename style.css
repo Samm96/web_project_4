@@ -30,6 +30,12 @@
     }
 }
 
+@media screen and (max-width: 580px) {
+    .header__logo {
+        max-width: 320px;
+    }
+}
+
 
 .profile {
   max-width: 880px;
@@ -42,6 +48,12 @@
 @media screen and (max-width: 880px) {
     .profile {
         max-width: 581px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .profile {
+        max-width: 282px;
     }
 }
 
@@ -71,9 +83,17 @@
     }
 }
 
-
-
-
+@media screen and (max-width: 580px) {
+    .profile__group {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 120px 1fr;
+        grid-template-areas: 
+        ". image ."
+        ". info edit"
+        ". button .";
+    }
+}
 
 
 .profile__image {
@@ -86,11 +106,27 @@
   grid-area: image;
 }
 
+@media screen and (max-width: 580px) {
+    .profile__image {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: center;
+    }
+}
+
 .profile__info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   grid-area: info;
+}
+
+@media screen and (max-width: 580px){
+    .profile__info {
+        grid-column: 2;
+        grid-row: 2;
+        text-align: center;
+    }
 }
 
 .profile__name {
@@ -101,12 +137,28 @@
   line-height: 48px;
 }
 
+@media screen and (max-width: 580px) {
+    .profile__name {
+        margin: 30px 0 0 0;
+        font-size: 22px;
+        line-height: 27px;
+    }
+}
+
 .profile__description {
-  margin: 0;
-  padding: 16px 0 0 0;
+  padding: 0;
+  margin: 16px 0 0 0;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
+}
+
+@media screen and (max-width: 580px) {
+    .profile__description {
+        margin: 14px 0 36px 0;
+        font-size: 14px;
+        line-height: 17px;
+    }
 }
 
 .edit-button {
@@ -116,8 +168,23 @@
   height: 24px;
   background-image: url(/images/Edit\ Button.svg);
   background-color: transparent;
+  background-repeat: no-repeat;
   border: none;
   grid-area: edit;
+}
+
+@media screen and (max-width: 580px){
+    .edit-button {
+        padding: 0;
+        margin: 32px 19px 0 0;
+        width: 18px;
+        height: 18px;
+        background-size: 18px 18px;
+        grid-column: 2;
+        grid-row: 2;
+        display: flex;
+        justify-self: flex-end;
+    }
 }
 
 .add-button {
@@ -142,6 +209,13 @@
         background-image: url(/images/Add\ Button-mobile.svg);
         background-size: 282px 50px;
         justify-self: flex-start;
+    }
+}
+
+@media screen and (max-width: 580px){
+    .add-button {
+        grid-column: 2;
+        grid-row: span 2;
     }
 }
 
