@@ -24,6 +24,13 @@
   width: 100%;
 }
 
+@media screen and (max-width: 880px) {
+    .header__logo {
+        max-width: 581px;
+    }
+}
+
+
 .profile {
   max-width: 880px;
   width: 100%;
@@ -280,6 +287,12 @@
   padding: 0 0 60px;
   width: 880px;
   color: #545454;
+}
+
+@media screen and (max-width: 880px) {
+    .footer {
+        width: 581px;
+    }
 }
 
 .footer__copyright {
