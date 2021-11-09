@@ -120,6 +120,7 @@
   height: 50px;
   background-image: url(/images/Add\ Button.png);
   background-size: 150px 50px;
+  background-repeat: no-repeat;
   background-color: transparent;
   border: none;
   grid-area: button;
@@ -130,11 +131,12 @@
     .add-button {
         width: 282px;
         grid-column: 3;
-        padding-top: 20px;
-        justify-content: space-between;
+        grid-row: 5;
+        background-image: url(/images/Add\ Button-mobile.svg);
+        background-size: 282px 50px;
+        justify-self: flex-start;
     }
 }
-
 
 
 .elements {
