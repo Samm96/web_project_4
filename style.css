@@ -358,6 +358,10 @@
   right: -47px;
 }
 
+.close-button_hover {
+  background-image: url(/images/Close\ Icon-1.svg);
+}
+
 @media screen and (max-width: 580px) {
   .close-button {
     width: 26px;
