@@ -1,0 +1,13 @@
+.popup-form__input {
+    margin: 0 0 30px;
+    padding: 0;
+    font-size: 14px;
+    line-height: 17px;
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: rgba(84, 84, 84, 0.2);
+  }
+  
+  .popup-form__input:last-child {
+    margin: 0;
+  }
