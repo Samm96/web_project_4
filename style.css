@@ -174,6 +174,10 @@
   grid-area: edit;
 }
 
+.edit-button_hover {
+    background-image: url(/images/Edit\ Button-gray.svg);
+}
+
 @media screen and (max-width: 580px) {
   .edit-button {
     padding: 0;
@@ -200,6 +204,10 @@
   border: none;
   grid-area: button;
   justify-self: flex-end;
+}
+
+.add-button_clicked {
+    background-image: url(/images/Add\ Button-gray.png);
 }
 
 @media screen and (max-width: 880px) {
@@ -261,7 +269,6 @@
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: space-between;
 }
 
 .element__image {
@@ -286,10 +293,23 @@
 }
 
 .like-button {
-  margin: 0;
-  padding: 25px 18px 31px 0;
-  background-color: #ffffff;
+  margin: 30px 19px 0 0;
+  padding: 0 20px 0 0;
+  width: 21px;
+  height: 19px;
+  background-image: url(/images/liked.svg);
+  background-size: 21px 19px;
+  background-repeat: no-repeat;
+  background-color: transparent;
   border: none;
+}
+
+.like-button_hover {
+    background-image: url(/images/liked-hover.svg);
+}
+
+.like-button_active {
+    background-image: url(/images/liked-active.svg);
 }
 
 .popup-form {
@@ -401,6 +421,10 @@
   align-self: center;
   border: none;
   border-radius: 2px;
+}
+
+.submit-button_hover {
+    background-image: url(/images/Submit\ Button-1.svg);
 }
 
 @media screen and (max-width: 580px) {
