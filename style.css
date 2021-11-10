@@ -175,7 +175,7 @@
 }
 
 .edit-button_hover {
-    background-image: url(/images/Edit\ Button-gray.svg);
+  background-image: url(/images/Edit\ Button-gray.svg);
 }
 
 @media screen and (max-width: 580px) {
@@ -207,7 +207,7 @@
 }
 
 .add-button_clicked {
-    background-image: url(/images/Add\ Button-gray.png);
+  background-image: url(/images/Add\ Button-gray.png);
 }
 
 @media screen and (max-width: 880px) {
@@ -305,11 +305,11 @@
 }
 
 .like-button_hover {
-    background-image: url(/images/liked-hover.svg);
+  background-image: url(/images/liked-hover.svg);
 }
 
 .like-button_active {
-    background-image: url(/images/liked-active.svg);
+  background-image: url(/images/liked-active.svg);
 }
 
 .popup-form {
@@ -424,7 +424,7 @@
 }
 
 .submit-button_hover {
-    background-image: url(/images/Submit\ Button-1.svg);
+  background-image: url(/images/Submit\ Button-1.svg);
 }
 
 @media screen and (max-width: 580px) {
