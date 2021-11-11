@@ -17,6 +17,7 @@ editProfilePopup.addEventListener('click', (e) => {
     }
 })
 
+
 //This makes the formCloseButton change color when hovered over
 formCloseButton.addEventListener('mouseover', () => {
     formCloseButton.classList.add('close-button_hover');
@@ -25,6 +26,7 @@ formCloseButton.addEventListener('mouseout', () => {
     formCloseButton.classList.remove('close-button_hover');
 })
 
+
 //This makes the editProfileButton change color when hovered over
 editProfileButton.addEventListener('mouseover', () => {
     editProfileButton.classList.add('edit-button_hover');
@@ -32,3 +34,12 @@ editProfileButton.addEventListener('mouseover', () => {
 editProfileButton.addEventListener('mouseout', () => {
         editProfileButton.classList.remove('edit-button_hover');
 })
+
+
+let formSubmit = document.querySelector('.submit-button');
+
+function handleProfileSubmit(e) {
+    EventTarget.preventDefault();
+    let nameInput = document.querySelector('#name');
+    let jobInput = document.querySelector('#description');
+}
