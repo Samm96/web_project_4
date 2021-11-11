@@ -10,3 +10,8 @@ editProfileButton.addEventListener('click', () => {
 formCloseButton.addEventListener('click', () => {
     editProfilePopup.classList.remove('popup-form_open');
 })
+
+
+editProfileButton.addEventListener('mouseover', () => {
+    editProfileButton.classList.add('.edit-button_hover');
+})
