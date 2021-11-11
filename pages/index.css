@@ -26,6 +26,7 @@
 @import url(../blocks/like-button/_active/like-button_active.css);
 
 @import url(../blocks/popup-form/popup-form.css);
+@import url(../blocks/popup-form/_open/popup-form_open.css);
 @import url(../blocks/popup-form/__container/popup-form__container.css);
 @import url(../blocks/close-button/close-button.css);
 @import url(../blocks/close-button/_hover/close-button_hover.css);
