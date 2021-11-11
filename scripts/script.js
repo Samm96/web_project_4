@@ -17,6 +17,13 @@ editProfilePopup.addEventListener('click', (e) => {
     }
 })
 
+//This makes the formCloseButton change color when hovered over
+formCloseButton.addEventListener('mouseover', () => {
+    formCloseButton.classList.add('close-button_hover');
+})
+formCloseButton.addEventListener('mouseout', () => {
+    formCloseButton.classList.remove('close-button_hover');
+})
 
 //This makes the editProfileButton change color when hovered over
 editProfileButton.addEventListener('mouseover', () => {
