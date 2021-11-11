@@ -1,6 +1,7 @@
 const editProfilePopup = document.querySelector('#edit-popup-form');
 const editProfileButton = document.querySelector('.edit-button');
 const formCloseButton = document.querySelector('.close-button');
+const formSubmit = document.querySelector('.submit-button');
 
 
 //This opens and closes form
@@ -35,9 +36,15 @@ editProfileButton.addEventListener('mouseout', () => {
         editProfileButton.classList.remove('edit-button_hover');
 })
 
+//This makes the formSubmit change color when hovered over
+formSubmit.addEventListener('mouseover', () => {
+    formSubmit.classList.add('submit-button_hover');
+})
+formSubmit.addEventListener('mouseout', () => {
+    formSubmit.classList.remove('submit-button_hover');
+})
 
-let formSubmit = document.querySelector('.submit-button');
-
+//Submit button saving input fx
 function handleProfileSubmit(e) {
     EventTarget.preventDefault();
     let nameInput = document.querySelector('#name');
