@@ -1,12 +1,12 @@
-const editPopupForm = document.querySelector('edit-popup-form');
+const editProfilePopup = document.querySelector('#edit-popup-form');
+const editProfileButton = document.querySelector('.edit-button');
+
 const formCloseButton = document.querySelector('.close-button');
 
-const popupFormOpen = document.querySelector('.edit-button');
-
-formCloseButton.addEventListener('click', () => {
-    formCloseButton.classList.remove('.popup-form_open');
+editProfileButton.addEventListener('click', () => {
+    editProfilePopup.classList.add('popup-form_open');
 })
 
-popupFormOpen.addEventListener('click', () => {
-    popupFormOpen.classList.add('.popup-form_open');
+formCloseButton.addEventListener('click', () => {
+    editProfilePopup.classList.remove('popup-form_open');
 })
