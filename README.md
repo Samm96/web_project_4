@@ -49,3 +49,6 @@ The project is a social media website in which presents six different locations 
 * Old San Juan, Puerto Rico - https://unsplash.com/photos/yXJiC2UjIBo
 * Palm Springs Aerial Tramway, CA - https://www.flickr.com/photos/alan-light/25135282004
 * Pow Wow - https://unsplash.com/photos/xegyDn1-SoY 
+
+### Link to GitPages
+https://samm96.github.io/web_project_4/ 
