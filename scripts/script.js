@@ -3,6 +3,8 @@ const editProfileButton = document.querySelector('.edit-button');
 const formCloseButton = document.querySelector('.close-button');
 const formSubmit = document.querySelector('.submit-button');
 
+const imageLikeButton = document.querySelector('.like-button');
+
 
 //This opens and closes form
 editProfileButton.addEventListener('click', () => {
@@ -72,3 +74,17 @@ function toggleForm () {
     inputName.value = profileName.textContent;
     inputJob.value = profileJob.textContent;
 }
+
+//Heart button hover
+imageLikeButton.addEventListener('mouseover', () => {
+    imageLikeButton.classList.add('like-button_hover');
+})
+imageLikeButton.addEventListener('mouseout', () => {
+    imageLikeButton.classList.remove('like-button_hover');
+})
+
+ //Heart button active / rest of buttons will be added via next project
+imageLikeButton.addEventListener('click', () => {
+    imageLikeButton.classList.remove('like-button_hover');
+    imageLikeButton.classList.toggle('like-button_active');
+})
