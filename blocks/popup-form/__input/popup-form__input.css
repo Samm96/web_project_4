@@ -7,7 +7,3 @@
     border-width: 0 0 1px;
     border-color: rgba(84, 84, 84, 0.2);
   }
-  
-  .popup-form__input:last-child {
-    margin: 0;
-  }
