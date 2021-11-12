@@ -44,9 +44,25 @@ formSubmit.addEventListener('mouseout', () => {
     formSubmit.classList.remove('submit-button_hover');
 })
 
-//Submit button saving input fx
+
+//Submit button & saving new input name to page
+
+const profileName = document.querySelector('.profile__name');
+const profileJob = document.querySelector('.profile__description');
+
+const inputName = document.querySelector('#name');
+const inputJob = document.querySelector('#description');
+
 function handleProfileSubmit(e) {
-    EventTarget.preventDefault();
-    let nameInput = document.querySelector('#name');
-    let jobInput = document.querySelector('#description');
+    e.preventDefault();
+    profileName.textContent = inputName.value;
+    profileJob.textContent = inputJob.value;
+}
+
+formSubmit.addEventListener('submit', handleProfileSubmit);
+
+function toggleForm () {
+    inputName.value = profileName.textContent;
+    inputJob.value = profileJob.textContent;
+    editProfilePopup.classList.remove('popup-form_open');
 }
