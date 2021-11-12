@@ -45,7 +45,14 @@ formSubmit.addEventListener('mouseout', () => {
 })
 
 
-//Submit button & saving new input name to page
+//Click submit to close
+formSubmit.addEventListener('click', () => {
+    editProfilePopup.classList.remove('popup-form_open');
+})
+
+
+
+//Submit button & replacing input name/job
 
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__description');
@@ -59,10 +66,9 @@ function handleProfileSubmit(e) {
     profileJob.textContent = inputJob.value;
 }
 
-formSubmit.addEventListener('submit', handleProfileSubmit);
+editProfilePopup.addEventListener('submit', handleProfileSubmit);
 
 function toggleForm () {
     inputName.value = profileName.textContent;
     inputJob.value = profileJob.textContent;
-    editProfilePopup.classList.remove('popup-form_open');
 }
