@@ -22,7 +22,7 @@ The project is a social media website in which presents six different locations 
 * At-Rules (at-media, at-import)
 * Positioning
 * Key Modifiers
-* Form
+* Modal
 
 *JavaScript*
 * querySelectors
@@ -39,6 +39,7 @@ The project is a social media website in which presents six different locations 
 * SVGOMG *A .svg compressor* - https://jakearchibald.github.io/svgomg/
 * Stack Overflow
 * Adobe Photoshop
+* Figma
 
 ### Image Sources
 
