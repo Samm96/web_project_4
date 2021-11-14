@@ -21,7 +21,6 @@ The project is a social media website in which presents six different locations 
 * BEM Methodology
 * At-Rules (at-media, at-import)
 * Positioning
-* Key Modifiers
 * Modal
 
 *JavaScript*
