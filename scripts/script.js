@@ -11,14 +11,13 @@ const inputJob = document.querySelector('#description');
 
 
 //This opens form
-editProfileButton.addEventListener('click', () => {
-    editProfilePopup.classList.add('popup-form_open');
-})
-
 function toggleForm () {
     inputName.value = profileName.textContent;
     inputJob.value = profileJob.textContent;
+    editProfilePopup.classList.add('popup-form_open');
 }
+
+editProfileButton.addEventListener('click', toggleForm);
 
 
 // closes form
@@ -28,7 +27,7 @@ formCloseButton.addEventListener('click', () => {
 
 
 //close form by clicking anything but popup
-editProfilePopup.addEventListener('click', (e) => {
+editProfilePopup.addEventListener('mousedown', (e) => {
     if(e.target === editProfilePopup){
         editProfilePopup.classList.remove('popup-form_open');
     }
