@@ -12,9 +12,7 @@
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__description/profile__description.css);
 @import url(../blocks/edit-button/edit-button.css);
-@import url(../blocks/edit-button/_hover/edit-button_hover.css);
 @import url(../blocks/add-button/add-button.css);
-@import url(../blocks/add-button/_clicked/add-button_clicked.css);
 
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);
@@ -22,19 +20,15 @@
 @import url(../blocks/element/__card/element__card.css);
 @import url(../blocks/element/__title/element__title.css);
 @import url(../blocks/like-button/like-button.css);
-@import url(../blocks/like-button/_hover/like-button_hover.css);
-@import url(../blocks/like-button/_active/like-button_active.css);
 
 @import url(../blocks/popup-form/popup-form.css);
 @import url(../blocks/popup-form/_open/popup-form_open.css);
 @import url(../blocks/popup-form/__container/popup-form__container.css);
 @import url(../blocks/close-button/close-button.css);
-@import url(../blocks/close-button/_hover/close-button_hover.css);
 @import url(../blocks/popup-form/__title/popup-form__title.css);
 @import url(../blocks/popup-form/__input-container/popup-form__input-container.css);
 @import url(../blocks/popup-form/__input/popup-form__input.css);
 @import url(../blocks/submit-button/submit-button.css);
-@import url(../blocks/submit-button/_hover/submit-button_hover.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);

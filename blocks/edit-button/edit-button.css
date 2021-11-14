@@ -9,6 +9,10 @@
     border: none;
     grid-area: edit;
   }
+
+  .edit-button:hover {
+    opacity: 0.5;
+  }
   
   @media screen and (max-width: 580px) {
     .edit-button {

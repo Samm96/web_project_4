@@ -12,6 +12,10 @@
     border-radius: 2px;
   }
 
+  .submit-button:hover {
+    opacity: 0.5;
+  }
+
   @media screen and (max-width: 580px) {
     .submit-button {
       padding: 0;

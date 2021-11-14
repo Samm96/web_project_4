@@ -11,6 +11,10 @@
     top: -42px;
     right: -47px;
   }
+
+  .close-button:hover {
+    opacity: 0.5;
+  }
   
   @media screen and (max-width: 580px) {
     .close-button {

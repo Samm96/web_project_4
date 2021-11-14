@@ -11,6 +11,10 @@
     grid-area: button;
     justify-self: flex-end;
   }
+
+  .add-button:hover {
+    opacity: 0.5;
+  }
   
   @media screen and (max-width: 880px) {
     .add-button {
