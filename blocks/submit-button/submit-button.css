@@ -1,8 +1,8 @@
 .submit-button {
-    margin: 18px 0 0;
+    margin: 0;
     width: 358px;
     height: 50px;
-    padding: 0 36px 36px;
+    padding: 18px 36px 36px;
     background-image: url(../../images/Submit-Button.svg);
     background-size: 358px 50px;
     background-repeat: no-repeat;

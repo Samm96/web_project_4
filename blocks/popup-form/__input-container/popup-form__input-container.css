@@ -1,6 +1,6 @@
 .popup-form__input-container {
   padding: 0;
-    margin: 54px 36px 48px;
+    margin: 54px auto 37px;
     max-width: 358px;
     display: flex;
     flex-direction: column;
