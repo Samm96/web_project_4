@@ -1,4 +1,5 @@
 .popup-form__input-container {
+  padding: 0;
     margin: 54px 36px 48px;
     max-width: 358px;
     display: flex;
