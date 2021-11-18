@@ -9,7 +9,11 @@
     border-left: 0;
     border-right: 0;
     border-color: rgba(84, 84, 84, 0.2);
-    padding-bottom: 13px;
+    padding-bottom: 9px;
+  }
+
+  .popup-form__input:last-of-type {
+    margin: 0;
   }
 
 @media screen and (max-width: 580px) {
