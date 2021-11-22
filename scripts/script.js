@@ -15,6 +15,35 @@ const inputImg = document.querySelector('#image-link');
 const buttonTrash = document.querySelectorAll('.delete-button');
 const buttonLike = document.querySelectorAll('.like-button');
 
+const initialCards = [
+    {
+      name: "Disney World",
+      link: "images/sandro-gonzalez-dBEJG6hv224-unsplash.jpg"
+    },
+    {
+      name: "Old San Juan, Puerto Rico",
+      link: "images/jennifer-chen-yXJiC2UjIBo-unsplash-colorfix.jpg"
+    },
+    {
+      name: "Colonial Williamsburg",
+      link: "images/Colonial-Williamsburg-Virginiasizefix-2.jpg"
+    },
+    {
+      name: "N.A. Pow Wows",
+      link: "images/jess-lindner-xegyDn1-SoY-unsplash-colorfix.jpg"
+    },
+    {
+      name: "Cedar Point, OH",
+      link: "images/Corkscrew_(Cedar_Point)_01.jpg"
+    },
+    {
+      name: "Palm Springs Aerial Tramway",
+      link: "images/Palm-Springs-Aerial-Tramway-colorfix.jpg"
+    }
+  ];
+
+
+
 
 //This opens form
 function toggleForm () {
