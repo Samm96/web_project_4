@@ -3,6 +3,12 @@ const editProfileButton = document.querySelector('.edit-button');
 const formCloseButton = document.querySelectorAll('.close-button');
 const formSubmit = document.querySelector('.submit-button');
 
+//Not sure if right... check later
+const createSubmit = document.querySelector('#create-button');
+const createCardPopup = document.querySelector('#create-popup-form');
+const imgCardPopup = document.querySelector('#image-popup-form');
+//
+
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__description');
 
