@@ -1,6 +1,6 @@
 const editProfilePopup = document.querySelector('#edit-popup-form');
 const editProfileButton = document.querySelector('.edit-button');
-const formCloseButton = document.querySelectorAll('.close-button');
+const formCloseButton = document.querySelector('.close-button');
 const formSubmit = document.querySelector('.submit-button');
 
 //Not sure if right... check later
@@ -50,38 +50,40 @@ const initialCards = [
 
 
 
-
 //This opens form
-function toggleForm () {
+function openForm (editProfileButton) {
     inputName.value = profileName.textContent;
     inputJob.value = profileJob.textContent;
     editProfilePopup.classList.add('popup-form_open');
 }
 
-editProfileButton.addEventListener('click', toggleForm);
-
+editProfileButton.addEventListener('click', openForm);
 
 // closes form
-formCloseButton.addEventListener('click', () => {
-    editProfilePopup.classList.remove('popup-form_open');
-})
+function closeForm (editProfileButton) {
+    if (formCloseButton) {
+        editProfilePopup.classList.remove('popup-form_open');
+    }
+}
+
+formCloseButton.addEventListener('click', closeForm);
 
 
 //close form by clicking anything but popup
 editProfilePopup.addEventListener('mousedown', (e) => {
     if(e.target === editProfilePopup){
-        editProfilePopup.classList.remove('popup-form_open');
+        closeForm(editProfilePopup);
     }
 })
 
 
 //Submit button & replacing input name/job
 
-function handleProfileSubmit(e) {
+function editProfileSubmitHandler(e) {
     e.preventDefault();
     profileName.textContent = inputName.value;
     profileJob.textContent = inputJob.value;
-    editProfilePopup.classList.remove('popup-form_open');
+    closeForm(editProfilePopup);
 }
 
-editProfilePopup.addEventListener('submit', handleProfileSubmit);
+editProfilePopup.addEventListener('submit', editProfileSubmitHandler);
