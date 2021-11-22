@@ -30,6 +30,7 @@
 @import url(../blocks/popup-form/__input-container/popup-form__input-container.css);
 @import url(../blocks/popup-form/__input/popup-form__input.css);
 @import url(../blocks/submit-button/submit-button.css);
+@import url(../blocks/submit-button/_type/submit-button_type_create.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
