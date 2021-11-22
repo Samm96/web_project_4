@@ -12,6 +12,9 @@ const inputJob = document.querySelector('#description');
 const inputTitle = document.querySelector('#title');
 const inputImg = document.querySelector('#image-link');
 
+const buttonTrash = document.querySelectorAll('.delete-button');
+const buttonLike = document.querySelectorAll('.like-button');
+
 
 //This opens form
 function toggleForm () {
