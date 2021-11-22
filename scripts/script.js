@@ -9,6 +9,9 @@ const profileJob = document.querySelector('.profile__description');
 const inputName = document.querySelector('#name');
 const inputJob = document.querySelector('#description');
 
+const inputTitle = document.querySelector('#title');
+const inputImg = document.querySelector('#image-link');
+
 
 //This opens form
 function toggleForm () {
