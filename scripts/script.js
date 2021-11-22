@@ -1,25 +1,29 @@
+//popup-forms
+const createCardPopup = document.querySelector('#create-popup-form');
+const imgCardPopup = document.querySelector('#image-popup-form');
 const editProfilePopup = document.querySelector('#edit-popup-form');
+
+
+//buttons
 const editProfileButton = document.querySelector('.edit-button');
 const formCloseButton = document.querySelector('.close-button');
 const formSubmit = document.querySelector('.submit-button');
-
-//Not sure if right... check later
 const createSubmit = document.querySelector('#create-button');
-const createCardPopup = document.querySelector('#create-popup-form');
-const imgCardPopup = document.querySelector('#image-popup-form');
-//
+const buttonTrash = document.querySelectorAll('.delete-button');
+const buttonLike = document.querySelectorAll('.like-button');
 
+//
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__description');
 
+
+//inputs 
 const inputName = document.querySelector('#name');
 const inputJob = document.querySelector('#description');
-
 const inputTitle = document.querySelector('#title');
 const inputImg = document.querySelector('#image-link');
 
-const buttonTrash = document.querySelectorAll('.delete-button');
-const buttonLike = document.querySelectorAll('.like-button');
+
 
 const initialCards = [
     {
@@ -61,9 +65,7 @@ editProfileButton.addEventListener('click', openForm);
 
 // closes form
 function closeForm (editProfileButton) {
-    if (formCloseButton) {
-        editProfilePopup.classList.remove('popup-form_open');
-    }
+    editProfilePopup.classList.remove('popup-form_open');
 }
 
 formCloseButton.addEventListener('click', closeForm);
