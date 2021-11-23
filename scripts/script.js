@@ -89,3 +89,44 @@ function editProfileSubmitHandler(e) {
 }
 
 editProfilePopup.addEventListener('submit', editProfileSubmitHandler);
+
+//
+
+
+const cardTemplate = document.querySelector("#card-template");
+const cardSection = document.querySelector(".elements");
+
+// function to create the card
+function createCard(data) {
+  const card = cardTemplate.content.querySelector('.element').cloneNode('true');
+  const imgElement = card.querySelector('.element__image');
+  const titleElement = card.querySelector('.element__title');
+
+  imgElement.src = data.url;
+  titleElement.textContent = data.title;
+  return card;
+}
+
+// function to put card in
+function addCardToPage(card) {
+  cardSection.prepend(card);
+}
+
+function renderCard(data) {
+
+}
+
+addCardToPage(createCard({
+  url: "https://images.unsplash.com/photo-1637133006333-118622868d2f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+  title: "Tokyo Night",
+}));
+
+addCardToPage(createCard({
+  url: "https://images.unsplash.com/photo-1637133006333-118622868d2f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+  title: "Tokyo Night",
+}));
+
+addCardToPage(createCard({
+  url: "https://images.unsplash.com/photo-1637133006333-118622868d2f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+  title: "Tokyo Night",
+}));
