@@ -23,32 +23,32 @@ const inputJob = document.querySelector('#description');
 const inputTitle = document.querySelector('#title');
 const inputImg = document.querySelector('#image-link');
 
-
-
+//loop for initial cards
 const initialCards = [
     {
-      name: "Disney World",
-      link: "images/sandro-gonzalez-dBEJG6hv224-unsplash.jpg"
+      title: "Palm Springs Aerial Tramway",
+      url: "images/Palm-Springs-Aerial-Tramway-colorfix.jpg"
     },
     {
-      name: "Old San Juan, Puerto Rico",
-      link: "images/jennifer-chen-yXJiC2UjIBo-unsplash-colorfix.jpg"
+      title: "Cedar Point, OH",
+      url: "images/Corkscrew_(Cedar_Point)_01.jpg"
     },
     {
-      name: "Colonial Williamsburg",
-      link: "images/Colonial-Williamsburg-Virginiasizefix-2.jpg"
+      title: "N.A. Pow Wows",
+      url: "images/jess-lindner-xegyDn1-SoY-unsplash-colorfix.jpg"
     },
     {
-      name: "N.A. Pow Wows",
-      link: "images/jess-lindner-xegyDn1-SoY-unsplash-colorfix.jpg"
+      title: "Colonial Williamsburg",
+      url: "images/Colonial-Williamsburg-Virginiasizefix-2.jpg"
     },
     {
-      name: "Cedar Point, OH",
-      link: "images/Corkscrew_(Cedar_Point)_01.jpg"
+      title: "Old San Juan, Puerto Rico",
+      url: "images/jennifer-chen-yXJiC2UjIBo-unsplash-colorfix.jpg"
     },
     {
-      name: "Palm Springs Aerial Tramway",
-      link: "images/Palm-Springs-Aerial-Tramway-colorfix.jpg"
+      title: "Disney World",
+      url: "images/sandro-gonzalez-dBEJG6hv224-unsplash.jpg"
+
     }
   ];
 
@@ -112,21 +112,19 @@ function addCardToPage(card) {
   cardSection.prepend(card);
 }
 
+// function to both create card and put card in HTML
 function renderCard(data) {
-
+  addCardToPage(createCard(data));
 }
 
-addCardToPage(createCard({
-  url: "https://images.unsplash.com/photo-1637133006333-118622868d2f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
-  title: "Tokyo Night",
-}));
+// instead of calling function one by one, loop over initial cards array
+initialCards.forEach((cardData) => {
+  renderCard(cardData);
+});
 
-addCardToPage(createCard({
-  url: "https://images.unsplash.com/photo-1637133006333-118622868d2f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
-  title: "Tokyo Night",
-}));
 
-addCardToPage(createCard({
-  url: "https://images.unsplash.com/photo-1637133006333-118622868d2f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
-  title: "Tokyo Night",
-}));
+
+//renderCard ({
+  //url: "https://images.unsplash.com/photo-1637133006333-118622868d2f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+  //title: "Tokyo Night",
+//});
