@@ -1,12 +1,12 @@
 //popup-forms
 const createCardPopup = document.querySelector('#create-popup-form');
-const imgCardPopup = document.querySelector('#image-popup-form');
+const imgCardPopup = document.querySelector('#image-popup');
 const editProfilePopup = document.querySelector('#edit-popup-form');
 
 
 //buttons
 const editProfileButton = document.querySelector('.edit-button');
-const formCloseButton = document.querySelector('.close-button');
+const formCloseButtons = document.querySelectorAll('.close-button');
 const formSubmit = document.querySelector('.submit-button');
 const createSubmit = document.querySelector('#create-button');
 const buttonTrash = document.querySelectorAll('.delete-button');
@@ -22,6 +22,12 @@ const inputName = document.querySelector('#name');
 const inputJob = document.querySelector('#description');
 const inputTitle = document.querySelector('#title');
 const inputImg = document.querySelector('#image-link');
+
+
+//cardtemplate
+const cardTemplate = document.querySelector("#card-template");
+const cardSection = document.querySelector(".elements");
+
 
 //loop for initial cards
 const initialCards = [
@@ -68,7 +74,12 @@ function closeForm (editProfileButton) {
     editProfilePopup.classList.remove('popup-form_open');
 }
 
-formCloseButton.addEventListener('click', closeForm);
+formCloseButtons.forEach((formCloseButton) => {
+  formCloseButton.addEventListener('click', (event) => {
+    const popup = formCloseButton.closest('.popup-form');
+    closeForm(popup);
+  });
+})
 
 
 //close form by clicking anything but popup
@@ -89,12 +100,8 @@ function editProfileSubmitHandler(e) {
 }
 
 editProfilePopup.addEventListener('submit', editProfileSubmitHandler);
-
 //
 
-
-const cardTemplate = document.querySelector("#card-template");
-const cardSection = document.querySelector(".elements");
 
 // function to create the card
 function createCard(data) {
@@ -121,10 +128,3 @@ function renderCard(data) {
 initialCards.forEach((cardData) => {
   renderCard(cardData);
 });
-
-
-
-//renderCard ({
-  //url: "https://images.unsplash.com/photo-1637133006333-118622868d2f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
-  //title: "Tokyo Night",
-//});
