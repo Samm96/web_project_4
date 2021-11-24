@@ -11,6 +11,7 @@ const formSubmit = document.querySelector('.submit-button');
 const createSubmit = document.querySelector('#create-button');
 const buttonTrash = document.querySelectorAll('.delete-button');
 const buttonLike = document.querySelectorAll('.like-button');
+const addCardButton = document.querySelector('.add-button');
 
 //
 const profileName = document.querySelector('.profile__name');
@@ -67,8 +68,6 @@ function openForm (editProfileButton) {
     editProfilePopup.classList.add('popup-form_open');
 }
 
-editProfileButton.addEventListener('click', openForm);
-
 // closes form
 function closeForm (editProfileButton) {
     editProfilePopup.classList.remove('popup-form_open');
@@ -99,7 +98,19 @@ function editProfileSubmitHandler(e) {
     closeForm(editProfilePopup);
 }
 
+//functions called 
+
 editProfilePopup.addEventListener('submit', editProfileSubmitHandler);
+
+editProfileButton.addEventListener('click', () => {
+  openForm(editProfilePopup);
+})
+
+addCardButton.addEventListener('click', () => {
+  openForm(createCardPopup);
+})
+
+
 //
 
 
