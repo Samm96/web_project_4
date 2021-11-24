@@ -2,6 +2,7 @@
 const createCardPopup = document.querySelector('#create-popup-form');
 const imgCardPopup = document.querySelector('#image-popup');
 const editProfilePopup = document.querySelector('#edit-popup-form');
+const popupForm = document.querySelectorAll(".popup-form");
 
 
 //buttons
@@ -62,15 +63,15 @@ const initialCards = [
 
 
 //This opens form
-function openForm (editProfileButton) {
+function openForm (popupForm) {
     inputName.value = profileName.textContent;
     inputJob.value = profileJob.textContent;
-    editProfilePopup.classList.add('popup-form_open');
+    popupForm.classList.add('popup-form_open');
 }
 
 // closes form
-function closeForm (editProfileButton) {
-    editProfilePopup.classList.remove('popup-form_open');
+function closeForm (popupForm) {
+    popupForm.classList.remove('popup-form_open');
 }
 
 formCloseButtons.forEach((formCloseButton) => {
