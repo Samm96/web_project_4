@@ -33,7 +33,7 @@ const cardTemplate = document.querySelector("#card-template");
 const cardSection = document.querySelector(".elements");
 
 
-//loop for initial cards
+//loop for initial cards 
 const initialCards = [
     {
       title: "Palm Springs Aerial Tramway",
@@ -81,21 +81,6 @@ formCloseButtons.forEach((formCloseButton) => {
   });
 })
 
-// removing card
-
-function deleteCard (element) {
-  element.closest('.element').remove(element);
-};
-
-deleteButtons.forEach((deleteButton) => {
-  deleteButton.addEventListener('click', (event) => {
-    const element = deleteButton.closest('.element');
-    deleteCard(element);
-  });
-});
-
-
-
 //close form by clicking anything but popup
 editProfilePopup.addEventListener('mousedown', (e) => {
     if(e.target === editProfilePopup){
@@ -113,6 +98,15 @@ function editProfileSubmitHandler(e) {
     closeForm(editProfilePopup);
 }
 
+
+createSubmit.addEventListener('click', () => {
+  const data = {}
+  data.url = inputImg.value;
+  data.title = inputTitle.value;
+  renderCard(data);
+  closeForm(createCardPopup);
+})
+
 //functions called 
 
 editProfilePopup.addEventListener('submit', editProfileSubmitHandler);
@@ -124,9 +118,6 @@ editProfileButton.addEventListener('click', () => {
 addCardButton.addEventListener('click', () => {
   openForm(createCardPopup);
 })
-
-
-//
 
 
 // function to create the card
@@ -154,3 +145,23 @@ function renderCard(data) {
 initialCards.forEach((cardData) => {
   renderCard(cardData);
 });
+
+
+// submitting data into new card
+
+
+
+
+// removing card
+
+function deleteCard (element) {
+  element.closest('.element').remove(element);
+};
+
+deleteButtons.forEach((deleteButton) => {
+  deleteButton.addEventListener('click', (event) => {
+    const element = deleteButton.closest('.element');
+    deleteCard(element);
+  });
+});
+
