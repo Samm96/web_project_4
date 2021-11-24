@@ -64,8 +64,6 @@ const initialCards = [
 
 //This opens form
 function openForm (popupForm) {
-    inputName.value = profileName.textContent;
-    inputJob.value = profileJob.textContent;
     popupForm.classList.add('popup-form_open');
 }
 
