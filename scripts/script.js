@@ -10,7 +10,7 @@ const editProfileButton = document.querySelector('.edit-button');
 const formCloseButtons = document.querySelectorAll('.close-button');
 const formSubmit = document.querySelector('.submit-button');
 const createSubmit = document.querySelector('#create-button');
-const buttonTrash = document.querySelectorAll('.delete-button');
+const deleteButtons = document.querySelectorAll('.delete-button');
 const buttonLike = document.querySelectorAll('.like-button');
 const addCardButton = document.querySelector('.add-button');
 
@@ -24,6 +24,8 @@ const inputName = document.querySelector('#name');
 const inputJob = document.querySelector('#description');
 const inputTitle = document.querySelector('#title');
 const inputImg = document.querySelector('#image-link');
+
+const element = document.querySelector('.element');
 
 
 //cardtemplate
@@ -78,6 +80,20 @@ formCloseButtons.forEach((formCloseButton) => {
     closeForm(popup);
   });
 })
+
+// removing card
+
+function deleteCard (element) {
+  element.closest('.element').remove(element);
+};
+
+deleteButtons.forEach((deleteButton) => {
+  deleteButton.addEventListener('click', (event) => {
+    const element = deleteButton.closest('.element');
+    deleteCard(element);
+  });
+});
+
 
 
 //close form by clicking anything but popup
