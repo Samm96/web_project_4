@@ -64,6 +64,7 @@ const initialCards = [
 
 
 
+
 //This opens form
 function openForm (popupForm) {
     popupForm.classList.add('popup-form_open');
@@ -128,6 +129,15 @@ function createCard(data) {
 
   imgElement.src = data.url;
   titleElement.textContent = data.title;
+
+  imgElement.addEventListener.add('click', () => {
+    const popupImageElement = imgCardPopup.querySelector('#imgPopupImg');
+    const popupCaption = imgCardPopup.querySelector('.popup-form__caption');
+    popupImageElement.src = data.url;
+    popupCaption.textContent = data.title;
+    openModal(imgCardPopup);
+  });
+
   return card;
 }
 
@@ -145,11 +155,6 @@ function renderCard(data) {
 initialCards.forEach((cardData) => {
   renderCard(cardData);
 });
-
-
-// submitting data into new card
-
-
 
 
 // removing card
