@@ -130,6 +130,7 @@ function createCard(data) {
   imgElement.src = data.url;
   titleElement.textContent = data.title;
 
+  // click on img to open img modal (causes initial cards not to show up)
   imgElement.addEventListener.add('click', () => {
     const popupImageElement = imgCardPopup.querySelector('#imgPopupImg');
     const popupCaption = imgCardPopup.querySelector('.popup-form__caption');
@@ -138,7 +139,7 @@ function createCard(data) {
     openModal(imgCardPopup);
   });
 
-  return card;
+ return card;
 }
 
 // function to put card in
@@ -154,7 +155,7 @@ function renderCard(data) {
 // instead of calling function one by one, loop over initial cards array
 initialCards.forEach((cardData) => {
   renderCard(cardData);
-});
+})
 
 
 // removing card
