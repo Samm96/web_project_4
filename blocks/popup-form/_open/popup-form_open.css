@@ -1,3 +1,6 @@
 .popup-form_open {
     display: flex;
+
+    opacity: 1;
+    height: auto;
   }
