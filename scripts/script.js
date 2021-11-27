@@ -91,7 +91,7 @@ function editProfileSubmitHandler(e) {
 }
 
 createSubmit.addEventListener("click", () => {
-  const data = {};
+  const data = {url, title};
   data.url = inputImg.value;
   data.title = inputTitle.value;
   renderCard(data);
