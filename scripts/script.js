@@ -31,7 +31,8 @@ const element = document.querySelector('.element');
 //cardtemplate
 const cardTemplate = document.querySelector("#card-template");
 const cardSection = document.querySelector(".elements");
-
+const popupImageElement = imgCardPopup.querySelector('#imgPopupImg');
+const popupCaption = imgCardPopup.querySelector('.popup-form__caption');
 
 //loop for initial cards 
 const initialCards = [
@@ -131,12 +132,10 @@ function createCard(data) {
   titleElement.textContent = data.title;
 
   // click on img to open img modal (causes initial cards not to show up)
-  imgElement.addEventListener.add('click', () => {
-    const popupImageElement = imgCardPopup.querySelector('#imgPopupImg');
-    const popupCaption = imgCardPopup.querySelector('.popup-form__caption');
+  imgElement.addEventListener('click', () => {
     popupImageElement.src = data.url;
     popupCaption.textContent = data.title;
-    openModal(imgCardPopup);
+    openForm(imgCardPopup);
   });
 
  return card;
