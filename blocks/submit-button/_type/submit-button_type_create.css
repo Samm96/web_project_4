@@ -1,5 +1,6 @@
 .submit-button_type_create {
     background-image: url(../../../images/Create-Button.svg);
+    background-position: center;
     background-size: 385px 50px;
 }
 
