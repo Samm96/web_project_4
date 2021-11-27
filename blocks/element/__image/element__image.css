@@ -4,7 +4,7 @@
     width: 282px;
     height: 282px;
     object-fit: cover;
-    object-position: top center;
+    object-position: top center right;
     
     cursor: pointer;
   }
