@@ -90,17 +90,20 @@ function editProfileSubmitHandler(e) {
   closeForm(editProfilePopup);
 }
 
-createSubmit.addEventListener("click", () => {
-  const data = {url, title};
+function createCardSubmitHandler(e) {
+  e.preventDefault();
+  const data = {url: inputImg,  title: inputTitle};
   data.url = inputImg.value;
   data.title = inputTitle.value;
   renderCard(data);
   closeForm(createCardPopup);
-});
+}
+
 
 //functions called
 
 editProfilePopup.addEventListener("submit", editProfileSubmitHandler);
+createCardPopup.addEventListener("submit", createCardSubmitHandler);
 
 editProfileButton.addEventListener("click", () => {
   openForm(editProfilePopup);
