@@ -11,6 +11,6 @@
     
     opacity: 0;
     height: 0;
-    overflow: hidden;
-    transition: opacity 0.5s ease-out;
+    visibility: hidden;
+    transition: opacity ease-out 0.5s, visibility 0s ease-out 0.5s;
   }
