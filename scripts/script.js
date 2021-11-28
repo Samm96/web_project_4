@@ -92,13 +92,12 @@ function editProfileSubmitHandler(e) {
 
 function createCardSubmitHandler(e) {
   e.preventDefault();
-  const data = {url: inputImg,  title: inputTitle};
+  const data = { url: inputImg, title: inputTitle };
   data.url = inputImg.value;
   data.title = inputTitle.value;
   renderCard(data);
   closeForm(createCardPopup);
 }
-
 
 //functions called
 
