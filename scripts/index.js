@@ -92,9 +92,7 @@ function editProfileSubmitHandler(e) {
 
 function createCardSubmitHandler(e) {
   e.preventDefault();
-  const data = { url: inputImg, title: inputTitle };
-  data.url = inputImg.value;
-  data.title = inputTitle.value;
+  const data = { url: inputImg.value, title: inputTitle.value };
   renderCard(data);
   closeForm(createCardPopup);
 }
@@ -105,6 +103,8 @@ editProfilePopup.addEventListener("submit", editProfileSubmitHandler);
 createCardPopup.addEventListener("submit", createCardSubmitHandler);
 
 editProfileButton.addEventListener("click", () => {
+  inputName.placeholder = profileName.textContent;
+  inputJob.placeholder = profileJob.textContent;
   openForm(editProfilePopup);
 });
 
@@ -121,11 +121,13 @@ function createCard(data) {
   const likeButton = card.querySelector(".like-button");
 
   imgElement.src = data.url;
+  imgElement.alt = data.title;
   titleElement.textContent = data.title;
 
   // click on img to open img modal (causes initial cards not to show up)
   imgElement.addEventListener("click", () => {
     popupImageElement.src = data.url;
+    popupImageElement.alt = data.title;
     popupCaption.textContent = data.title;
     openForm(imgCardPopup);
   });
