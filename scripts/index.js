@@ -103,8 +103,8 @@ editProfilePopup.addEventListener("submit", editProfileSubmitHandler);
 createCardPopup.addEventListener("submit", createCardSubmitHandler);
 
 editProfileButton.addEventListener("click", () => {
-  inputName.placeholder = profileName.textContent;
-  inputJob.placeholder = profileJob.textContent;
+  inputName.value = profileName.textContent;
+  inputJob.value = profileJob.textContent;
   openForm(editProfilePopup);
 });
 
