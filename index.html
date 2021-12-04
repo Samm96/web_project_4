@@ -47,12 +47,18 @@
                 id="name"
                 name="name"
                 placeholder="name"
+                minlength="2";
+                maxlength="40";
+                required;
               />
               <input
                 class="popup-form__input"
                 name="description"
                 placeholder="description"
                 id="description"
+                minlength="2";
+                maxlength="200";
+                required;
               />
               <button type="submit" class="submit-button"></button>
             </form>
@@ -69,12 +75,16 @@
                 id="title"
                 name="title"
                 placeholder="title"
+                minlength="1";
+                maxlength="30";
+                required;
               />
               <input
                 class="popup-form__input"
                 name="image-link"
                 placeholder="image link"
                 id="image-link"
+                type="url";
               />
               <button
                 type="submit"
