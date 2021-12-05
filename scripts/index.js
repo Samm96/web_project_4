@@ -82,11 +82,13 @@ editProfilePopup.addEventListener("mousedown", (e) => {
 });
 
 //Submit button & replacing input name/job
+//add setSubmitButtonState(false) so that the button is disabled when opening form
 
 function editProfileSubmitHandler(e) {
   e.preventDefault();
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
+  setSubmitButtonState(false);
   closeForm(editProfilePopup);
 }
 

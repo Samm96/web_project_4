@@ -41,7 +41,7 @@
           <div class="popup-form__container">
             <button type="button" class="close-button"></button>
             <h2 class="popup-form__title">Edit Profile</h2>
-            <form class="popup-form__input-container" name="input-container">
+            <form class="popup-form__input-container" name="edit">
               <input
                 class="popup-form__input"
                 id="name"
@@ -60,7 +60,7 @@
                 maxlength="200";
                 required;
               />
-              <button type="submit" class="submit-button"></button>
+              <button disabled name="submit" type="submit" class="submit-button submit-button_type_disabled"></button>
             </form>
           </div>
         </section>
@@ -69,7 +69,7 @@
           <div class="popup-form__container">
             <button type="button" class="close-button"></button>
             <h2 class="popup-form__title">New place</h2>
-            <form class="popup-form__input-container" name="input-container">
+            <form class="popup-form__input-container" name="create">
               <input
                 class="popup-form__input"
                 id="title"
@@ -81,15 +81,18 @@
               />
               <input
                 class="popup-form__input"
-                name="image-link"
+                name="imageLink"
                 placeholder="image link"
                 id="image-link"
                 type="url";
+                pattern="https://.*|http://.*"
               />
               <button
                 type="submit"
-                class="submit-button submit-button_type_create"
+                class="submit-button submit-button_type_create submit-button_type_disabled"
                 id="create-button"
+                name="submit"
+                disabled;
               ></button>
             </form>
           </div>
