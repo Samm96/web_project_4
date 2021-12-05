@@ -3,13 +3,15 @@ const forms = document.forms;
 const editForm = document.forms.edit;
 const createForm = document.forms.create;
 
-const accountName = editForm.elements.name;
-const description = editForm.elements.description;
-const title = createForm.elements.title;
-const image = createForm.elements.imageLink;
+const accountName = forms.elements.name;
+const description = forms.elements.description;
+const title = forms.elements.title;
+const image = forms.elements.imageLink;
 
 const editSubmitBtn = editForm.querySelector(".submit-button");
 const createSubmitBtn = createForm.querySelector(".submit-button");
+
+const submitBtn = forms.elements.submit;
 
 
 // if there is more than 0 letters in input, form = valid
