@@ -81,6 +81,21 @@ editProfilePopup.addEventListener("mousedown", (e) => {
   }
 });
 
+createCardPopup.addEventListener("mousedown", (e) => {
+  if (e.target === createCardPopup) {
+    closeForm(createCardPopup);
+  }
+});
+
+//hit esc key to close modals
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeForm(editProfilePopup);
+    closeForm(createCardPopup);
+    closeForm(imgCardPopup);
+  }
+});
+
 //Submit button & replacing input name/job
 //add setSubmitButtonState(false) so that the button is disabled when opening form
 

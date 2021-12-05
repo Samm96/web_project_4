@@ -12,6 +12,10 @@
   border-radius: 2px;
 }
 
+.submit-button:disabled {
+  background-image: url(../../../images/Submit-Button-disabled.svg);
+}
+
 .submit-button:hover {
   opacity: 0.8;
   cursor: pointer;
@@ -25,5 +29,9 @@
     height: 46px;
     background-size: 238px 46px;
     background-image: url(../../images/Submit-Buttonmobile.svg);
+  }
+
+  .submit-button:disabled{
+    background-image: url(../../../images/Submit-Button-disabled-mobile.svg);
   }
 }
