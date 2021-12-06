@@ -8,6 +8,7 @@
 
 @media screen and (max-width: 580px) {
   .popup-form__input-container {
+    max-width: 238px;
     margin: 76px auto 25px;
     padding-bottom: 0;
   }

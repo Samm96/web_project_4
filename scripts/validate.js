@@ -3,8 +3,7 @@ enableValidation({
     inputSelector: ".popup-form__input",
     submitButtonSelector: ".popup-form__submit-button",
     inactiveButtonClass: "popup-form__submit-button_type_disabled",
-    inputErrorClass: "popup-form__input_type_error",
-    errorClass: "popup-form__error_visible"
+    errorClass: "popup-form__error-text"
 });
 
 function enableValidation(settings) {

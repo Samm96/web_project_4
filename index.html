@@ -43,7 +43,7 @@
             <h2 class="popup-form__title">Edit Profile</h2>
             <form class="popup-form__input-container" name="edit">
               <input
-                class="popup-form__input"
+                class="popup-form__input popup-form__input_has_error"
                 id="name"
                 name="name"
                 placeholder="name"
@@ -51,9 +51,9 @@
                 maxlength="40";
                 required;
               />
-              <span class="popup-form__error-text"></span>
+              <span class="popup-form__error-text">Please fill out this field.</span>
               <input
-                class="popup-form__input"
+                class="popup-form__input popup-form__input_has_error"
                 name="description"
                 placeholder="description"
                 id="description"
@@ -61,8 +61,8 @@
                 maxlength="200";
                 required;
               />
-              <span class="popup-form__error-text"></span>
-              <button disabled name="submit" type="submit" class="submit-button submit-button_type_disabled"></button>
+              <span class="popup-form__error-text">Please enter a web address.</span>
+              <button disabled name="submit" type="submit" class="submit-button submit-button_type_error submit-button_type_disabled"></button>
             </form>
           </div>
         </section>
@@ -73,7 +73,7 @@
             <h2 class="popup-form__title">New place</h2>
             <form class="popup-form__input-container" name="create">
               <input
-                class="popup-form__input"
+                class="popup-form__input popup-form__input_has_error"
                 id="title"
                 name="title"
                 placeholder="title"
@@ -81,17 +81,19 @@
                 maxlength="30";
                 required;
               />
+              <span class="popup-form__error-text">Please fill out this field.</span>
               <input
-                class="popup-form__input"
+                class="popup-form__input popup-form__input_has_error"
                 name="imageLink"
                 placeholder="image link"
                 id="image-link"
                 type="url";
                 pattern="https://.*|http://.*"
               />
+              <span class="popup-form__error-text">Please enter a web address.</span>
               <button
                 type="submit"
-                class="submit-button submit-button_type_create submit-button_type_disabled"
+                class="submit-button submit-button_type_create submit-button_type_error submit-button_type_disabled"
                 id="create-button"
                 name="submit"
                 disabled;
