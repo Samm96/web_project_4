@@ -1,5 +1,5 @@
 .submit-button {
-  margin: 31px 0 0 0;
+  margin: 18px 0 0 0;
   padding: 0;
   width: 358px;
   height: 50px;
@@ -24,7 +24,7 @@
 @media screen and (max-width: 580px) {
   .submit-button {
     padding: 0;
-    margin: 16px 0 0;
+    margin: 46px 0 0;
     width: 238px;
     height: 46px;
     background-size: 238px 46px;

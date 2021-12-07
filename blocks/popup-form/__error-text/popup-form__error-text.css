@@ -3,9 +3,6 @@
     font-size: 12px;
     line-height: 14px;
     font-weight: 400;
-    margin: 0 0 13px;
-}
-
-.popup-form__error-text:last-of-type {
     margin: 0;
+    visibility: hidden;
 }

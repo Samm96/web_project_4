@@ -27,6 +27,7 @@
 @import url(../blocks/popup-form/_open/popup-form_open.css);
 @import url(../blocks/popup-form/__container/popup-form__container.css);
 @import url(../blocks/popup-form/__error-text/popup-form__error-text.css);
+@import url(../blocks/popup-form/__error-text/_visible/popup-form__error-text_visible.css);
 @import url(../blocks/close-button/close-button.css);
 @import url(../blocks/popup-form/__title/popup-form__title.css);
 @import url(../blocks/popup-form/__input-container/popup-form__input-container.css);
