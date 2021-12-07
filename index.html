@@ -51,7 +51,7 @@
                 maxlength="40";
                 required= "true";
               />
-              <span class="popup-form__error-text"></span>
+              <span class="popup-form__error-text name-error popup-form__error-text_visible"></span>
               <input
                 class="popup-form__input"
                 name="description"
@@ -61,7 +61,7 @@
                 maxlength="200";
                 required="true";
               />
-              <span class="popup-form__error-text popup-form__error-text_visible"></span>
+              <span class="popup-form__error-text description-error popup-form__error-text_visible"></span>
               <button disabled name="submit" type="submit" class="submit-button submit-button_type_disabled"></button>
             </form>
           </div>
@@ -81,7 +81,7 @@
                 maxlength="30";
                 required="true";
               />
-              <span class="popup-form__error-text popup-form__error-text_visible"></span>
+              <span class="popup-form__error-text title-error popup-form__error-text_visible"></span>
               <input
                 class="popup-form__input"
                 name="imageLink"
@@ -91,7 +91,7 @@
                 pattern="https://.*|http://.*"
                 required="true";
               />
-              <span class="popup-form__error-text"></span>
+              <span class="popup-form__error-text imageLink-error popup-form__error-text_visible""></span>
               <button
                 type="submit"
                 class="submit-button submit-button_type_create submit-button_type_disabled"
