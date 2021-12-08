@@ -1,9 +1,0 @@
-.submit-button_type_error {
-    margin: 27px 0 0;
-}
-
-@media screen and (max-width: 580px) {
-    .submit-button_type_error {
-      margin: 25px 0 0;
-  }
-}
