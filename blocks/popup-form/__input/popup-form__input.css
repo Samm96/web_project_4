@@ -1,5 +1,5 @@
 .popup-form__input {
-  margin: 0 0 30px;
+  margin: 0;
   padding: 0;
   font-size: 14px;
   line-height: 17px;
@@ -12,9 +12,7 @@
   padding-bottom: 9px;
 }
 
-.popup-form__input:last-of-type {
-  margin: 0 0 30px;
-}
+
 
 @media screen and (max-width: 580px) {
   .popup-form__input {
