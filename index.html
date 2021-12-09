@@ -41,7 +41,7 @@
           <div class="popup-form__container">
             <button type="button" class="close-button"></button>
             <h2 class="popup-form__title">Edit Profile</h2>
-            <form class="popup-form__input-container" name="edit">
+            <form class="popup-form__input-container" name="edit" id="edit">
               <input
                 class="popup-form__input"
                 id="name"
@@ -74,7 +74,7 @@
                   popup-form__error-text_visible
                 "
               ></span>
-              <button name="submit" type="submit" class="submit-button">
+              <button name="submit" type="submit" class="submit-button" disabled>
                 Save
               </button>
             </form>
@@ -85,7 +85,7 @@
           <div class="popup-form__container">
             <button type="button" class="close-button"></button>
             <h2 class="popup-form__title">New place</h2>
-            <form class="popup-form__input-container" name="create">
+            <form class="popup-form__input-container" name="create" id="create">
               <input
                 class="popup-form__input"
                 id="title"
@@ -123,6 +123,7 @@
                 class="submit-button"
                 id="create-button"
                 name="submit"
+                disabled
               >
                 Create
               </button>

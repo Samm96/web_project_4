@@ -80,6 +80,7 @@ popupForms.forEach((popupForm) => {
   popupForm.addEventListener ("mousedown", (e) => {
     if (e.target === popupForm) {
       closeForm(popupForm);
+      popupForm.removeEventListener("mousedown", closeForm);
     }
   });
 });
@@ -103,11 +104,14 @@ function handleEditProfileFormSubmit(e) {
   closeForm(editProfilePopup);
 }
 
+//querySelector at end resets form
+//note: .reset() only works on <forms>
 function handleCreateCardFormSubmit(e) {
   e.preventDefault();
   const data = { url: inputImage.value, title: inputTitle.value };
   renderCard(data);
   closeForm(createCardPopup);
+  document.querySelector("#create").reset();
 }
 
 //functions called
