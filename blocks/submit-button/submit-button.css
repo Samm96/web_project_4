@@ -10,17 +10,17 @@
   border-radius: 2px;
 }
 
+.submit-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 .submit-button:disabled {
   color: black;
   background-color: #FFF;
   border: 1px solid #000;
   opacity: 0.2;
-  cursor: none;
-}
-
-.submit-button:hover {
-  opacity: 0.8;
-  cursor: pointer;
+  cursor: default;
 }
 
 @media screen and (max-width: 580px) {

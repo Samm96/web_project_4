@@ -28,15 +28,15 @@ function setEventListeners(form, settings) {
     input.addEventListener("input", (evt) => {
       checkInputValidity(input, settings);
       const submitBtn = form.querySelector(settings.submitButtonSelector);
-      const hasErrors = notValid(inputs);
-      setButton(submitBtn, hasErrors);
+      const hasErrors = checkFieldsValidity (inputs);
+      setSubmitButtonState (submitBtn, hasErrors);
     });
   });
 }
 
 // toggles the button between disabled and enabled
-function setButton (submitBtn, hasErrors) {
-  if (hasErrors) {
+function setSubmitButtonState (submitBtn, hasErrors) {
+  if (submitBtn.disabled = hasErrors) {
     submitBtn.disabled = true;
   } else {
     submitBtn.disabled = false;
@@ -44,10 +44,8 @@ function setButton (submitBtn, hasErrors) {
 }
 
 // turn inputs into an array, take some input; return solution if input is invalid
-function notValid (inputs) {
-  return Array.from(inputs).some((input) => {
-    return !input.validity.valid;
-  });
+function checkFieldsValidity (inputs) {
+  Array.from(inputs).some((input) => !input.validity.valid);
 }
 
 // removes/hides errors if inputs are valid
@@ -80,7 +78,6 @@ function showErrorMessage (input, settings) {
   errorMessageElement.textContent = input.validationMessage;
   errorMessageElement.classList.add(settings.errorTextVisible);
 }
-
 
 // to check to see if something is being grabbed correctly:
 /// via dev tools: i.e. type "input.id" to see which input function is grabbing.
