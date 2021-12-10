@@ -60,6 +60,11 @@ const initialCards = [
 function openForm(popupForm) {
   popupForm.classList.add("popup-form_open");
   document.addEventListener("keydown", handlePressEscape);
+  disableSubmitButton();
+}
+
+function disableSubmitButton() {
+  createSubmit.disabled = true;
 }
 
 // closes form
@@ -100,7 +105,6 @@ function handleEditProfileFormSubmit(e) {
   e.preventDefault();
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
-  setSubmitButtonState(false);
   closeForm(editProfilePopup);
 }
 

@@ -35,14 +35,6 @@ function setEventListeners(form, settings) {
 }
 
 // toggles the button between disabled and enabled
-//function setSubmitButtonState(submitBtn, hasErrors) {
-  //if ((submitBtn.disabled = hasErrors)) {
-    //submitBtn.disabled = true;
-  //} else {
-    //submitBtn.disabled = false;
-  //}
-//}
-
 function setSubmitButtonState(submitBtn, hasErrors) {
   submitBtn.disabled = hasErrors;
 }
@@ -83,5 +75,5 @@ function showErrorMessage(input, settings) {
   errorMessageElement.classList.add(settings.errorTextVisible);
 }
 
-// to check to see if something is being grabbed correctly:
-/// via dev tools: i.e. type "input.id" to see which input function is grabbing.
+// to check to see if something is being grabbed correctly
+/// via dev tools: i.e. type "input.id" to see which input function is grabbing
