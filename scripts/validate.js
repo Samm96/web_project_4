@@ -28,24 +28,28 @@ function setEventListeners(form, settings) {
     input.addEventListener("input", (evt) => {
       checkInputValidity(input, settings);
       const submitBtn = form.querySelector(settings.submitButtonSelector);
-      const hasErrors = checkFieldsValidity (inputs);
-      setSubmitButtonState (submitBtn, hasErrors);
+      const hasErrors = checkFieldsValidity(inputs);
+      setSubmitButtonState(submitBtn, hasErrors);
     });
   });
 }
 
 // toggles the button between disabled and enabled
-function setSubmitButtonState (submitBtn, hasErrors) {
-  if (submitBtn.disabled = hasErrors) {
-    submitBtn.disabled = true;
-  } else {
-    submitBtn.disabled = false;
-  }
+//function setSubmitButtonState(submitBtn, hasErrors) {
+  //if ((submitBtn.disabled = hasErrors)) {
+    //submitBtn.disabled = true;
+  //} else {
+    //submitBtn.disabled = false;
+  //}
+//}
+
+function setSubmitButtonState(submitBtn, hasErrors) {
+  submitBtn.disabled = hasErrors;
 }
 
 // turn inputs into an array, take some input; return solution if input is invalid
-function checkFieldsValidity (inputs) {
-  Array.from(inputs).some((input) => !input.validity.valid);
+function checkFieldsValidity(inputs) {
+  return Array.from(inputs).some((input) => !input.validity.valid);
 }
 
 // removes/hides errors if inputs are valid
@@ -64,16 +68,16 @@ function removeErrorStyles(input, settings) {
   const errorText = document.querySelectorAll(settings.errorTextSelector);
 }
 
-function hideErrorMessage (input, settings) {
+function hideErrorMessage(input, settings) {
   const errorMessageElement = document.querySelector(`.${input.id}-error`);
   errorMessageElement.classList.remove(settings.errorTextVisible);
 }
 
 function addErrorStyles(input, settings) {
-    input.classList.add(settings.inputHasError);
+  input.classList.add(settings.inputHasError);
 }
 
-function showErrorMessage (input, settings) {
+function showErrorMessage(input, settings) {
   const errorMessageElement = document.querySelector(`.${input.id}-error`);
   errorMessageElement.textContent = input.validationMessage;
   errorMessageElement.classList.add(settings.errorTextVisible);

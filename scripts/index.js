@@ -59,13 +59,13 @@ const initialCards = [
 //This opens form
 function openForm(popupForm) {
   popupForm.classList.add("popup-form_open");
-  document.addEventListener("keydown", pressEscape);
+  document.addEventListener("keydown", handlePressEscape);
 }
 
 // closes form
 function closeForm(popupForm) {
   popupForm.classList.remove("popup-form_open");
-  document.removeEventListener("keydown", pressEscape);
+  document.removeEventListener("keydown", handlePressEscape);
 }
 
 formCloseButtons.forEach((formCloseButton) => {
@@ -77,7 +77,7 @@ formCloseButtons.forEach((formCloseButton) => {
 
 //close form by clicking anything but popup
 popupForms.forEach((popupForm) => {
-  popupForm.addEventListener ("mousedown", (e) => {
+  popupForm.addEventListener("mousedown", (e) => {
     if (e.target === popupForm) {
       closeForm(popupForm);
       popupForm.removeEventListener("mousedown", closeForm);
@@ -87,8 +87,8 @@ popupForms.forEach((popupForm) => {
 
 //hit esc key to close modals
 
-function pressEscape (event) {
-  if(event.key === "Escape") {
+function handlePressEscape(event) {
+  if (event.key === "Escape") {
     closeForm(document.querySelector(".popup-form_open"));
   }
 }
@@ -124,7 +124,6 @@ editProfileButton.addEventListener("click", () => {
   inputJob.value = profileJob.textContent;
   openForm(editProfilePopup);
 });
-
 
 addCardButton.addEventListener("click", () => {
   openForm(createCardPopup);
@@ -177,4 +176,3 @@ function renderCard(data) {
 initialCards.forEach((cardData) => {
   renderCard(cardData);
 });
-
