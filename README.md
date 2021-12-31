@@ -15,6 +15,8 @@ The project is a social media website in which presents six different locations 
 
 ### Techniques Used
 
+* BEM naming
+
 *HTML/CSS*
 * Grid
 * Flexbox
@@ -27,6 +29,11 @@ The project is a social media website in which presents six different locations 
 * querySelectors
 * if Statement
 * EventListeners
+* Objects
+* functions
+* Classes
+* OOP
+* import/export
 
 ### Programs Used
 
