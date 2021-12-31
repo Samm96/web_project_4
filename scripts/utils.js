@@ -1,0 +1,1 @@
+// event handlers and the functions that opens/closes modals
