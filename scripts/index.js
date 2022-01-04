@@ -1,3 +1,6 @@
+import { FormValidator } from "./FormValidator.js";
+import { openForm, closeForm, handlePressEscape, handleEditProfileFormSubmit, handleCreateCardFormSubmit } from "./utils.js";
+
 //popup-forms
 const createCardPopup = document.querySelector("#create-popup-form");
 const imageCardPopup = document.querySelector("#image-popup");
@@ -7,7 +10,6 @@ const popupForms = document.querySelectorAll(".popup-form");
 //buttons
 const editProfileButton = document.querySelector(".edit-button");
 const formCloseButtons = document.querySelectorAll(".close-button");
-const createSubmit = document.querySelector("#create-button");
 const addCardButton = document.querySelector(".add-button");
 
 //
@@ -56,22 +58,6 @@ const initialCards = [
   },
 ];
 
-//This opens form
-function openForm(popupForm) {
-  popupForm.classList.add("popup-form_open");
-  document.addEventListener("keydown", handlePressEscape);
-  disableSubmitButton();
-}
-
-function disableSubmitButton() {
-  createSubmit.disabled = true;
-}
-
-// closes form
-function closeForm(popupForm) {
-  popupForm.classList.remove("popup-form_open");
-  document.removeEventListener("keydown", handlePressEscape);
-}
 
 formCloseButtons.forEach((formCloseButton) => {
   formCloseButton.addEventListener("click", (event) => {
@@ -90,33 +76,8 @@ popupForms.forEach((popupForm) => {
   });
 });
 
-//hit esc key to close modals
 
-function handlePressEscape(event) {
-  if (event.key === "Escape") {
-    closeForm(document.querySelector(".popup-form_open"));
-  }
-}
 
-//Submit button & replacing input name/job
-//add setSubmitButtonState(false) so that the button is disabled when opening form
-
-function handleEditProfileFormSubmit(e) {
-  e.preventDefault();
-  profileName.textContent = inputName.value;
-  profileJob.textContent = inputJob.value;
-  closeForm(editProfilePopup);
-}
-
-//querySelector at end resets form
-//note: .reset() only works on <forms>
-function handleCreateCardFormSubmit(e) {
-  e.preventDefault();
-  const data = { url: inputImage.value, title: inputTitle.value };
-  renderCard(data);
-  closeForm(createCardPopup);
-  document.querySelector("#create").reset();
-}
 
 //functions called
 
@@ -132,6 +93,19 @@ editProfileButton.addEventListener("click", () => {
 addCardButton.addEventListener("click", () => {
   openForm(createCardPopup);
 });
+
+const validationConfig = {
+  formSelector: ".popup-form__input-container",
+  inputSelector: ".popup-form__input",
+  submitButtonSelector: ".submit-button",
+  inactiveButtonClass: "popup-form__submit-button_type_disabled",
+  errorTextSelector: ".popup-form__error-text",
+  inputHasError: "popup-form__input_has_error",
+  errorTextVisible: "popup-form__error-text_visible",
+}
+
+const editProfileValidator = new FormValidator(validationConfig, document.querySelector("#edit-popup-form"));
+editProfileValidator.enableValidation();
 
 // function to create the card
 function createCard(data) {
