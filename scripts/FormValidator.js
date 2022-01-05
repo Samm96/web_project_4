@@ -6,9 +6,9 @@ export class FormValidator {
     this._config = config;
     this._formElement = formElement;
   }
-  
+
   enableValidation() {
-      this.setEventListeners(this.config);
+    this.setEventListeners(this.config);
   }
 
   // add event listener function: it will use parameters form and settings.
@@ -16,13 +16,17 @@ export class FormValidator {
   /// want to select submit button in ths fx too
   /// add a part that has a condition where there is an error and what to do then
   /// add button disable toggle
-  setEventListeners(settings) {
-    const inputs = this._formElement.querySelectorAll(this._config.inputSelector);
+  setEventListeners() {
+    const inputs = this._formElement.querySelectorAll(
+      this._config.inputSelector
+    );
     //checks in put validity & check all inputs for validity
     inputs.forEach((input) => {
       input.addEventListener("input", (evt) => {
         this.checkInputValidity(input, this._formElement);
-        const submitBtn = this._formElement.querySelector(this._config.submitButtonSelector);
+        const submitBtn = this._formElement.querySelector(
+          this._config.submitButtonSelector
+        );
         const hasErrors = this.checkFieldsValidity(inputs);
         this.setSubmitButtonState(submitBtn, hasErrors);
       });

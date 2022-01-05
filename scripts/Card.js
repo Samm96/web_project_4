@@ -1,68 +1,40 @@
-// Card class code
-import { imageCardPopup } from "./index";
-const cardTemplate = document.querySelector("#card-template");
-const likeButton = document.querySelector(".like-button");
+import { imageCardPopup } from "./index.js";
+import { openForm } from "./utils.js";
+export class Card {
+  constructor(template, data) {
+    this._template = template;
+    this._data = data;
+  }
 
+  render() {
+    const card = this._template
+      .cloneNode("true");
+    const imgElement = card.querySelector(".element__image");
+    const titleElement = card.querySelector(".element__title");
+    const deleteButton = card.querySelector(".delete-button");
+    const likeButton = card.querySelector(".like-button");
+    const caption = card.querySelector(".popup-form__caption");
 
-function toggleLike() {
-    likeButton.classList.toggle(".like-button_active");
-};
+    imgElement.src = this._data.url;
+    imgElement.alt = this._data.title;
+    titleElement.textContent = this._data.title;
 
-class Card {
-    constructor (data) {
-        this.image = image;
-        this.title = title;
-        this.deleteButton = deleteButton;
-        this.likeButton = like;
-        this.isDeleted = false; // need function
-        this.isLiked = false; // need function
-    }
+    // click on img to open img modal (causes initial cards not to show up)
+    imgElement.addEventListener("click", () => {
+      imgElement.src = this._data.url;
+      imgElement.alt = this._data.title;
+      caption.textContent = this._data.title;
+      openForm(imageCardPopup);
+    });
 
-    _getTemplate() {
-        const cardElement = cardTemplate
-            .content
-            .querySelector(".element")
-            .cloneNode("true");
+    deleteButton.addEventListener("click", () => {
+      const item = this._deleteButton.closest(".element");
+      item.remove();
+    });
 
-        return cardElement;
-    }
-
-    generateCard() {
-        this._element = this._getTemplate();
-
-        this._element.querySelector(".element__image").src = this.image;
-        this._element.querySelector(".element__image").alt = this.title;
-        this._element.querySelector(".element__title").textContent = this.title;
-        this._element.querySelector(".delete-button") = this.deleteButton;
-        this._element.querySelector(".like-button") = this.like;
-
-        return this._element;
-    }
-
-    _setEventListeners() {
-        this._element.querySelector(".delete-button").addEventListener("click", () => {
-            this.handleClick();
-        });
-        this._element.querySelector(".like-button").addEventListener("click", () => {
-            this.handleClick();
-        });
-        this._element.querySelector(".element__image").addEventListener("click", () => {
-            this.handleClick();
-        });
-    }
-
-    _handleClick() {
-        const item = document.querySelector(".delete-button").closest(".element");
-        const image = document.querySelector(".element__image");
-
-        if (item) {
-            item.remove();
-        } else if (this.isLiked === "true") {
-            toggleLike();
-        } else if (image) {
-            openForm(imageCardPopup);
-        }
-    }
+    // like/unlike button
+    likeButton.addEventListener("click", () => {
+      this._likeButton.classList.toggle("like-button_active");
+    });
+  }
 }
-
-
