@@ -20,10 +20,6 @@ const profileJob = document.querySelector(".profile__description");
 //inputs
 const inputName = document.querySelector("#name");
 const inputJob = document.querySelector("#description");
-const inputTitle = document.querySelector("#title");
-const inputImage = document.querySelector("#image-link");
-
-const element = document.querySelector(".element");
 
 //cardtemplate
 const cardTemplate = document.querySelector("#card-template");
@@ -105,39 +101,6 @@ const validationConfig = {
 const editProfileValidator = new FormValidator(validationConfig, document.querySelector("#edit-popup-form"));
 editProfileValidator.enableValidation();
 
-// function to create the card
-//function createCard(data) {
-  //const card = cardTemplate.content.querySelector(".element").cloneNode("true");
-  //const imgElement = card.querySelector(".element__image");
-  //const titleElement = card.querySelector(".element__title");
-  //const deleteButton = card.querySelector(".delete-button");
-  //const likeButton = card.querySelector(".like-button");
-
-  //imgElement.src = data.url;
-  //imgElement.alt = data.title;
-  //titleElement.textContent = data.title;
-
-  // click on img to open img modal (causes initial cards not to show up)
-  //imgElement.addEventListener("click", () => {
-    //popupImageElement.src = data.url;
-    //popupImageElement.alt = data.title;
-    //popupCaption.textContent = data.title;
-    //openForm(imageCardPopup);
-  //});
-
-  //deleteButton.addEventListener("click", () => {
-    //const item = deleteButton.closest(".element");
-    //item.remove();
-  //});
-
-  // like/unlike button
-  //likeButton.addEventListener("click", () => {
-    //likeButton.classList.toggle("like-button_active");
-  //});
-
-  //return card;
-//}
-
 // function to both create card and put card in HTML
 function renderCard(data) {
   const card = new Card (cardTemplate, data);
@@ -154,4 +117,4 @@ initialCards.forEach((cardData) => {
   renderCard(cardData);
 });
 
-export {imageCardPopup};
+export {imageCardPopup, createCardPopup, editProfilePopup, inputName, inputJob, profileJob, profileName, popupImageElement, popupCaption};

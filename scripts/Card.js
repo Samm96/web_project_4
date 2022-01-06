@@ -1,4 +1,4 @@
-import { imageCardPopup } from "./index.js";
+import { imageCardPopup, popupCaption, popupImageElement } from "./index.js";
 import { openForm } from "./utils.js";
 export class Card {
   constructor(template, data) {
@@ -7,13 +7,11 @@ export class Card {
   }
 
   render() {
-    const card = this._template
-      .cloneNode("true");
-    const imgElement = card.querySelector(".element__image");
-    const titleElement = card.querySelector(".element__title");
-    const deleteButton = card.querySelector(".delete-button");
-    const likeButton = card.querySelector(".like-button");
-    const caption = card.querySelector(".popup-form__caption");
+    this._card = this._template.content.cloneNode(true);
+    const imgElement = this._card.querySelector(".element__image");
+    const titleElement = this._card.querySelector(".element__title");
+    const deleteButton = this._card.querySelector(".delete-button");
+    const likeButton = this._card.querySelector(".like-button");
 
     imgElement.src = this._data.url;
     imgElement.alt = this._data.title;
@@ -21,20 +19,21 @@ export class Card {
 
     // click on img to open img modal (causes initial cards not to show up)
     imgElement.addEventListener("click", () => {
-      imgElement.src = this._data.url;
-      imgElement.alt = this._data.title;
-      caption.textContent = this._data.title;
+      popupImageElement.src = this._data.url;
+      popupImageElement.alt = this._data.title;
+      popupCaption.textContent = this._data.title;
       openForm(imageCardPopup);
     });
 
     deleteButton.addEventListener("click", () => {
-      const item = this._deleteButton.closest(".element");
+      const item = deleteButton.closest(".element");
       item.remove();
     });
 
     // like/unlike button
     likeButton.addEventListener("click", () => {
-      this._likeButton.classList.toggle("like-button_active");
+      likeButton.classList.toggle("like-button_active");
     });
+    return this._card;
   }
 }
