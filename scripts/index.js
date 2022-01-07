@@ -1,5 +1,11 @@
 import { FormValidator } from "./FormValidator.js";
-import { openForm, closeForm, handlePressEscape, handleEditProfileFormSubmit, handleCreateCardFormSubmit } from "./utils.js";
+import {
+  openForm,
+  closeForm,
+  handlePressEscape,
+  handleEditProfileFormSubmit,
+  handleCreateCardFormSubmit,
+} from "./utils.js";
 import { Card } from "./Card.js";
 
 //popup-forms
@@ -55,7 +61,6 @@ const initialCards = [
   },
 ];
 
-
 formCloseButtons.forEach((formCloseButton) => {
   formCloseButton.addEventListener("click", (event) => {
     const popup = formCloseButton.closest(".popup-form");
@@ -96,14 +101,23 @@ const validationConfig = {
   errorTextSelector: ".popup-form__error-text",
   inputHasError: "popup-form__input_has_error",
   errorTextVisible: "popup-form__error-text_visible",
-}
+};
 
-const editProfileValidator = new FormValidator(validationConfig, document.querySelector("#edit-popup-form"));
+const editProfileValidator = new FormValidator(
+  validationConfig,
+  document.querySelector("#edit-popup-form")
+);
 editProfileValidator.enableValidation();
+
+const createCardValidator = new FormValidator(
+  validationConfig,
+  document.querySelector("#create-popup-form")
+);
+createCardValidator.enableValidation();
 
 // function to both create card and put card in HTML
 function renderCard(data) {
-  const card = new Card (cardTemplate, data);
+  const card = new Card(cardTemplate, data);
   addCardToPage(card.render());
 }
 
@@ -117,4 +131,14 @@ initialCards.forEach((cardData) => {
   renderCard(cardData);
 });
 
-export {imageCardPopup, createCardPopup, editProfilePopup, inputName, inputJob, profileJob, profileName, popupImageElement, popupCaption};
+export {
+  imageCardPopup,
+  createCardPopup,
+  editProfilePopup,
+  inputName,
+  inputJob,
+  profileJob,
+  profileName,
+  popupImageElement,
+  popupCaption,
+};
