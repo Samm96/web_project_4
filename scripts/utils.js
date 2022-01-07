@@ -5,6 +5,7 @@ import {
   inputJob,
   profileName,
   profileJob,
+  renderCard,
 } from "./index.js";
 
 // event handlers and the functions that opens/closes modals
@@ -44,7 +45,6 @@ function handleEditProfileFormSubmit(e) {
   e.preventDefault();
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
-  setSubmitButtonState(false);
   closeForm(editProfilePopup);
 }
 

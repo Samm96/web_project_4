@@ -141,4 +141,5 @@ export {
   profileName,
   popupImageElement,
   popupCaption,
+  renderCard,
 };

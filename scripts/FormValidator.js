@@ -8,7 +8,7 @@ export class FormValidator {
   }
 
   enableValidation() {
-    this.setEventListeners(this._config);
+    this.setEventListeners(this.config);
   }
 
   // add event listener function: it will use parameters form and settings.
