@@ -8,7 +8,7 @@ export class FormValidator {
   }
 
   enableValidation() {
-    this.setEventListeners(this.config);
+    this.setEventListeners();
   }
 
   // add event listener function: it will use parameters form and settings.
@@ -39,28 +39,27 @@ export class FormValidator {
   }
 
   // turn inputs into an array, take some input; return solution if input is invalid
-  checkFieldsValidity(inputs) {
+  _checkFieldsValidity(inputs) {
     return Array.from(inputs).some((input) => !input.validity.valid);
   }
 
   // removes/hides errors if inputs are valid
   checkInputValidity(input) {
     if (input.validity.valid) {
-      this.removeErrorStyles(input, this._config);
-      this.hideErrorMessage(input, this._config);
+      this.removeErrorStyles(input);
+      this.hideErrorMessage(input);
     } else {
-      this.addErrorStyles(input, this._config);
-      this.showErrorMessage(input, this._config);
+      this.addErrorStyles(input);
+      this.showErrorMessage(input);
     }
   }
 
   removeErrorStyles(input) {
     input.classList.remove(this._config.inputHasError);
-    const errorText = document.querySelectorAll(this._config.errorTextSelector);
   }
 
   hideErrorMessage(input) {
-    const errorMessageElement = document.querySelector(`.${input.id}-error`);
+    const errorMessageElement = this._formElement.querySelector(`.${input.id}-error`);
     errorMessageElement.classList.remove(this._config.errorTextVisible);
   }
 

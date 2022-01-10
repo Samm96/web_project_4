@@ -1,7 +1,7 @@
 import { FormValidator } from "./FormValidator.js";
 import {
-  openForm,
-  closeForm,
+  openPopup,
+  closePopup,
   handlePressEscape,
   handleEditProfileFormSubmit,
   handleCreateCardFormSubmit,
@@ -13,6 +13,7 @@ const createCardPopup = document.querySelector("#create-popup-form");
 const imageCardPopup = document.querySelector("#image-popup");
 const editProfilePopup = document.querySelector("#edit-popup-form");
 const popupForms = document.querySelectorAll(".popup-form");
+
 
 //buttons
 const editProfileButton = document.querySelector(".edit-button");
@@ -30,8 +31,6 @@ const inputJob = document.querySelector("#description");
 //cardtemplate
 const cardTemplate = document.querySelector("#card-template");
 const cardSection = document.querySelector(".elements");
-const popupImageElement = imageCardPopup.querySelector("#imgPopupImg");
-const popupCaption = imageCardPopup.querySelector(".popup-form__caption");
 
 //loop for initial cards
 const initialCards = [
@@ -64,7 +63,7 @@ const initialCards = [
 formCloseButtons.forEach((formCloseButton) => {
   formCloseButton.addEventListener("click", (event) => {
     const popup = formCloseButton.closest(".popup-form");
-    closeForm(popup);
+    closePopup(popup);
   });
 });
 
@@ -72,8 +71,8 @@ formCloseButtons.forEach((formCloseButton) => {
 popupForms.forEach((popupForm) => {
   popupForm.addEventListener("mousedown", (e) => {
     if (e.target === popupForm) {
-      closeForm(popupForm);
-      popupForm.removeEventListener("mousedown", closeForm);
+      closePopup(popupForm);
+      popupForm.removeEventListener("mousedown", closePopup);
     }
   });
 });
@@ -86,11 +85,11 @@ createCardPopup.addEventListener("submit", handleCreateCardFormSubmit);
 editProfileButton.addEventListener("click", () => {
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
-  openForm(editProfilePopup);
+  openPopup(editProfilePopup);
 });
 
 addCardButton.addEventListener("click", () => {
-  openForm(createCardPopup);
+  openPopup(createCardPopup);
 });
 
 const validationConfig = {
@@ -139,7 +138,5 @@ export {
   inputJob,
   profileJob,
   profileName,
-  popupImageElement,
-  popupCaption,
   renderCard,
 };

@@ -12,9 +12,10 @@ import {
 const createSubmit = document.querySelector("#create-button");
 const inputTitle = document.querySelector("#title");
 const inputImage = document.querySelector("#image-link");
+const createCardPopupContainer = document.querySelector("#create");
 
 //This opens form
-function openForm(popupForm) {
+function openPopup(popupForm) {
   popupForm.classList.add("popup-form_open");
   document.addEventListener("keydown", handlePressEscape);
   disableSubmitButton();
@@ -25,7 +26,7 @@ function disableSubmitButton() {
 }
 
 // closes form
-function closeForm(popupForm) {
+function closePopup(popupForm) {
   popupForm.classList.remove("popup-form_open");
   document.removeEventListener("keydown", handlePressEscape);
 }
@@ -34,7 +35,7 @@ function closeForm(popupForm) {
 
 function handlePressEscape(event) {
   if (event.key === "Escape") {
-    closeForm(document.querySelector(".popup-form_open"));
+    closePopup(document.querySelector(".popup-form_open"));
   }
 }
 
@@ -45,7 +46,7 @@ function handleEditProfileFormSubmit(e) {
   e.preventDefault();
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
-  closeForm(editProfilePopup);
+  closePopup(editProfilePopup);
 }
 
 //querySelector at end resets form
@@ -54,13 +55,13 @@ function handleCreateCardFormSubmit(e) {
   e.preventDefault();
   const data = { url: inputImage.value, title: inputTitle.value };
   renderCard(data);
-  closeForm(createCardPopup);
-  document.querySelector("#create").reset();
+  closePopup(createCardPopup);
+  createCardPopupContainer.reset();
 }
 
 export {
-  openForm,
-  closeForm,
+  openPopup,
+  closePopup,
   handlePressEscape,
   handleEditProfileFormSubmit,
   handleCreateCardFormSubmit,
