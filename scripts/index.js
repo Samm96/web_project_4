@@ -2,7 +2,6 @@ import { FormValidator } from "./FormValidator.js";
 import {
   openPopup,
   closePopup,
-  handlePressEscape,
   handleEditProfileFormSubmit,
   handleCreateCardFormSubmit,
 } from "./utils.js";
@@ -17,7 +16,6 @@ const popupForms = document.querySelectorAll(".popup-form");
 
 //buttons
 const editProfileButton = document.querySelector(".edit-button");
-const formCloseButtons = document.querySelectorAll(".close-button");
 const addCardButton = document.querySelector(".add-button");
 
 //
@@ -60,22 +58,17 @@ const initialCards = [
   },
 ];
 
-formCloseButtons.forEach((formCloseButton) => {
-  formCloseButton.addEventListener("click", (event) => {
-    const popup = formCloseButton.closest(".popup-form");
-    closePopup(popup);
-  });
-});
 
-//close form by clicking anything but popup
-popupForms.forEach((popupForm) => {
-  popupForm.addEventListener("mousedown", (e) => {
-    if (e.target === popupForm) {
-      closePopup(popupForm);
-      popupForm.removeEventListener("mousedown", closePopup);
+popupForms.forEach((popup) => {
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      closePopup(popup);
     }
-  });
-});
+    if (e.target.classList.contains("close-button")) {
+      closePopup(popup);
+    }
+  })
+})
 
 //functions called
 
@@ -101,6 +94,18 @@ const validationConfig = {
   inputHasError: "popup-form__input_has_error",
   errorTextVisible: "popup-form__error-text_visible",
 };
+
+//const formValidators = {}
+
+//const enableValidation = (config) => {
+  //const formList = Array.from(document.querySelectorAll(config.formSelector))
+  //formList.forEach((formElement) => {
+    //const validator = new FormValidator(formElement, config)
+    //formValidators[ formElement.name ] = validator;
+    //validator.enableValidation();
+  //});
+//}
+//enableValidation(validationConfig);
 
 const editProfileValidator = new FormValidator(
   validationConfig,

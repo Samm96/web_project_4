@@ -17,30 +17,30 @@ export class FormValidator {
   /// add a part that has a condition where there is an error and what to do then
   /// add button disable toggle
   setEventListeners() {
-    const inputs = this._formElement.querySelectorAll(
+    this._inputs = this._formElement.querySelectorAll(
       this._config.inputSelector
     );
+    this._submitBtn = this._formElement.querySelector(
+      this._config.submitButtonSelector
+    );
     //checks in put validity & check all inputs for validity
-    inputs.forEach((input) => {
+    this._inputs.forEach((input) => {
       input.addEventListener("input", (evt) => {
         this.checkInputValidity(input, this._formElement);
-        const submitBtn = this._formElement.querySelector(
-          this._config.submitButtonSelector
-        );
-        const hasErrors = this.checkFieldsValidity(inputs);
-        this.setSubmitButtonState(submitBtn, hasErrors);
+        const hasErrors = this._checkFieldsValidity(this._inputs);
+        this.setSubmitButtonState(this._submitBtn, hasErrors);
       });
     });
   }
 
   // toggles the button between disabled and enabled
-  setSubmitButtonState(submitBtn, hasErrors) {
-    submitBtn.disabled = hasErrors;
+  setSubmitButtonState(hasErrors) {
+    this._submitBtn.disabled = hasErrors;
   }
 
   // turn inputs into an array, take some input; return solution if input is invalid
-  _checkFieldsValidity(inputs) {
-    return Array.from(inputs).some((input) => !input.validity.valid);
+  _checkFieldsValidity() {
+    return Array.from(this._inputs).some((input) => !input.validity.valid);
   }
 
   // removes/hides errors if inputs are valid
@@ -59,8 +59,8 @@ export class FormValidator {
   }
 
   hideErrorMessage(input) {
-    const errorMessageElement = this._formElement.querySelector(`.${input.id}-error`);
-    errorMessageElement.classList.remove(this._config.errorTextVisible);
+    this._errorMessageElement = this._formElement.querySelector(`.${input.id}-error`);
+    this._errorMessageElement.classList.remove(this._config.errorTextVisible);
   }
 
   addErrorStyles(input) {
@@ -68,9 +68,8 @@ export class FormValidator {
   }
 
   showErrorMessage(input) {
-    const errorMessageElement = document.querySelector(`.${input.id}-error`);
-    errorMessageElement.textContent = input.validationMessage;
-    errorMessageElement.classList.add(this._config.errorTextVisible);
+    this._errorMessageElement.textContent = input.validationMessage;
+    this._errorMessageElement.classList.add(this._config.errorTextVisible);
   }
 }
 
