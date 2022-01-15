@@ -58,8 +58,7 @@ export class FormValidator {
     input.classList.remove(this._config.inputHasError);
   }
 
-  hideErrorMessage(input) {
-    this._errorMessageElement = this._formElement.querySelector(`.${input.id}-error`);
+  hideErrorMessage() {
     this._errorMessageElement.classList.remove(this._config.errorTextVisible);
   }
 
@@ -68,6 +67,7 @@ export class FormValidator {
   }
 
   showErrorMessage(input) {
+    this._errorMessageElement = this._formElement.querySelector(`.${input.id}-error`);
     this._errorMessageElement.textContent = input.validationMessage;
     this._errorMessageElement.classList.add(this._config.errorTextVisible);
   }

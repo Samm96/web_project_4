@@ -95,18 +95,6 @@ const validationConfig = {
   errorTextVisible: "popup-form__error-text_visible",
 };
 
-//const formValidators = {}
-
-//const enableValidation = (config) => {
-  //const formList = Array.from(document.querySelectorAll(config.formSelector))
-  //formList.forEach((formElement) => {
-    //const validator = new FormValidator(formElement, config)
-    //formValidators[ formElement.name ] = validator;
-    //validator.enableValidation();
-  //});
-//}
-//enableValidation(validationConfig);
-
 const editProfileValidator = new FormValidator(
   validationConfig,
   document.querySelector("#edit-popup-form")
