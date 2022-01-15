@@ -9,7 +9,6 @@ import {
 } from "./index.js";
 
 // event handlers and the functions that opens/closes modals
-const createSubmit = document.querySelector("#create-button");
 const inputTitle = document.querySelector("#title");
 const inputImage = document.querySelector("#image-link");
 const createCardPopupContainer = document.querySelector("#create");

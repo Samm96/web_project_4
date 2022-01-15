@@ -27,15 +27,15 @@ export class FormValidator {
     this._inputs.forEach((input) => {
       input.addEventListener("input", (evt) => {
         this.checkInputValidity(input, this._formElement);
-        this._checkFieldsValidity(this._inputs);
+        this._hasErrors = this._checkFieldsValidity(this._inputs);
         this.setSubmitButtonState(this._submitBtn);
       });
     });
   }
 
   // toggles the button between disabled and enabled
-  setSubmitButtonState(hasErrors) {
-    this._submitBtn.disabled = hasErrors;
+  setSubmitButtonState() {
+    this._submitBtn.disabled = this._hasErrors;
   }
 
   // turn inputs into an array, take some input; return solution if input is invalid
