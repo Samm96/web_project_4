@@ -18,11 +18,6 @@ const createCardPopupContainer = document.querySelector("#create");
 function openPopup(popupForm) {
   popupForm.classList.add("popup-form_open");
   document.addEventListener("keydown", handlePressEscape);
-  disableSubmitButton();
-}
-
-function disableSubmitButton() {
-  createSubmit.disabled = true;
 }
 
 // closes form

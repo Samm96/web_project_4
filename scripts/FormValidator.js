@@ -27,8 +27,8 @@ export class FormValidator {
     this._inputs.forEach((input) => {
       input.addEventListener("input", (evt) => {
         this.checkInputValidity(input, this._formElement);
-        const hasErrors = this._checkFieldsValidity(this._inputs);
-        this.setSubmitButtonState(this._submitBtn, hasErrors);
+        this._checkFieldsValidity(this._inputs);
+        this.setSubmitButtonState(this._submitBtn);
       });
     });
   }
