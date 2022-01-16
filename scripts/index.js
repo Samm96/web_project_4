@@ -13,6 +13,9 @@ const imageCardPopup = document.querySelector("#image-popup");
 const editProfilePopup = document.querySelector("#edit-popup-form");
 const popupForms = document.querySelectorAll(".popup-form");
 
+const popupImageElement = imageCardPopup.querySelector("#imgPopupImg");
+const popupCaption = imageCardPopup.querySelector(".popup-form__caption");
+
 
 //buttons
 const editProfileButton = document.querySelector(".edit-button");
@@ -132,4 +135,6 @@ export {
   profileJob,
   profileName,
   renderCard,
+  popupImageElement,
+  popupCaption
 };

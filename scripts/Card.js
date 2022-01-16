@@ -1,4 +1,4 @@
-import { imageCardPopup } from "./index.js";
+import { imageCardPopup, popupImageElement, popupCaption } from "./index.js";
 import { openPopup } from "./utils.js";
 export class Card {
   constructor(template, data) {
@@ -25,9 +25,6 @@ export class Card {
   }
 
   _setEventListeners() {
-    const popupImageElement = imageCardPopup.querySelector("#imgPopupImg");
-    const popupCaption = imageCardPopup.querySelector(".popup-form__caption");
-    
     this._imgElement.addEventListener("click", () => {
       popupImageElement.src = this._data.url;
       popupImageElement.alt = this._data.title;
