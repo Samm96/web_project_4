@@ -136,5 +136,6 @@ export {
   profileName,
   renderCard,
   popupImageElement,
-  popupCaption
+  popupCaption,
+  createCardValidator
 };

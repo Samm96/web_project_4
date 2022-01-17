@@ -6,6 +6,7 @@ import {
   profileName,
   profileJob,
   renderCard,
+  createCardValidator
 } from "./index.js";
 
 // event handlers and the functions that opens/closes modals
@@ -51,6 +52,7 @@ function handleCreateCardFormSubmit(e) {
   renderCard(data);
   closePopup(createCardPopup);
   createCardPopupContainer.reset();
+  createCardValidator.disableSubmitButton();
 }
 
 export {
