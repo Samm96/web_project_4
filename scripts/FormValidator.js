@@ -63,8 +63,8 @@ export class FormValidator {
   }
 
   hideErrorMessage(input) {
-    this._errorMessageElement = this._formElement.querySelector(`.${input.id}-error`);
-    this._errorMessageElement.classList.remove(this._config.errorTextVisible);
+    const errorMessageElement = this._formElement.querySelector(`.${input.id}-error`);
+    errorMessageElement.classList.remove(this._config.errorTextVisible);
   }
 
   addErrorStyles(input) {
@@ -72,9 +72,9 @@ export class FormValidator {
   }
 
   showErrorMessage(input) {
-    this._errorMessageElement = this._formElement.querySelector(`.${input.id}-error`);
-    this._errorMessageElement.textContent = input.validationMessage;
-    this._errorMessageElement.classList.add(this._config.errorTextVisible);
+    const errorMessageElement = this._formElement.querySelector(`.${input.id}-error`);
+    errorMessageElement.textContent = input.validationMessage;
+    errorMessageElement.classList.add(this._config.errorTextVisible);
   }
 
   resetValidation () {
