@@ -6,7 +6,8 @@ import {
   profileName,
   profileJob,
   renderCard,
-  createCardValidator
+  createCardValidator,
+  editProfileValidator
 } from "./index.js";
 
 // event handlers and the functions that opens/closes modals
@@ -24,6 +25,8 @@ function openPopup(popupForm) {
 function closePopup(popupForm) {
   popupForm.classList.remove("popup-form_open");
   document.removeEventListener("keydown", handlePressEscape);
+  createCardPopupContainer.reset();
+  createCardValidator.disableSubmitButton();
 }
 
 //hit esc key to close modals

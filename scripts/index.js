@@ -82,10 +82,12 @@ editProfileButton.addEventListener("click", () => {
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
   openPopup(editProfilePopup);
+  editProfileValidator.resetValidation();
 });
 
 addCardButton.addEventListener("click", () => {
   openPopup(createCardPopup);
+  createCardValidator.resetValidation();
 });
 
 const validationConfig = {
@@ -137,5 +139,6 @@ export {
   renderCard,
   popupImageElement,
   popupCaption,
-  createCardValidator
+  createCardValidator,
+  editProfileValidator
 };

@@ -27,15 +27,15 @@ export class FormValidator {
     this._inputs.forEach((input) => {
       input.addEventListener("input", (evt) => {
         this.checkInputValidity(input, this._formElement);
-        this._hasErrors = this._checkFieldsValidity(this._inputs);
-        this.setSubmitButtonState(this._submitBtn);
+        const hasErrors = this._checkFieldsValidity(this._inputs);
+        this.setSubmitButtonState(hasErrors);
       });
     });
   }
 
   // toggles the button between disabled and enabled
-  setSubmitButtonState() {
-    this._submitBtn.disabled = this._hasErrors;
+  setSubmitButtonState(hasErrors) {
+    this._submitBtn.disabled = hasErrors;
   }
 
   disableSubmitButton() {
@@ -75,6 +75,16 @@ export class FormValidator {
     this._errorMessageElement = this._formElement.querySelector(`.${input.id}-error`);
     this._errorMessageElement.textContent = input.validationMessage;
     this._errorMessageElement.classList.add(this._config.errorTextVisible);
+  }
+
+  resetValidation () {
+    const hasErrors = this._checkFieldsValidity(this._inputs);
+    this.setSubmitButtonState(hasErrors);
+
+    this._inputs.forEach((input) => {
+      this.hideErrorMessage(input);
+      this.removeErrorStyles(input);
+    })
   }
 }
 
