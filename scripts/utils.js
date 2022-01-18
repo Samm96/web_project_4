@@ -5,14 +5,12 @@ import {
   inputJob,
   profileName,
   profileJob,
-  renderCard,
-  createCardValidator,
+  renderCard
 } from "./index.js";
 
 // event handlers and the functions that opens/closes modals
 const inputTitle = document.querySelector("#title");
 const inputImage = document.querySelector("#image-link");
-const createCardPopupContainer = document.querySelector("#create");
 
 //This opens form
 function openPopup(popupForm) {
@@ -24,8 +22,6 @@ function openPopup(popupForm) {
 function closePopup(popupForm) {
   popupForm.classList.remove("popup-form_open");
   document.removeEventListener("keydown", handlePressEscape);
-  createCardPopupContainer.reset();
-  createCardValidator.disableSubmitButton();
 }
 
 //hit esc key to close modals
@@ -46,15 +42,12 @@ function handleEditProfileFormSubmit(e) {
   closePopup(editProfilePopup);
 }
 
-//querySelector at end resets form
 //note: .reset() only works on <forms>
 function handleCreateCardFormSubmit(e) {
   e.preventDefault();
   const data = { url: inputImage.value, title: inputTitle.value };
   renderCard(data);
   closePopup(createCardPopup);
-  createCardPopupContainer.reset();
-  createCardValidator.disableSubmitButton();
 }
 
 export {

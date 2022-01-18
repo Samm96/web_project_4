@@ -42,10 +42,6 @@ export class FormValidator {
     this._submitBtn.disabled = hasErrors;
   }
 
-  disableSubmitButton() {
-    this._submitBtn.disabled = true;
-  }
-
   // turn inputs into an array, take some input; return solution if input is invalid
   _checkFieldsValidity() {
     return Array.from(this._inputs).some((input) => !input.validity.valid);

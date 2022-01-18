@@ -15,6 +15,7 @@ const popupForms = document.querySelectorAll(".popup-form");
 
 const popupImageElement = imageCardPopup.querySelector("#imgPopupImg");
 const popupCaption = imageCardPopup.querySelector(".popup-form__caption");
+const createCardPopupContainer = document.querySelector("#create");
 
 
 //buttons
@@ -86,8 +87,9 @@ editProfileButton.addEventListener("click", () => {
 });
 
 addCardButton.addEventListener("click", () => {
-  openPopup(createCardPopup);
+  createCardPopupContainer.reset();
   createCardValidator.resetValidation();
+  openPopup(createCardPopup);
 });
 
 const validationConfig = {
@@ -138,6 +140,5 @@ export {
   profileName,
   renderCard,
   popupImageElement,
-  popupCaption,
-  createCardValidator
+  popupCaption
 };
