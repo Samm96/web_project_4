@@ -139,6 +139,5 @@ export {
   renderCard,
   popupImageElement,
   popupCaption,
-  createCardValidator,
-  editProfileValidator
+  createCardValidator
 };

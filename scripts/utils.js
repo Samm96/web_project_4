@@ -7,7 +7,6 @@ import {
   profileJob,
   renderCard,
   createCardValidator,
-  editProfileValidator
 } from "./index.js";
 
 // event handlers and the functions that opens/closes modals

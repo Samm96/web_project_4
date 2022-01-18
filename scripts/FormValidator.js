@@ -27,10 +27,14 @@ export class FormValidator {
     this._inputs.forEach((input) => {
       input.addEventListener("input", (evt) => {
         this.checkInputValidity(input, this._formElement);
-        const hasErrors = this._checkFieldsValidity(this._inputs);
-        this.setSubmitButtonState(hasErrors);
+        this.updateSubmitButton();
       });
     });
+  }
+
+  updateSubmitButton() {
+    const hasErrors = this._checkFieldsValidity(this._inputs);
+    this.setSubmitButtonState(hasErrors);
   }
 
   // toggles the button between disabled and enabled
@@ -78,8 +82,7 @@ export class FormValidator {
   }
 
   resetValidation () {
-    const hasErrors = this._checkFieldsValidity(this._inputs);
-    this.setSubmitButtonState(hasErrors);
+    this.updateSubmitButton();
 
     this._inputs.forEach((input) => {
       this.hideErrorMessage(input);
