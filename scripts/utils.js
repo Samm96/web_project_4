@@ -12,12 +12,6 @@ import {
 const inputTitle = document.querySelector("#title");
 const inputImage = document.querySelector("#image-link");
 
-//This opens form
-function openPopup(popupForm) {
-  popupForm.classList.add("popup-form_open");
-  document.addEventListener("keydown", handlePressEscape);
-}
-
 //Submit button & replacing input name/job
 //add setSubmitButtonState(false) so that the button is disabled when opening form
 

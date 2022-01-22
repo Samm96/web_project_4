@@ -8,6 +8,7 @@ import {
 import { Card } from "./Card.js";
 import Section from "./Section.js";
 import Popup from "./Popup.js";
+import PopupWithImage from "./PopupWithImage.js";
 
 //popup-forms
 const createCardPopup = document.querySelector("#create-popup-form");
