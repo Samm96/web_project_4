@@ -7,6 +7,7 @@ import {
 } from "./utils.js";
 import { Card } from "./Card.js";
 import Section from "./Section.js";
+import Popup from "./Popup.js";
 
 //popup-forms
 const createCardPopup = document.querySelector("#create-popup-form");
@@ -63,17 +64,6 @@ const initialCards = [
   },
 ];
 
-
-popupForms.forEach((popup) => {
-  popup.addEventListener("click", (e) => {
-    if (e.target === popup) {
-      closePopup(popup);
-    }
-    if (e.target.classList.contains("close-button")) {
-      closePopup(popup);
-    }
-  })
-})
 
 //functions called
 

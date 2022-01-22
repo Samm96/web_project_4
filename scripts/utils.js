@@ -18,20 +18,6 @@ function openPopup(popupForm) {
   document.addEventListener("keydown", handlePressEscape);
 }
 
-// closes form
-function closePopup(popupForm) {
-  popupForm.classList.remove("popup-form_open");
-  document.removeEventListener("keydown", handlePressEscape);
-}
-
-//hit esc key to close modals
-
-function handlePressEscape(event) {
-  if (event.key === "Escape") {
-    closePopup(document.querySelector(".popup-form_open"));
-  }
-}
-
 //Submit button & replacing input name/job
 //add setSubmitButtonState(false) so that the button is disabled when opening form
 
