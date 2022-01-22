@@ -6,6 +6,7 @@ import {
   handleCreateCardFormSubmit,
 } from "./utils.js";
 import { Card } from "./Card.js";
+import Section from "./Section.js";
 
 //popup-forms
 const createCardPopup = document.querySelector("#create-popup-form");
