@@ -9,7 +9,7 @@ import { Card } from "./Card.js";
 import Section from "./Section.js";
 import Popup from "./Popup.js";
 import PopupWithImage from "./PopupWithImage.js";
-import PopupWithForm from "./PopupWithFrom.js";
+import PopupWithForm from "./PopupWithForm.js";
 import UserInfo from "./UserInfo.js";
 
 //popup-forms
@@ -73,7 +73,7 @@ const initialCards = [
 editProfileButton.addEventListener("click", () => {
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
-  openPopup(editProfilePopup);
+  popup.open(editProfilePopup);
   editProfileValidator.resetValidation();
 });
 
@@ -93,6 +93,19 @@ const validationConfig = {
   errorTextVisible: "popup-form__error-text_visible",
 };
 
+const popup = new Popup (validationConfig.formSelector);
+
+const userInfo = new UserInfo({
+  nameSelector: inputName,
+  descriptionSelector: inputJob, 
+});
+
+const editProfileForm = new PopupWithForm({
+  popupSelector: editProfilePopup,
+  handleFormSubmit: (data) => {
+    userInfo.setUserInfo(data);
+  }
+});
 
 const editProfileValidator = new FormValidator(
   validationConfig,
