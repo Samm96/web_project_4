@@ -1,9 +1,10 @@
 import { imageCardPopup, popupImageElement, popupCaption } from "./index.js";
 import { openPopup } from "./utils.js";
 export class Card {
-  constructor(template, data) {
+  constructor({data, handleCardClick}, template) {
     this._template = template;
     this._data = data;
+    this._handleCardClick = handleCardClick;
   }
 
   render() {
@@ -25,11 +26,8 @@ export class Card {
   }
 
   _setEventListeners() {
-    this._imgElement.addEventListener("click", () => {
-      popupImageElement.src = this._data.url;
-      popupImageElement.alt = this._data.title;
-      popupCaption.textContent = this._data.title;
-      openPopup(imageCardPopup);
+    this._imgElement.addEventListener("click", (data) => {
+      this._handleCardClick(data);
     });
 
     this._deleteButton.addEventListener("click", () => {

@@ -31,9 +31,6 @@ function handleCreateCardFormSubmit(e) {
 }
 
 export {
-  openPopup,
-  closePopup,
-  handlePressEscape,
   handleEditProfileFormSubmit,
   handleCreateCardFormSubmit,
 };
