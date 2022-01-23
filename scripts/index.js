@@ -90,8 +90,7 @@ const cardList = new Section({
   renderer: (data) => {
     cardList.addItem(createCard(data));
   },
-  containerSelector: cardSection
-});
+}, "elements");
 
 const userInfo = new UserInfo({
   nameSelector: "name",
