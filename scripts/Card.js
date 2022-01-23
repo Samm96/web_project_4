@@ -1,5 +1,3 @@
-import { imageCardPopup, popupImageElement, popupCaption } from "./index.js";
-import { openPopup } from "./utils.js";
 export class Card {
   constructor({data, handleCardClick}, template) {
     this._template = template;

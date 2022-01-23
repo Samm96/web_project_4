@@ -63,18 +63,6 @@ const initialCards = [
 
 //functions called
 
-editProfileButton.addEventListener("click", () => {
-  inputName.value = profileName.textContent;
-  inputJob.value = profileJob.textContent;
-  editProfilePopupForm.open();
-  editProfileValidator.resetValidation();
-});
-
-addCardButton.addEventListener("click", () => {
-  createCardValidator.resetValidation();
-  createCardPopupForm.open();
-});
-
 const validationConfig = {
   formSelector: ".popup-form__input-container",
   inputSelector: ".popup-form__input",
@@ -106,25 +94,25 @@ const cardList = new Section({
 });
 
 const userInfo = new UserInfo({
-  nameSelector: inputName,
-  descriptionSelector: inputJob, 
+  nameSelector: "name",
+  descriptionSelector: "description", 
 });
 
 const editProfilePopupForm = new PopupWithForm({
-  popupSelector: editProfilePopup,
+  popupSelector: "edit-popup-form",
   handleFormSubmit: (data) => {
     userInfo.setUserInfo(data);
   }
 });
 
 const createCardPopupForm = new PopupWithForm({
-  popupSelector: createCardPopup,
+  popupSelector: "create-popup-form",
   handleFormSubmit: (data) => {
     cardList.addItem(createCard(data));
   }
 });
 
-const imagePopup = new PopupWithImage (imageCardPopup);
+const imagePopup = new PopupWithImage ("image-popup");
 
 const editProfileValidator = new FormValidator(
   validationConfig,
@@ -137,6 +125,18 @@ const createCardValidator = new FormValidator(
   document.querySelector("#create-popup-form")
 );
 createCardValidator.enableValidation();
+
+editProfileButton.addEventListener("click", () => {
+  editProfilePopupForm.open();
+  inputName.value = profileName.textContent;
+  inputJob.value = profileJob.textContent;
+  editProfileValidator.resetValidation();
+});
+
+addCardButton.addEventListener("click", () => {
+  createCardValidator.resetValidation();
+  createCardPopupForm.open();
+});
 
 // function to both create card and put card in HTML
 //function renderCard(data) {

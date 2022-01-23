@@ -4,8 +4,7 @@ import {
   inputName,
   inputJob,
   profileName,
-  profileJob,
-  renderCard
+  profileJob
 } from "./index.js";
 
 // event handlers and the functions that opens/closes modals
