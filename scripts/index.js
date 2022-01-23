@@ -93,8 +93,8 @@ const cardList = new Section({
 }, "elements");
 
 const userInfo = new UserInfo({
-  nameSelector: "name",
-  descriptionSelector: "description", 
+  nameSelector: "profile__name",
+  descriptionSelector: "profile__description", 
 });
 
 const editProfilePopupForm = new PopupWithForm({
