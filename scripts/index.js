@@ -137,17 +137,7 @@ addCardButton.addEventListener("click", () => {
   createCardPopupForm.open();
 });
 
-// function to both create card and put card in HTML
-//function renderCard(data) {
-  //const card = new Card(cardTemplate, data);
-  //addCardToPage(card.render());
-//}
-
-// function to put card in
-//function addCardToPage(card) {
-  //cardSection.prepend(card);
-//}
-
+cardList.renderItem(initialCards);
 imagePopup.setEventListeners();
 editProfilePopupForm.setEventListeners();
 createCardPopupForm.setEventListeners();
