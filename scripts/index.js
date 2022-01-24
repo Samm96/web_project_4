@@ -133,6 +133,7 @@ editProfileButton.addEventListener("click", () => {
 });
 
 addCardButton.addEventListener("click", () => {
+  createCardForm.reset();
   createCardValidator.resetValidation();
   createCardPopupForm.open();
 });
