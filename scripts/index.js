@@ -73,6 +73,8 @@ const validationConfig = {
   errorTextVisible: "popup-form__error-text_visible",
 };
 
+const imagePopup = new PopupWithImage ("image-popup");
+
 const createCard = (data) => {
   const card = new Card ({
     data,
@@ -110,8 +112,6 @@ const createCardPopupForm = new PopupWithForm({
     cardList.addItem(createCard(data));
   }
 });
-
-const imagePopup = new PopupWithImage ("image-popup");
 
 const editProfileValidator = new FormValidator(
   validationConfig,

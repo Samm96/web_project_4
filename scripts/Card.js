@@ -12,7 +12,6 @@ export class Card {
     this._deleteButton = this._card.querySelector(".delete-button");
     this._likeButton = this._card.querySelector(".like-button");
 
-    debugger;
     this._imgElement.src = this._data.url;
     this._imgElement.alt = this._data.title;
     this._titleElement.textContent = this._data.title;
