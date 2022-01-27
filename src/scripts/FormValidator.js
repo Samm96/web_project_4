@@ -63,7 +63,9 @@ export class FormValidator {
   }
 
   hideErrorMessage(input) {
-    const errorMessageElement = this._formElement.querySelector(`.${input.id}-error`);
+    const errorMessageElement = this._formElement.querySelector(
+      `.${input.id}-error`
+    );
     errorMessageElement.classList.remove(this._config.errorTextVisible);
   }
 
@@ -72,18 +74,20 @@ export class FormValidator {
   }
 
   showErrorMessage(input) {
-    const errorMessageElement = this._formElement.querySelector(`.${input.id}-error`);
+    const errorMessageElement = this._formElement.querySelector(
+      `.${input.id}-error`
+    );
     errorMessageElement.textContent = input.validationMessage;
     errorMessageElement.classList.add(this._config.errorTextVisible);
   }
 
-  resetValidation () {
+  resetValidation() {
     this.updateSubmitButton();
 
     this._inputs.forEach((input) => {
       this.hideErrorMessage(input);
       this.removeErrorStyles(input);
-    })
+    });
   }
 }
 

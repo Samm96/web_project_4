@@ -1,5 +1,5 @@
 export class Card {
-  constructor({data, handleCardClick}, template) {
+  constructor({ data, handleCardClick }, template) {
     this._template = template;
     this._data = data;
     this._handleCardClick = handleCardClick;
@@ -18,7 +18,7 @@ export class Card {
 
     // click on img to open img modal (causes initial cards not to show up)
     this._setEventListeners();
-   
+
     return this._card;
   }
 

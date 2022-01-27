@@ -17,13 +17,12 @@ export const inputJob = document.querySelector("#description");
 export const cardTemplate = document.querySelector("#card-template");
 
 //local images
-const Tramway = require('../images/Palm-Springs-Aerial-Tramway-colorfix.jpg');
-const CedarPt = require('../images/Corkscrew_(Cedar_Point)_01.jpg');
-const PowWow = require('../images/jess-lindner-xegyDn1-SoY-unsplash-colorfix.jpg');
-const ColWilliamsburg = require('../images/Colonial-Williamsburg-Virginiasizefix-2.jpg');
-const PuertoRico = require('../images/jennifer-chen-yXJiC2UjIBo-unsplash-colorfix.jpg');
-const DisneyWorld = require('../images/sandro-gonzalez-dBEJG6hv224-unsplash.jpg');
-
+const Tramway = require("../images/Palm-Springs-Aerial-Tramway-colorfix.jpg");
+const CedarPt = require("../images/Corkscrew_(Cedar_Point)_01.jpg");
+const PowWow = require("../images/jess-lindner-xegyDn1-SoY-unsplash-colorfix.jpg");
+const ColWilliamsburg = require("../images/Colonial-Williamsburg-Virginiasizefix-2.jpg");
+const PuertoRico = require("../images/jennifer-chen-yXJiC2UjIBo-unsplash-colorfix.jpg");
+const DisneyWorld = require("../images/sandro-gonzalez-dBEJG6hv224-unsplash.jpg");
 
 //loop for initial cards
 export const initialCards = [
@@ -52,4 +51,3 @@ export const initialCards = [
     url: DisneyWorld,
   },
 ];
-

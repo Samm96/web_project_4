@@ -19,7 +19,6 @@ import {
   initialCards,
 } from "./Constants.js";
 
-
 const validationConfig = {
   formSelector: ".popup-form__input-container",
   inputSelector: ".popup-form__input",
