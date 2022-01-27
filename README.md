@@ -35,6 +35,8 @@ The project is a social media website in which presents six different locations 
 * OOP
 * import/export
 
+* Webpack
+* Node Package Manager
 ### Programs Used
 
 * VS Code
