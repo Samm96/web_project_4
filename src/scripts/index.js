@@ -39,7 +39,7 @@ const createCard = (data) => {
         imagePopup.open(data);
       },
     },
-    cardTemplate
+    "card-template"
   );
   return card.render();
 };
