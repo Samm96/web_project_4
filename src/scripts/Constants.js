@@ -13,9 +13,6 @@ export const profileJob = document.querySelector(".profile__description");
 export const inputName = document.querySelector("#name");
 export const inputJob = document.querySelector("#description");
 
-//cardtemplate
-export const cardTemplate = document.querySelector("#card-template");
-
 //local images
 const Tramway = require("../images/Palm-Springs-Aerial-Tramway-colorfix.jpg");
 const CedarPt = require("../images/Corkscrew_(Cedar_Point)_01.jpg");

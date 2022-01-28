@@ -15,7 +15,6 @@ import {
   profileJob,
   inputName,
   inputJob,
-  cardTemplate,
   initialCards,
 } from "./Constants.js";
 
