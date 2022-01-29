@@ -48,3 +48,13 @@ export const initialCards = [
     url: DisneyWorld,
   },
 ];
+
+export const validationConfig = {
+  formSelector: ".popup-form__input-container",
+  inputSelector: ".popup-form__input",
+  submitButtonSelector: ".submit-button",
+  inactiveButtonClass: "popup-form__submit-button_type_disabled",
+  errorTextSelector: ".popup-form__error-text",
+  inputHasError: "popup-form__input_has_error",
+  errorTextVisible: "popup-form__error-text_visible",
+};
