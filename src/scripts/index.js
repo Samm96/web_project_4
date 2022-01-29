@@ -8,7 +8,6 @@ import PopupWithForm from "./PopupWithForm.js";
 import UserInfo from "./UserInfo.js";
 
 import {
-  createCardForm,
   editProfileButton,
   addCardButton,
   profileName,
@@ -92,7 +91,6 @@ editProfileButton.addEventListener("click", () => {
 });
 
 addCardButton.addEventListener("click", () => {
-  createCardForm.reset();
   createCardValidator.resetValidation();
   createCardPopupForm.open();
 });
