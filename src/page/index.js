@@ -58,7 +58,7 @@ const createCardPopupForm = new PopupWithForm({
   popupSelector: "create-popup-form",
   handleFormSubmit: (data) => {
     cardList.addItem(createCard(data));
-    createCardPopupForm._resetForm();
+    createCardPopupForm.resetForm();
   },
 });
 

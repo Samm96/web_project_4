@@ -30,7 +30,7 @@ export default class PopupWithForm extends Popup {
     super.close();
   }
 
-  _resetForm() {
+  resetForm() {
     this._popupElement.querySelector(".popup-form__input-container").reset();
   }
 }
