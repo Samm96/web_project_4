@@ -29,7 +29,7 @@ export class Card {
     });
 
     this._deleteButton.addEventListener("click", () => {
-      this._deleteButton.closest(".element").remove();
+      this._deleteCard();
     });
 
     // like/unlike button
@@ -40,5 +40,9 @@ export class Card {
 
   _toggleLike() {
     this._likeButton.classList.toggle("like-button_active");
+  }
+
+  _deleteCard() {
+    this._deleteButton.closest(".element").remove();
   }
 }
