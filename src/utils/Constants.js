@@ -1,6 +1,3 @@
-//popup-forms
-export const createCardForm = document.querySelector("#create");
-
 //buttons
 export const editProfileButton = document.querySelector(".edit-button");
 export const addCardButton = document.querySelector(".add-button");

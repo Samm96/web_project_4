@@ -1,5 +1,5 @@
 import Popup from "./Popup.js";
-import { createCardForm } from "../utils/Constants.js";
+import { createCardForm } from "../page/index.js";
 export default class PopupWithForm extends Popup {
   constructor({ popupSelector, handleFormSubmit }) {
     super(popupSelector);
