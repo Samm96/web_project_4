@@ -5,10 +5,6 @@ export const createCardForm = document.querySelector("#create");
 export const editProfileButton = document.querySelector(".edit-button");
 export const addCardButton = document.querySelector(".add-button");
 
-//
-export const profileName = document.querySelector(".profile__name");
-export const profileJob = document.querySelector(".profile__description");
-
 //inputs
 export const inputName = document.querySelector("#name");
 export const inputJob = document.querySelector("#description");

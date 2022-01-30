@@ -10,8 +10,6 @@ import UserInfo from "../components/UserInfo.js";
 import {
   editProfileButton,
   addCardButton,
-  profileName,
-  profileJob,
   inputName,
   inputJob,
   initialCards,
@@ -76,8 +74,9 @@ createCardValidator.enableValidation();
 
 editProfileButton.addEventListener("click", () => {
   editProfilePopupForm.open();
-  inputName.value = profileName.textContent;
-  inputJob.value = profileJob.textContent;
+  const {name, description} = userInfo.getUserInfo();
+  inputName.value = name;
+  inputJob.value = description;
   editProfileValidator.resetValidation();
 });
 
