@@ -21,28 +21,28 @@ export class Card {
   }
 
   _setEventListeners() {
-    this._deleteButton = this._card.querySelector(".delete-button");
-    this._likeButton = this._card.querySelector(".like-button");
+    const deleteButton = this._card.querySelector(".delete-button");
+    const likeButton = this._card.querySelector(".like-button");
     
     this._imgElement.addEventListener("click", (data) => {
       this._handleCardClick(data);
     });
 
-    this._deleteButton.addEventListener("click", () => {
+    deleteButton.addEventListener("click", () => {
       this._deleteCard();
     });
 
     // like/unlike button
-    this._likeButton.addEventListener("click", () => {
+    likeButton.addEventListener("click", () => {
       this._toggleLike();
     });
   }
 
-  _toggleLike() {
-    this._likeButton.classList.toggle("like-button_active");
+  _toggleLike(likeButton) {
+    likeButton.classList.toggle("like-button_active");
   }
 
   _deleteCard() {
-    this._deleteButton.closest(".element").remove();
+    this._card.remove();
   }
 }
