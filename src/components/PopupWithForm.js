@@ -1,8 +1,8 @@
 import Popup from "./Popup.js";
-import { createCardForm } from "../page/index.js";
 export default class PopupWithForm extends Popup {
   constructor({ popupSelector, handleFormSubmit }) {
     super(popupSelector);
+    this._form = this._popupElement.querySelector(".popup-form__input-container");
 
     this._formInputs =
       this._popupElement.querySelectorAll(".popup-form__input");
@@ -29,6 +29,9 @@ export default class PopupWithForm extends Popup {
 
   close() {
     super.close();
-    createCardForm.reset();
+  }
+
+  _resetForm() {
+    this._form.reset();
   }
 }

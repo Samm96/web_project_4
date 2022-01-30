@@ -16,8 +16,6 @@ import {
   validationConfig,
 } from "../utils/Constants.js";
 
-//popup-forms
-export const createCardForm = document.querySelector("#create");
 
 const imagePopup = new PopupWithImage("image-popup");
 
@@ -60,6 +58,7 @@ const createCardPopupForm = new PopupWithForm({
   popupSelector: "create-popup-form",
   handleFormSubmit: (data) => {
     cardList.addItem(createCard(data));
+    createCardPopupForm._resetForm();
   },
 });
 
