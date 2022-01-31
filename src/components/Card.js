@@ -7,12 +7,13 @@ export class Card {
 
   render() {
     this._card = this._template.content.cloneNode(true).querySelector(".element");
-    this._imgElement = this._card.querySelector(".element__image");
-    this._titleElement = this._card.querySelector(".element__title");
+   
+    const titleElement = this._card.querySelector(".element__title");
+    const imgElement = this._card.querySelector(".element__image");
 
-    this._imgElement.src = this._data.url;
-    this._imgElement.alt = this._data.title;
-    this._titleElement.textContent = this._data.title;
+    imgElement.src = this._data.url;
+    imgElement.alt = this._data.title;
+    titleElement.textContent = this._data.title;
 
     // click on img to open img modal (causes initial cards not to show up)
     this._setEventListeners();
@@ -20,8 +21,10 @@ export class Card {
     return this._card;
   }
 
-  _setEventListeners() {
-    this._imgElement.addEventListener("click", (data) => {
+  _setEventListeners() {  
+    const imgElement = this._card.querySelector(".element__image");
+
+    imgElement.addEventListener("click", (data) => {
       this._handleCardClick(data);
     });
 
