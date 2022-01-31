@@ -1,11 +1,3 @@
-//buttons
-export const editProfileButton = document.querySelector(".edit-button");
-export const addCardButton = document.querySelector(".add-button");
-
-//inputs
-export const inputName = document.querySelector("#name");
-export const inputJob = document.querySelector("#description");
-
 //local images
 const Tramway = require("../images/Palm-Springs-Aerial-Tramway-colorfix.jpg");
 const CedarPt = require("../images/Corkscrew_(Cedar_Point)_01.jpg");

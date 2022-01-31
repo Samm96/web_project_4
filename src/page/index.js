@@ -8,13 +8,17 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 
 import {
-  editProfileButton,
-  addCardButton,
-  inputName,
-  inputJob,
   initialCards,
   validationConfig,
 } from "../utils/Constants.js";
+
+//buttons
+const editProfileButton = document.querySelector(".edit-button");
+const addCardButton = document.querySelector(".add-button");
+
+//inputs
+const inputName = document.querySelector("#name");
+const inputJob = document.querySelector("#description");
 
 
 const imagePopup = new PopupWithImage("image-popup");
