@@ -33,7 +33,7 @@ const createCard = (data) => {
     },
     "card-template"
   );
-  return card.render();
+  return card.createCard();
 };
 
 const cardList = new Section(

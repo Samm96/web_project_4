@@ -26,19 +26,19 @@ export class FormValidator {
     //checks in put validity & check all inputs for validity
     this._inputs.forEach((input) => {
       input.addEventListener("input", (evt) => {
-        this.checkInputValidity(input, this._formElement);
-        this.updateSubmitButton();
+        this._checkInputValidity(input, this._formElement);
+        this._updateSubmitButton();
       });
     });
   }
 
-  updateSubmitButton() {
+  _updateSubmitButton() {
     const hasErrors = this._checkFieldsValidity(this._inputs);
-    this.setSubmitButtonState(hasErrors);
+    this._setSubmitButtonState(hasErrors);
   }
 
   // toggles the button between disabled and enabled
-  setSubmitButtonState(hasErrors) {
+  _setSubmitButtonState(hasErrors) {
     this._submitBtn.disabled = hasErrors;
   }
 
@@ -48,32 +48,32 @@ export class FormValidator {
   }
 
   // removes/hides errors if inputs are valid
-  checkInputValidity(input) {
+  _checkInputValidity(input) {
     if (input.validity.valid) {
-      this.removeErrorStyles(input);
-      this.hideErrorMessage(input);
+      this._removeErrorStyles(input);
+      this._hideErrorMessage(input);
     } else {
-      this.addErrorStyles(input);
-      this.showErrorMessage(input);
+      this._addErrorStyles(input);
+      this._showErrorMessage(input);
     }
   }
 
-  removeErrorStyles(input) {
+  _removeErrorStyles(input) {
     input.classList.remove(this._config.inputHasError);
   }
 
-  hideErrorMessage(input) {
+  _hideErrorMessage(input) {
     const errorMessageElement = this._formElement.querySelector(
       `.${input.id}-error`
     );
     errorMessageElement.classList.remove(this._config.errorTextVisible);
   }
 
-  addErrorStyles(input) {
+  _addErrorStyles(input) {
     input.classList.add(this._config.inputHasError);
   }
 
-  showErrorMessage(input) {
+  _showErrorMessage(input) {
     const errorMessageElement = this._formElement.querySelector(
       `.${input.id}-error`
     );
@@ -82,11 +82,11 @@ export class FormValidator {
   }
 
   resetValidation() {
-    this.updateSubmitButton();
+    this._updateSubmitButton();
 
     this._inputs.forEach((input) => {
-      this.hideErrorMessage(input);
-      this.removeErrorStyles(input);
+      this._hideErrorMessage(input);
+      this._removeErrorStyles(input);
     });
   }
 }

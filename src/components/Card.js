@@ -5,7 +5,7 @@ export class Card {
     this._handleCardClick = handleCardClick;
   }
 
-  render() {
+  createCard() {
     this._card = this._template.content.cloneNode(true).querySelector(".element");
    
     const titleElement = this._card.querySelector(".element__title");
