@@ -6,7 +6,7 @@ export class Card {
   }
 
   render() {
-    this._card = this._template.content.cloneNode(true);
+    this._card = this._template.content.cloneNode(true).querySelector(".element");
     this._imgElement = this._card.querySelector(".element__image");
     this._titleElement = this._card.querySelector(".element__title");
 
@@ -21,25 +21,22 @@ export class Card {
   }
 
   _setEventListeners() {
-    const deleteButton = this._card.querySelector(".delete-button");
-    const likeButton = this._card.querySelector(".like-button");
-    
     this._imgElement.addEventListener("click", (data) => {
       this._handleCardClick(data);
     });
 
-    deleteButton.addEventListener("click", () => {
+    this._card.querySelector(".delete-button").addEventListener("click", () => {
       this._deleteCard();
     });
 
     // like/unlike button
-    likeButton.addEventListener("click", () => {
+    this._card.querySelector(".like-button").addEventListener("click", () => {
       this._toggleLike();
     });
   }
 
-  _toggleLike(likeButton) {
-    likeButton.classList.toggle("like-button_active");
+  _toggleLike() {
+    this._card.querySelector(".like-button").classList.toggle("like-button_active");
   }
 
   _deleteCard() {
