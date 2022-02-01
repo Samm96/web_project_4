@@ -13,7 +13,8 @@ import {
 } from "../utils/Constants.js";
 
 //buttons
-const editProfileButton = document.querySelector(".edit-button");
+const editProfileImgButton = document.querySelector("#profile-pic-button");
+const editProfileButton = document.querySelector("#edit-button");
 const addCardButton = document.querySelector(".add-button");
 
 //inputs
