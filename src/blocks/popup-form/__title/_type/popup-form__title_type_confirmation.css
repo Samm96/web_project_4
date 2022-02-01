@@ -1,0 +1,9 @@
+.popup-form__title_type_confirmation {
+    margin: 34px 36px 2px;
+}
+
+@media screen and (max-width: 580px) {
+    .popup-form__title_type_confirmation {
+        margin: 25px 26px 0;
+    }
+}

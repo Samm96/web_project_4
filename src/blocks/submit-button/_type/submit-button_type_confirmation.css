@@ -1,0 +1,9 @@
+.submit-button_type_confirmation {
+    margin: 36px;
+}
+
+@media screen and (max-width: 580px) {
+    .submit-button_type_confirmation {
+        margin: 26px;
+    }
+}
