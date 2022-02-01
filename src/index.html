@@ -18,11 +18,19 @@
       <main>
         <section class="profile">
           <div class="profile__group">
-            <img
-              class="profile__image"
-              src="<%=require('./images/21.04.06-Samantha-Horsch-006-2.jpg')%>"
-              alt="Profile Picture"
-            />
+            <div class="profile__image-container">
+              <div class="profile__overlay">
+                <button
+                  type="button"
+                  class="edit-button edit-button_type_profile-image"
+                ></button>
+              </div>
+              <img
+                class="profile__image"
+                src="<%=require('./images/21.04.06-Samantha-Horsch-006-2.jpg')%>"
+                alt="Profile Picture"
+              />
+            </div>
             <div class="profile__info">
               <h1 class="profile__name">Samantha Horsch</h1>
               <p class="profile__description">Explorer</p>
@@ -149,7 +157,9 @@
             <h2 class="popup-form__title popup-form__title_type_confirmation">
               Change profile picture
             </h2>
-            <div class="popup-form__input-container popup-form__input-container_type_profile-picture">
+            <div
+              class="popup-form__input-container popup-form__input-container_type_profile-picture"
+            >
               <input
                 class="popup-form__input"
                 name="url"
