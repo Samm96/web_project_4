@@ -1,0 +1,9 @@
+.submit-button_type_profile-picture {
+    margin: 48px 36px 36px;
+}
+
+@media screen and (max-width: 580px) {
+    .submit-button_type_profile-picture {
+        margin: 36px 26px 26px;
+    }
+}

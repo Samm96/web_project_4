@@ -4,6 +4,6 @@
 
 @media screen and (max-width: 580px) {
     .submit-button_type_confirmation {
-        margin: 26px;
+        margin: 26px 26px;
     }
 }

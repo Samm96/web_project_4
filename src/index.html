@@ -22,7 +22,7 @@
               class="profile__image"
               src="<%=require('./images/21.04.06-Samantha-Horsch-006-2.jpg')%>"
               alt="Profile Picture"
-            /> 
+            />
             <div class="profile__info">
               <h1 class="profile__name">Samantha Horsch</h1>
               <p class="profile__description">Explorer</p>
@@ -51,11 +51,7 @@
                 required
               />
               <span
-                class="
-                  popup-form__error-text
-                  name-error
-                  popup-form__error-text_visible
-                "
+                class="popup-form__error-text name-error popup-form__error-text_visible"
               ></span>
               <input
                 class="popup-form__input"
@@ -67,11 +63,7 @@
                 required
               />
               <span
-                class="
-                  popup-form__error-text
-                  description-error
-                  popup-form__error-text_visible
-                "
+                class="popup-form__error-text description-error popup-form__error-text_visible"
               ></span>
               <button name="submit" type="submit" class="submit-button">
                 Save
@@ -95,11 +87,7 @@
                 required
               />
               <span
-                class="
-                  popup-form__error-text
-                  title-error
-                  popup-form__error-text_visible
-                "
+                class="popup-form__error-text title-error popup-form__error-text_visible"
               ></span>
               <input
                 class="popup-form__input"
@@ -111,11 +99,7 @@
                 required
               />
               <span
-                class="
-                  popup-form__error-text
-                  image-link-error
-                  popup-form__error-text_visible
-                "
+                class="popup-form__error-text image-link-error popup-form__error-text_visible"
               ></span>
               <button
                 type="submit"
@@ -146,8 +130,46 @@
         <section class="popup-form" id="delete-confirmation-popup">
           <div class="popup-form__container">
             <button type="button" class="close-button"></button>
-            <h2 class="popup-form__title popup-form__title_type_confirmation">Are you sure?</h2>
-            <button type="submit" class="submit-button submit-button_type_confirmation" id="confirmation-button">Yes</button>
+            <h2 class="popup-form__title popup-form__title_type_confirmation">
+              Are you sure?
+            </h2>
+            <button
+              type="submit"
+              class="submit-button submit-button_type_confirmation"
+              id="confirmation-button"
+            >
+              Yes
+            </button>
+          </div>
+        </section>
+
+        <section class="popup-form" id="profile-picture-popup">
+          <div class="popup-form__container">
+            <button type="button" class="close-button"></button>
+            <h2 class="popup-form__title popup-form__title_type_confirmation">
+              Change profile picture
+            </h2>
+            <div class="popup-form__input-container popup-form__input-container_type_profile-picture">
+              <input
+                class="popup-form__input"
+                name="url"
+                placeholder="image link"
+                id="image-link"
+                type="url"
+                pattern="https://.*|http://.*"
+                required
+              />
+            </div>
+            <span
+              class="popup-form__error-text image-link-error popup-form__error-text_visible"
+            ></span>
+            <button
+              type="submit"
+              class="submit-button submit-button_type_profile-picture"
+              id="save-button"
+            >
+              Save
+            </button>
           </div>
         </section>
       </main>

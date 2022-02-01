@@ -40,6 +40,8 @@
 
 @import url(../blocks/popup-form/__title/_type/popup-form__title_type_confirmation.css);
 @import url(../blocks/submit-button/_type/submit-button_type_confirmation.css);
+@import url(../blocks/popup-form/__input-container/_type/popup-form__input-container_type_profile-picture.css);
+@import url(../blocks/submit-button/_type/submit-button_type_profile-picture.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
