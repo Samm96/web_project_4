@@ -1,8 +1,9 @@
 export class Card {
-  constructor({ data, handleCardClick }, templateSelector) {
+  constructor({ data, handleCardClick, handleTrashClick}, templateSelector) {
     this._template = document.querySelector(`#${templateSelector}`);
     this._data = data;
     this._handleCardClick = handleCardClick;
+    this._handleTrashClick = handleTrashClick;
   }
 
   createCard() {
@@ -29,7 +30,7 @@ export class Card {
     });
 
     this._card.querySelector("#delete-card-button").addEventListener("click", () => {
-      this._deleteCardConfirmation();
+      this._handleTrashClick();
     });
 
     // like/unlike button
@@ -40,9 +41,5 @@ export class Card {
 
   _toggleLike() {
     this._card.querySelector(".like-button").classList.toggle("like-button_active");
-  }
-
-  _deleteCardConfirmation() {
-    document.querySelector("#delete-confirmation-popup").classList.add("popup-form_open");
   }
 }

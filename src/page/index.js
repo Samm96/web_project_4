@@ -17,7 +17,7 @@ import {
 const editProfileImgButton = document.querySelector("#profile-pic-button");
 const editProfileButton = document.querySelector("#edit-button");
 const addCardButton = document.querySelector(".add-button");
-const deleteConfirmButton = document.querySelector("#confirmation-button");
+
 
 //inputs
 const inputName = document.querySelector("#name");
@@ -31,8 +31,11 @@ const createCard = (data) => {
     {
       data,
       handleCardClick: () => {
-        imagePopup.open(data);
+        imagePopup.open(data)
       },
+      handleTrashClick: () => {
+        deleteConfirmPopupForm.open();
+      }
     },
     "card-template"
   );
