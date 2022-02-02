@@ -23,6 +23,7 @@ const editProfilePicButton = document.querySelector("#profile-pic-button");
 //inputs
 const inputName = document.querySelector("#name");
 const inputJob = document.querySelector("#description");
+const inputPicture = document.querySelector("#profile-pic");
 
 
 const imagePopup = new PopupWithImage("image-popup");
@@ -79,9 +80,9 @@ const deleteConfirmPopupForm = new PopupWithDeleteConfirm({
 
 const profilePicPopupForm = new PopupWithForm({
   popupSelector: "profile-picture-popup",
-  handleFormSubmit: (data) => {
+  handleFormSubmit: () => {
     const picture = document.querySelector(".profile__image");
-    picture.src = data;
+    picture.src = inputPicture.value;
     profilePicPopupForm.resetForm();
   }
 });
