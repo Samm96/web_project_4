@@ -139,12 +139,12 @@
         <section class="popup-form" id="delete-confirmation-popup">
           <div class="popup-form__container">
             <button type="button" class="close-button"></button>
-            <h2 class="popup-form__title popup-form__title_type_confirmation">
+            <h2 class="popup-form__title popup-form__title_type_deleteConfirm">
               Are you sure?
             </h2>
             <button
-              type="submit"
-              class="submit-button submit-button_type_confirmation"
+              type="button"
+              class="delete-button delete-button_type_deleteConfirm"
               id="confirmation-button"
             >
               Yes
@@ -164,8 +164,8 @@
               <input
                 class="popup-form__input"
                 name="url"
-                placeholder="image link"
-                id="image-link"
+                placeholder="profile pic"
+                id="profile-pic"
                 type="url"
                 pattern="https://.*|http://.*"
                 required
@@ -177,7 +177,7 @@
             <button
               type="submit"
               class="submit-button submit-button_type_profile-picture"
-              id="save-button"
+              id="save-button-profile-pic"
             >
               Save
             </button>
@@ -195,6 +195,7 @@
           arial-label="delete"
           type="button"
           class="delete-button"
+          id="delete-card-button"
         ></button>
         <img class="element__image" src="not_found.jpg" alt="" />
         <div class="element__card">

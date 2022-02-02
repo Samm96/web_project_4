@@ -1,15 +1,18 @@
 import Popup from "./Popup.js";
 
-class PopupWithDeleteConfirm extends Popup {
-    constructor() {
+export default class PopupWithDeleteConfirm extends Popup {
+    constructor({popupSelector}) {
         super(popupSelector);
     }
     
     setEventListeners() {
-        const element = document.querySelector(".element");
-
-        this._popupElement.querySelector("#confirmation-button").addEventListener("click", () => {
-            element.remove();
-        });
+        super.setEventListeners();
+        //this._popupElement.querySelector("#confirmation-button").addEventListener("click", this.deleteCard());
     }
+
+    //deleteCard() {
+        //document.querySelector(".element").closest(".element");
+    //}
 }
+
+// esc button isn't closing this modal

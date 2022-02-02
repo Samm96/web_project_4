@@ -28,8 +28,8 @@ export class Card {
       this._handleCardClick(data);
     });
 
-    this._card.querySelector(".delete-button").addEventListener("click", () => {
-      this._deleteCard();
+    this._card.querySelector("#delete-card-button").addEventListener("click", () => {
+      this._deleteCardConfirmation();
     });
 
     // like/unlike button
@@ -42,7 +42,7 @@ export class Card {
     this._card.querySelector(".like-button").classList.toggle("like-button_active");
   }
 
-  _deleteCard() {
-    this._card.remove();
+  _deleteCardConfirmation() {
+    document.querySelector("#delete-confirmation-popup").classList.add("popup-form_open");
   }
 }
