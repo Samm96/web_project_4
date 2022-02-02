@@ -7,6 +7,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithDeleteConfirm from "../components/PopupWithDeleteConfirm.js";
+import PopupWithProfilePic from "../components/PopupWithProfilePic.js";
 
 import {
   initialCards,
@@ -14,7 +15,6 @@ import {
 } from "../utils/Constants.js";
 
 //buttons
-const editProfileImgButton = document.querySelector("#profile-pic-button");
 const editProfileButton = document.querySelector("#edit-button");
 const addCardButton = document.querySelector(".add-button");
 
@@ -76,6 +76,14 @@ const deleteConfirmPopupForm = new PopupWithDeleteConfirm({
   popupSelector: "delete-confirmation-popup"
 });
 
+const profilePicPopupForm = new PopupWithProfilePic({
+  popupSelector: "profile-picture-popup",
+  handleFormSubmit: (data) => {
+    profilePicPopupForm.setProfilePic(data);
+    profilePicPopupForm.resetForm();
+  }
+});
+
 const editProfileValidator = new FormValidator(
   validationConfig,
   document.querySelector("#edit-popup-form")
@@ -87,6 +95,12 @@ const createCardValidator = new FormValidator(
   document.querySelector("#create-popup-form")
 );
 createCardValidator.enableValidation();
+
+const profilePicValidator = new FormValidator(
+  validationConfig,
+  document.querySelector("#profile-picture-popup")
+);
+profilePicValidator.enableValidation();
 
 editProfileButton.addEventListener("click", () => {
   editProfilePopupForm.open();
@@ -102,13 +116,10 @@ addCardButton.addEventListener("click", () => {
   createCardPopupForm.open();
 });
 
-//deleteConfirmButton.addEventListener("click", () => {
-  //deleteConfirmPopupForm.deleteCard();
-//});
-
 
 cardList.renderItem(initialCards);
 imagePopup.setEventListeners();
 editProfilePopupForm.setEventListeners();
 createCardPopupForm.setEventListeners();
 deleteConfirmPopupForm.setEventListeners();
+profilePicPopupForm.setEventListeners();

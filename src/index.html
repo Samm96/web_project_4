@@ -153,14 +153,12 @@
         </section>
 
         <section class="popup-form" id="profile-picture-popup">
-          <div class="popup-form__container">
+          <div class="popup-form__container popup-form__container_type_profile-pic">
             <button type="button" class="close-button"></button>
-            <h2 class="popup-form__title popup-form__title_type_confirmation">
+            <h2 class="popup-form__title">
               Change profile picture
             </h2>
-            <div
-              class="popup-form__input-container popup-form__input-container_type_profile-picture"
-            >
+            <form class="popup-form__input-container" name="profile pic" id="profile-input-container">
               <input
                 class="popup-form__input"
                 name="url"
@@ -170,18 +168,19 @@
                 pattern="https://.*|http://.*"
                 required
               />
-            </div>
-            <span
-              class="popup-form__error-text image-link-error popup-form__error-text_visible"
-            ></span>
-            <button
-              type="submit"
-              class="submit-button submit-button_type_profile-picture"
-              id="save-button-profile-pic"
-            >
-              Save
-            </button>
-          </div>
+              <span
+                class="popup-form__error-text profile-pic-error popup-form__error-text_visible"
+              ></span>
+              <button
+                type="submit"
+                class="submit-button"
+                id="profile-pic-button"
+                name="submit"
+                disabled
+              >
+                Save
+              </button>
+            </form>
         </section>
       </main>
 
