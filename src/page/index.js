@@ -79,8 +79,21 @@ const editProfilePopupForm = new PopupWithForm({
 const createCardPopupForm = new PopupWithForm({
   popupSelector: "create-popup-form",
   handleFormSubmit: (data) => {
-    cardList.addItem(createCard(data));
-    createCardPopupForm.resetForm();
+
+    api
+      .addCard(data)
+      .then((cardData) => {
+        cardList.addItem(createCard(cardData));
+        createCardPopupForm.resetForm();
+      })
+
+      .catch((err) => 
+        console.log(`An error had occurred while adding the your card :( : ${err}`)
+        )
+
+      .finally(() => {
+        //loading
+      })
   },
 });
 

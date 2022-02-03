@@ -22,6 +22,10 @@ export class Card {
     return this._card;
   }
 
+  _updateLikeCount() {
+    this._card.querySelector(".like-button__counter").textContent = this._liked.length;
+  }
+
   _setEventListeners() {  
     const imgElement = this._card.querySelector(".element__image");
 
@@ -40,6 +44,7 @@ export class Card {
   }
 
   _toggleLike() {
-    this._card.querySelector(".like-button").classList.toggle("like-button_active");
+    this._card.querySelector(".like-button").classList.add("like-button_active");
+    this._updateLikeCount();
   }
 }
