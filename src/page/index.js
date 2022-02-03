@@ -7,6 +7,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithDeleteConfirm from "../components/PopupWithDeleteConfirm.js";
+import Api from "../components/Api.js";
 
 import {
   initialCards,
@@ -24,6 +25,15 @@ const editProfilePicButton = document.querySelector("#profile-pic-button");
 const inputName = document.querySelector("#name");
 const inputJob = document.querySelector("#description");
 const inputPicture = document.querySelector("#profile-pic");
+
+
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/group-12",
+  headers: {
+    authorization: "9b991f86-368d-4ef3-963c-b91580821c46",
+    "Content-Type": "application/json",
+  }
+})
 
 
 const imagePopup = new PopupWithImage("image-popup");
