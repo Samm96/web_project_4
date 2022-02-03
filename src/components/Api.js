@@ -42,15 +42,9 @@ export default class Api {
     }
 
   // used to get initial cards from server  
-    getInitialCardList({title, url}) {
-        return fetch(`${this._baseUrl}/cards`, {
-            method: "GET",
-            body: JSON.stringify({
-                title,
-                url
-            })
+    getInitialCardList() {
+        return fetch(`${this._baseUrl}/cards`)
             .then(this._handleServerResponse)
-        });
     }
 
 // used to add cards to page

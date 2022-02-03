@@ -30,7 +30,7 @@ const inputPicture = document.querySelector("#profile-pic");
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
   headers: {
-    authorization: "9b991f86-368d-4ef3-963c-b91580821c46",
+    "authorization": "9b991f86-368d-4ef3-963c-b91580821c46",
     "Content-Type": "application/json",
   }
 })
@@ -58,7 +58,15 @@ const cardList = new Section(
   {
     items: initialCards,
     renderer: (data) => {
-      cardList.addItem(createCard(data));
+
+      api 
+        .getInitialCardList(data)
+
+        .then((cardData) => {
+          cardList.addItem(createCard(cardData));
+        })
+        .catch((err) => 
+          console.log(`An error occurred adding the initial cards: ${err}`))
     },
   },
   "elements"
@@ -72,7 +80,26 @@ const userInfo = new UserInfo({
 const editProfilePopupForm = new PopupWithForm({
   popupSelector: "edit-popup-form",
   handleFormSubmit: (data) => {
-    userInfo.setUserInfo(data);
+
+    api
+      .setUserInfo({
+        name: data.name,
+        description: data.description,
+      })
+
+      .then((info) => {
+        userInfo.setUserInfo({
+          name: info.name,
+          description: info.description,
+        });
+        editProfilePopupForm.close();
+      })
+      .catch((err) => 
+        console.log(`An error occurred updating user information: ${err}`))
+
+      .finally(() => {
+        //loading
+      })
   },
 });
 
@@ -88,7 +115,7 @@ const createCardPopupForm = new PopupWithForm({
       })
 
       .catch((err) => 
-        console.log(`An error had occurred while adding the your card :( : ${err}`)
+        console.log(`An error had occurred while adding your card :( : ${err}`)
         )
 
       .finally(() => {
