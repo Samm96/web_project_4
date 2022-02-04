@@ -19,8 +19,6 @@ const editProfileButton = document.querySelector("#edit-button");
 const addCardButton = document.querySelector(".add-button");
 const editProfilePicButton = document.querySelector("#profile-pic-button");
 
-
-
 //inputs
 const inputName = document.querySelector("#name");
 const inputJob = document.querySelector("#description");
@@ -30,29 +28,10 @@ const inputPicture = document.querySelector("#profile-pic");
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
   headers: {
-    "authorization": "9b991f86-368d-4ef3-963c-b91580821c46",
+    authorization: "9b991f86-368d-4ef3-963c-b91580821c46",
     "Content-Type": "application/json",
   }
-})
-
-
-const imagePopup = new PopupWithImage("image-popup");
-
-const createCard = (data) => {
-  const card = new Card(
-    {
-      data,
-      handleCardClick: () => {
-        imagePopup.open(data)
-      },
-      handleTrashClick: () => {
-        deleteConfirmPopupForm.open();
-      }
-    },
-    "card-template"
-  );
-  return card.createCard();
-};
+});
 
 const cardList = new Section(
   {
@@ -62,8 +41,8 @@ const cardList = new Section(
       api 
         .getInitialCardList(data)
 
-        .then((cardData) => {
-          cardList.addItem(createCard(cardData));
+        .then((data) => {
+          cardList.addItem(createCard(data));
         })
         .catch((err) => 
           console.log(`An error occurred adding the initial cards: ${err}`))
@@ -71,6 +50,24 @@ const cardList = new Section(
   },
   "elements"
 );
+
+const createCard = (data) => {
+  const card = new Card(
+    {
+      data,
+      handleCardClick: (data) => {
+        imagePopup.open(data)
+      },
+      handleTrashClick: () => {
+        deleteConfirmPopupForm.open();
+      },
+    },
+    "card-template"
+  );
+  return card.createCard();
+};
+
+const imagePopup = new PopupWithImage("image-popup");
 
 const userInfo = new UserInfo({
   nameSelector: "profile__name",
@@ -124,16 +121,43 @@ const createCardPopupForm = new PopupWithForm({
   },
 });
 
+//NOTE:: MAY NOT BE CORRECT
 const deleteConfirmPopupForm = new PopupWithDeleteConfirm({
-  popupSelector: "delete-confirmation-popup"
+  popupSelector: "delete-confirmation-popup",
+  handleDeleteCard: () => {
+    const imgElement = document.querySelector(".element__image");
+    api
+      .removeCard({
+        _id: imgElement.src,
+      })
+      .then(() => {
+        deleteConfirmPopupForm.deleteCard();
+      })
+      .catch((err) => 
+        console.log(`An error had occurred while trying to delete card: ${err}`))
+      .finally(() => {
+        //loading
+      })
+  }
 });
 
 const profilePicPopupForm = new PopupWithForm({
   popupSelector: "profile-picture-popup",
   handleFormSubmit: () => {
     const picture = document.querySelector(".profile__image");
-    picture.src = inputPicture.value;
-    profilePicPopupForm.resetForm();
+    api 
+      .updateProfilePicture({
+        avatar: picture,
+      })
+      .then(() => {
+        picture.src = inputPicture.value;
+        profilePicPopupForm.resetForm();
+      })
+      .catch((err) =>
+        console.log(`An error had occurred updating profile picture: ${err}`))
+      .finally(() => {
+        //loading
+      })
   }
 });
 

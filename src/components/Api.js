@@ -43,7 +43,9 @@ export default class Api {
 
   // used to get initial cards from server  
     getInitialCardList() {
-        return fetch(`${this._baseUrl}/cards`)
+        return fetch(`${this._baseUrl}/cards`, {
+            headers: this._headers,
+        })
             .then(this._handleServerResponse)
     }
 
@@ -68,8 +70,8 @@ export default class Api {
             body: JSON.stringify({
                 _id,
             })
-            .then(this._handleServerResponse)
-        });
+        })
+        .then(this._handleServerResponse)
     }
 
     

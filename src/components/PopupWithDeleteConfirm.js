@@ -3,6 +3,8 @@ import Popup from "./Popup.js";
 export default class PopupWithDeleteConfirm extends Popup {
     constructor({popupSelector}) {
         super(popupSelector);
+
+        this._handleDeleteCard = this._handleDeleteCard;
     }
 
     setEventListeners() {
