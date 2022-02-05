@@ -43,3 +43,13 @@ export const validationConfig = {
   inputHasError: "popup-form__input_has_error",
   errorTextVisible: "popup-form__error-text_visible",
 };
+
+export function renderLoading(isLoading) {
+  const activeSubmitButton = document.querySelector(`#${popup-formId} submit-button`);
+
+  if(isLoading === true) {
+    activeSubmitButton.textContent = "Saving...";
+  } else {
+    activeSubmitButton.textContent = "Save";
+  }
+}

@@ -9,10 +9,7 @@ import UserInfo from "../components/UserInfo.js";
 import PopupWithDeleteConfirm from "../components/PopupWithDeleteConfirm.js";
 import Api from "../components/Api.js";
 
-import {
-  initialCards,
-  validationConfig,
-} from "../utils/Constants.js";
+import { initialCards, validationConfig } from "../utils/Constants.js";
 
 //buttons
 const editProfileButton = document.querySelector("#edit-button");
@@ -24,39 +21,37 @@ const inputName = document.querySelector("#name");
 const inputJob = document.querySelector("#description");
 const inputPicture = document.querySelector("#profile-pic");
 
-
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
   headers: {
     authorization: "9b991f86-368d-4ef3-963c-b91580821c46",
     "Content-Type": "application/json",
-  }
+  },
 });
 
 const cardList = new Section(
-  {
-    items: initialCards,
-    renderer: (data) => {
-
-      api 
-        .getInitialCardList(data)
-
-        .then((data) => {
-          cardList.addItem(createCard(data));
-        })
-        .catch((err) => 
-          console.log(`An error occurred adding the initial cards: ${err}`))
-    },
-  },
   "elements"
 );
+
+api 
+  .getInitialCardList()
+
+  .then((cardData) => {
+    cardData.forEach((data) => {
+      cardList.addItem(createCard(data))
+    })
+  })
+  .catch((err) =>
+    console.log(`An error occurred adding the initial cards: ${err}`)
+  );
+
 
 const createCard = (data) => {
   const card = new Card(
     {
       data,
       handleCardClick: (data) => {
-        imagePopup.open(data)
+        imagePopup.open(data);
       },
       handleTrashClick: () => {
         deleteConfirmPopupForm.open();
@@ -77,7 +72,6 @@ const userInfo = new UserInfo({
 const editProfilePopupForm = new PopupWithForm({
   popupSelector: "edit-popup-form",
   handleFormSubmit: (data) => {
-
     api
       .setUserInfo({
         name: data.name,
@@ -91,19 +85,19 @@ const editProfilePopupForm = new PopupWithForm({
         });
         editProfilePopupForm.close();
       })
-      .catch((err) => 
-        console.log(`An error occurred updating user information: ${err}`))
+      .catch((err) =>
+        console.log(`An error occurred updating user information: ${err}`)
+      )
 
       .finally(() => {
         //loading
-      })
+      });
   },
 });
 
 const createCardPopupForm = new PopupWithForm({
   popupSelector: "create-popup-form",
   handleFormSubmit: (data) => {
-
     api
       .addCard(data)
       .then((cardData) => {
@@ -111,13 +105,13 @@ const createCardPopupForm = new PopupWithForm({
         createCardPopupForm.resetForm();
       })
 
-      .catch((err) => 
+      .catch((err) =>
         console.log(`An error had occurred while adding your card :( : ${err}`)
-        )
+      )
 
       .finally(() => {
         //loading
-      })
+      });
   },
 });
 
@@ -133,19 +127,20 @@ const deleteConfirmPopupForm = new PopupWithDeleteConfirm({
       .then(() => {
         deleteConfirmPopupForm.deleteCard();
       })
-      .catch((err) => 
-        console.log(`An error had occurred while trying to delete card: ${err}`))
+      .catch((err) =>
+        console.log(`An error had occurred while trying to delete card: ${err}`)
+      )
       .finally(() => {
         //loading
-      })
-  }
+      });
+  },
 });
 
 const profilePicPopupForm = new PopupWithForm({
   popupSelector: "profile-picture-popup",
   handleFormSubmit: () => {
     const picture = document.querySelector(".profile__image");
-    api 
+    api
       .updateProfilePicture({
         avatar: picture,
       })
@@ -154,11 +149,12 @@ const profilePicPopupForm = new PopupWithForm({
         profilePicPopupForm.resetForm();
       })
       .catch((err) =>
-        console.log(`An error had occurred updating profile picture: ${err}`))
+        console.log(`An error had occurred updating profile picture: ${err}`)
+      )
       .finally(() => {
         //loading
-      })
-  }
+      });
+  },
 });
 
 const editProfileValidator = new FormValidator(
@@ -181,7 +177,7 @@ profilePicValidator.enableValidation();
 
 editProfileButton.addEventListener("click", () => {
   editProfilePopupForm.open();
-  const {name, description} = userInfo.getUserInfo();
+  const { name, description } = userInfo.getUserInfo();
   inputName.value = name;
   inputJob.value = description;
   editProfileValidator.resetValidation();
@@ -196,10 +192,8 @@ addCardButton.addEventListener("click", () => {
 editProfilePicButton.addEventListener("click", () => {
   profilePicValidator.resetValidation();
   profilePicPopupForm.open();
-})
+});
 
-
-cardList.renderItem(initialCards);
 imagePopup.setEventListeners();
 editProfilePopupForm.setEventListeners();
 createCardPopupForm.setEventListeners();

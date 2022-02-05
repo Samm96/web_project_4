@@ -22,7 +22,8 @@ export class Card {
   }
 
   _updateLikeCount() {
-    this._card.querySelector(".like-button__counter").textContent = this._liked.length;
+    this._liked = this._card.querySelector(".like-button__counter");
+    this._liked.textContent = this._liked.length;
   }
 
   _setEventListeners() {  
