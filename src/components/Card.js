@@ -12,7 +12,7 @@ export class Card {
     const titleElement = this._card.querySelector(".element__title");
     const imgElement = this._card.querySelector(".element__image");
 
-    imgElement.src = this._data.url;
+    imgElement.src = this._data.link;
     imgElement.alt = this._data.title;
     titleElement.textContent = this._data.title;
 

@@ -50,13 +50,13 @@ export default class Api {
     }
 
 // used to add cards to page
-    addCard({title, url}) {
+    addCard({title, link}) {
         return fetch(`${this._baseUrl}/cards`, {
             method: "POST",
             headers: this._headers,
             body: JSON.stringify({
                 title,
-                url,
+                link,
             })
         })
             .then(this._handleServerResponse)
