@@ -29,6 +29,12 @@ const api = new Api({
   },
 });
 
+api
+  .getUserInfo()
+  .then((info) => {
+    userInfo.setUserInfo(info)
+  })
+
 const cardList = new Section(
   "elements"
 );
@@ -37,6 +43,7 @@ api
   .getInitialCardList()
 
   .then((cardData) => {
+    cardData.reverse();
     cardData.forEach((data) => {
       cardList.addItem(createCard(data))
     })
@@ -54,7 +61,16 @@ const createCard = (data) => {
         imagePopup.open(data);
       },
       handleTrashClick: () => {
-        deleteConfirmPopupForm.open();
+        deleteConfirmPopupForm.open(() => {
+          api
+          .removeCard({_id: data._id})
+          .then(() => {
+            card._card.remove()
+          })
+          .catch((err) => {
+            console.log(`There was an issue deleting this card: ${err}`)
+          })
+        });
       },
     },
     "card-template"
@@ -199,3 +215,8 @@ editProfilePopupForm.setEventListeners();
 createCardPopupForm.setEventListeners();
 deleteConfirmPopupForm.setEventListeners();
 profilePicPopupForm.setEventListeners();
+
+api.getAppInfo()
+.then(([userInfoData, cardsData]) => {
+  userInfo.setUserInfo(userInfoData)
+})

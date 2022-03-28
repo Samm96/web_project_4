@@ -7,6 +7,11 @@ export default class PopupWithDeleteConfirm extends Popup {
         this._handleDeleteCard = this._handleDeleteCard;
     }
 
+    open(deleteCard) {
+        super.open();
+        this.deleteCard = deleteCard;
+    }
+
     setEventListeners() {
         super.setEventListeners();
 
@@ -18,8 +23,9 @@ export default class PopupWithDeleteConfirm extends Popup {
         });
     }
 
-    deleteCard() {
-        const card = document.querySelector(".element");
-        card.remove();
-    }
+    //deleteCard() {
+        //const card = document.querySelector(".element");
+      //  this.cardDelete.remove();
+        //onDelete();
+    //}
 }

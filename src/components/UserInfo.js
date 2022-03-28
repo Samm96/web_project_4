@@ -8,11 +8,13 @@ export default class UserInfo {
     return {
       name: this._nameElement.textContent,
       description: this._descriptionElement.textContent,
+      id: this._userId
     };
   }
   //takes new user data and adds it on the page
-  setUserInfo({ name, description }) {
+  setUserInfo({ name, description, id }) {
     this._nameElement.textContent = name;
     this._descriptionElement.textContent = description;
+    this._userId = id;
   }
 }
