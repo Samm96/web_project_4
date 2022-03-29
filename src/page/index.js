@@ -18,7 +18,7 @@ const editProfilePicButton = document.querySelector("#profile-pic-button");
 
 //inputs
 const inputName = document.querySelector("#name");
-const inputJob = document.querySelector("#description");
+const inputJob = document.querySelector("#about");
 const inputPicture = document.querySelector("#profile-pic");
 
 const api = new Api({
@@ -91,13 +91,13 @@ const editProfilePopupForm = new PopupWithForm({
     api
       .setUserInfo({
         name: data.name,
-        description: data.description,
+        about: data.about,
       })
 
       .then((info) => {
         userInfo.setUserInfo({
           name: info.name,
-          description: info.description,
+          about: info.about,
         });
         editProfilePopupForm.close();
       })
@@ -193,9 +193,9 @@ profilePicValidator.enableValidation();
 
 editProfileButton.addEventListener("click", () => {
   editProfilePopupForm.open();
-  const { name, description } = userInfo.getUserInfo();
+  const { name, about } = userInfo.getUserInfo();
   inputName.value = name;
-  inputJob.value = description;
+  inputJob.value = about;
   editProfileValidator.resetValidation();
 });
 

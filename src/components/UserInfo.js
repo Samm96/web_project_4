@@ -7,14 +7,14 @@ export default class UserInfo {
   getUserInfo() {
     return {
       name: this._nameElement.textContent,
-      description: this._descriptionElement.textContent,
+      about: this._descriptionElement.textContent,
       id: this._userId
     };
   }
   //takes new user data and adds it on the page
-  setUserInfo({ name, description, id }) {
+  setUserInfo({ name, about, id }) {
     this._nameElement.textContent = name;
-    this._descriptionElement.textContent = description;
+    this._descriptionElement.textContent = about;
     this._userId = id;
   }
 }

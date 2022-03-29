@@ -24,13 +24,13 @@ export default class Api {
     }
 
 //used to insert user info
-    setUserInfo({name, description}) {
+    setUserInfo({name, about}) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: "PATCH",
             headers: this._headers,
             body: JSON.stringify({
                 name,
-                description
+                about
             }),
         })
         .then(this._handleServerResponse);
