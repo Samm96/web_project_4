@@ -9,7 +9,7 @@ import UserInfo from "../components/UserInfo.js";
 import PopupWithDeleteConfirm from "../components/PopupWithDeleteConfirm.js";
 import Api from "../components/Api.js";
 
-import { initialCards, validationConfig } from "../utils/Constants.js";
+import { validationConfig, renderLoading } from "../utils/Constants.js";
 
 //buttons
 const editProfileButton = document.querySelector("#edit-button");

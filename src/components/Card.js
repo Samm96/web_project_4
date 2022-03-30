@@ -14,11 +14,14 @@ export class Card {
     const imgElement = this._card.querySelector(".element__image");
 
     const ownerId = this._data.owner._id;
+    const trashButton = this._card.querySelector(".delete-button");
+
     if(this._currentId === ownerId) {
-      const trashButton = this._card.querySelector(".delete-button");
+      trashButton.add();
+    } else {
       trashButton.remove();
     }
-
+debugger
     imgElement.src = this._data.link;
     imgElement.alt = this._data.name;
     titleElement.textContent = this._data.name;

@@ -45,7 +45,7 @@ export const validationConfig = {
 };
 
 export function renderLoading(isLoading) {
-  const activeSubmitButton = document.querySelector(`#${popup-formId} submit-button`);
+  const activeSubmitButton = document.querySelector(`#${popup-form.id} submit-button`);
 
   if(isLoading === true) {
     activeSubmitButton.textContent = "Saving...";
