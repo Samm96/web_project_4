@@ -29,6 +29,8 @@ const api = new Api({
   },
 });
 
+//fetches the user's info including id. Declare let and set it as null, then change it's value in the api below
+
 let userId = null;
 
 api
@@ -37,6 +39,8 @@ api
     userId = info._id;
     userInfo.setUserInfo(info)
   })
+
+//
 
 const cardList = new Section(
   "elements"
@@ -162,11 +166,13 @@ const profilePicPopupForm = new PopupWithForm({
     const picture = document.querySelector(".profile__image");
     api
       .updateProfilePicture({
-        avatar: picture,
+        avatar: inputPicture.value,
       })
       .then(() => {
+        debugger
         picture.src = inputPicture.value;
         profilePicPopupForm.resetForm();
+        debugger
       })
       .catch((err) =>
         console.log(`An error had occurred updating profile picture: ${err}`)
