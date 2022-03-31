@@ -21,6 +21,8 @@ const inputName = document.querySelector("#name");
 const inputJob = document.querySelector("#about");
 const inputPicture = document.querySelector("#profile-pic");
 
+const profilePicture = document.querySelector(".profile__image");
+
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
   headers: {
@@ -163,16 +165,13 @@ const deleteConfirmPopupForm = new PopupWithDeleteConfirm({
 const profilePicPopupForm = new PopupWithForm({
   popupSelector: "profile-picture-popup",
   handleFormSubmit: () => {
-    const picture = document.querySelector(".profile__image");
     api
       .updateProfilePicture({
         avatar: inputPicture.value,
       })
       .then(() => {
-        debugger
-        picture.src = inputPicture.value;
+        profilePicture.src = inputPicture.value;
         profilePicPopupForm.resetForm();
-        debugger
       })
       .catch((err) =>
         console.log(`An error had occurred updating profile picture: ${err}`)

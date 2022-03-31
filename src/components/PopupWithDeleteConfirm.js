@@ -22,10 +22,4 @@ export default class PopupWithDeleteConfirm extends Popup {
             this.close();
         });
     }
-
-    //deleteCard() {
-        //const card = document.querySelector(".element");
-      //  this.cardDelete.remove();
-        //onDelete();
-    //}
 }
