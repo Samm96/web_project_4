@@ -72,6 +72,7 @@ const createCard = (data) => {
           })
         });
       },
+      //currentId: 
     },
     "card-template"
   );

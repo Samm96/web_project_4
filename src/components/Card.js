@@ -14,14 +14,14 @@ export class Card {
     const imgElement = this._card.querySelector(".element__image");
 
     const ownerId = this._data.owner._id;
-    const trashButton = this._card.querySelector(".delete-button");
+    this._trashButton = this._card.querySelector("#delete-card-button");
 
     if(this._currentId === ownerId) {
-      trashButton.add();
+      this._trashButton.add();
     } else {
-      trashButton.remove();
+      this._trashButton.remove();
     }
-debugger
+
     imgElement.src = this._data.link;
     imgElement.alt = this._data.name;
     titleElement.textContent = this._data.name;
@@ -43,7 +43,7 @@ debugger
       this._handleCardClick(data);
     });
 
-    this._card.querySelector("#delete-card-button").addEventListener("click", () => {
+    this._trashButton.addEventListener("click", () => {
       this._handleTrashClick();
     });
 
