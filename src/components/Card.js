@@ -12,14 +12,12 @@ export class Card {
    
     const titleElement = this._card.querySelector(".element__title");
     const imgElement = this._card.querySelector(".element__image");
+    const trashButton = this._card.querySelector(".delete-button");
 
-    const ownerId = this._data.owner._id;
-    this._trashButton = this._card.querySelector("#delete-card-button");
+    this._ownerId = this._data.owner._id;
 
-    if(this._currentId === ownerId) {
-      this._trashButton.add();
-    } else {
-      this._trashButton.remove();
+    if(this._currentId !== this._ownerId) {
+      trashButton.classList.add("delete-button_hidden");
     }
 
     imgElement.src = this._data.link;
@@ -43,8 +41,10 @@ export class Card {
       this._handleCardClick(data);
     });
 
-    this._trashButton.addEventListener("click", () => {
-      this._handleTrashClick();
+    this._card.querySelector(".delete-button").addEventListener("click", () => {
+      if(this._currentId === this._ownerId) {
+        this._handleTrashClick();
+      }
     });
 
     // like/unlike button

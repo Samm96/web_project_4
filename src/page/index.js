@@ -29,9 +29,12 @@ const api = new Api({
   },
 });
 
+let userId = null;
+
 api
   .getUserInfo()
   .then((info) => {
+    userId = info._id;
     userInfo.setUserInfo(info)
   })
 
@@ -56,6 +59,7 @@ api
 const createCard = (data) => {
   const card = new Card(
     {
+      currentId: userId,
       data,
       handleCardClick: (data) => {
         imagePopup.open(data);
@@ -72,7 +76,6 @@ const createCard = (data) => {
           })
         });
       },
-      //currentId: 
     },
     "card-template"
   );
