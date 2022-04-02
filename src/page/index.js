@@ -93,6 +93,7 @@ const imagePopup = new PopupWithImage("image-popup");
 const userInfo = new UserInfo({
   nameSelector: "profile__name",
   descriptionSelector: "profile__description",
+  avatarSelector: "profile__image",
 });
 
 const editProfilePopupForm = new PopupWithForm({
