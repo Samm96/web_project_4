@@ -35,51 +35,49 @@ const api = new Api({
 
 let userId = null;
 
-api
-  .getUserInfo()
-  .then((info) => {
-    userId = info._id;
-    userInfo.setUserInfo(info)
-  })
+api.getUserInfo().then((info) => {
+  userId = info._id;
+  userInfo.setUserInfo(info);
+});
 
 //
 
-const cardList = new Section(
-  "elements"
-);
+const cardList = new Section("elements");
 
-api 
+api
   .getInitialCardList()
 
   .then((cardData) => {
     cardData.reverse();
     cardData.forEach((data) => {
-      cardList.addItem(createCard(data))
-    })
+      cardList.addItem(createCard(data));
+    });
   })
   .catch((err) =>
     console.log(`An error occurred adding the initial cards: ${err}`)
   );
-
 
 const createCard = (data) => {
   const card = new Card(
     {
       currentId: userId,
       data,
-      handleCardClick: (data) => {
-        imagePopup.open(data);
+      handleCardClick: () => {
+        imagePopup.open({
+          url: data.link,
+          title: data.name,
+        });
       },
       handleTrashClick: () => {
         deleteConfirmPopupForm.open(() => {
           api
-          .removeCard({_id: data._id})
-          .then(() => {
-            card._card.remove()
-          })
-          .catch((err) => {
-            console.log(`There was an issue deleting this card: ${err}`)
-          })
+            .removeCard({ _id: data._id })
+            .then(() => {
+              card._card.remove();
+            })
+            .catch((err) => {
+              console.log(`There was an issue deleting this card: ${err}`);
+            });
         });
       },
     },
@@ -226,7 +224,6 @@ createCardPopupForm.setEventListeners();
 deleteConfirmPopupForm.setEventListeners();
 profilePicPopupForm.setEventListeners();
 
-api.getAppInfo()
-.then(([userInfoData, cardsData]) => {
-  userInfo.setUserInfo(userInfoData)
-})
+api.getAppInfo().then(([userInfoData, cardsData]) => {
+  userInfo.setUserInfo(userInfoData);
+});
