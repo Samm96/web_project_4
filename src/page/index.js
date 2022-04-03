@@ -205,6 +205,7 @@ editProfileButton.addEventListener("click", () => {
   const { name, about } = userInfo.getUserInfo();
   inputName.value = name;
   inputJob.value = about;
+  editProfilePopupForm.resetForm();
   editProfileValidator.resetValidation();
 });
 
