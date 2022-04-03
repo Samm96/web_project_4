@@ -107,6 +107,7 @@ const editProfilePopupForm = new PopupWithForm({
         userInfo.setUserInfo({
           name: info.name,
           about: info.about,
+          avatar: profilePicture.src,
         });
         editProfilePopupForm.close();
       })
