@@ -1,12 +1,13 @@
 export class Card {
   constructor(
-    { data, handleCardClick, handleTrashClick, currentId },
+    { data, handleCardClick, handleTrashClick, handleLikeClick, currentId },
     templateSelector
   ) {
     this._template = document.querySelector(`#${templateSelector}`);
     this._data = data;
     this._handleCardClick = handleCardClick;
     this._handleTrashClick = handleTrashClick;
+    this._handleLikeButtonClick = handleLikeClick;
     this._currentId = currentId;
   }
 
@@ -54,14 +55,29 @@ export class Card {
 
     // like/unlike button
     this._card.querySelector(".like-button").addEventListener("click", () => {
-      this._toggleLike();
+      //this._toggleLike();
+      this._handleLikeClick();
     });
   }
 
-  _toggleLike() {
+  isLike() {
     this._card
       .querySelector(".like-button")
-      .classList.toggle("like-button_active");
+      .classList.add("like-button_active");
     this._updateLikeCount();
   }
+
+  isUnLike() {
+    this._card
+      .querySelector(".like-button")
+      .classList.remove("like-button_active");
+    this._updateLikeCount();
+  }
+
+  //_toggleLike() {
+    //this._card
+      //.querySelector(".like-button")
+      //.classList.toggle("like-button_active");
+    //this._updateLikeCount();
+  //}
 }
