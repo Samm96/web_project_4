@@ -44,12 +44,10 @@ export const validationConfig = {
   errorTextVisible: "popup-form__error-text_visible",
 };
 
-export function renderLoading(isLoading) {
-  const activeSubmitButton = document.querySelector(`#${popup-form.id} submit-button`);
-
+export function renderLoading(submitButton, isLoading) {
   if(isLoading === true) {
-    activeSubmitButton.textContent = "Saving...";
+    submitButton.textContent = "Saving...";
   } else {
-    activeSubmitButton.textContent = "Save";
+    submitButton.textContent = "Save";
   }
 }

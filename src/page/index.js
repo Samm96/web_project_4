@@ -15,6 +15,8 @@ import { validationConfig, renderLoading } from "../utils/Constants.js";
 const editProfileButton = document.querySelector("#edit-button");
 const addCardButton = document.querySelector(".add-button");
 const editProfilePicButton = document.querySelector("#profile-pic-button");
+const createCardSubmitButton = document.querySelector("#create-button");
+const editPopupSubmitButton = document.querySelector("#edit-submit");
 
 //inputs
 const inputName = document.querySelector("#name");
@@ -108,6 +110,7 @@ const userInfo = new UserInfo({
 const editProfilePopupForm = new PopupWithForm({
   popupSelector: "edit-popup-form",
   handleFormSubmit: (data) => {
+    renderLoading(editProfilePicButton, true);
     api
       .setUserInfo({
         name: data.name,
@@ -127,7 +130,7 @@ const editProfilePopupForm = new PopupWithForm({
       )
 
       .finally(() => {
-        //loading
+        renderLoading(editProfilePicButton, false);
       });
   },
 });
@@ -135,6 +138,7 @@ const editProfilePopupForm = new PopupWithForm({
 const createCardPopupForm = new PopupWithForm({
   popupSelector: "create-popup-form",
   handleFormSubmit: (data) => {
+    renderLoading(createCardSubmitButton, true);
     api
       .addCard(data)
       .then((cardData) => {
@@ -147,7 +151,7 @@ const createCardPopupForm = new PopupWithForm({
       )
 
       .finally(() => {
-        //loading
+        renderLoading(createCardSubmitButton, false);
       });
   },
 });
@@ -167,15 +171,13 @@ const deleteConfirmPopupForm = new PopupWithDeleteConfirm({
       .catch((err) =>
         console.log(`An error had occurred while trying to delete card: ${err}`)
       )
-      .finally(() => {
-        //loading
-      });
   },
 });
 
 const profilePicPopupForm = new PopupWithForm({
   popupSelector: "profile-picture-popup",
   handleFormSubmit: () => {
+    renderLoading(editPopupSubmitButton, true);
     api
       .updateProfilePicture({
         avatar: inputPicture.value,
@@ -188,7 +190,7 @@ const profilePicPopupForm = new PopupWithForm({
         console.log(`An error had occurred updating profile picture: ${err}`)
       )
       .finally(() => {
-        //loading
+        renderLoading(editPopupSubmitButton, false);
       });
   },
 });
