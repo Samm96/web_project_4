@@ -72,7 +72,9 @@ export class Card {
   }
 
   isLiked() {
-    const buttonStatus = this._card.querySelector(".like-button").classList.contains("like-button_active");
+    const buttonStatus = this._card
+      .querySelector(".like-button")
+      .classList.contains("like-button_active");
 
     if (buttonStatus === true) {
       return false;
@@ -80,5 +82,4 @@ export class Card {
       return true;
     }
   }
-  
 }

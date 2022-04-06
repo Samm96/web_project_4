@@ -45,7 +45,7 @@ export const validationConfig = {
 };
 
 export function renderLoading(submitButton, isLoading) {
-  if(isLoading === true) {
+  if (isLoading === true) {
     submitButton.textContent = "Saving...";
   } else {
     submitButton.textContent = "Save";

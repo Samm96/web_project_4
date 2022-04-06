@@ -83,11 +83,9 @@ const createCard = (data) => {
         });
       },
       handleLikeClick: () => {
-        api
-          .toggleLikeCardStatus(data._id, card.isLiked())
-          .then((newData) => {
-            card.setLikesInfo(newData.likes);
-          })
+        api.toggleLikeCardStatus(data._id, card.isLiked()).then((newData) => {
+          card.setLikesInfo(newData.likes);
+        });
       },
     },
     "card-template"
@@ -166,7 +164,7 @@ const deleteConfirmPopupForm = new PopupWithDeleteConfirm({
       })
       .catch((err) =>
         console.log(`An error had occurred while trying to delete card: ${err}`)
-      )
+      );
   },
 });
 
