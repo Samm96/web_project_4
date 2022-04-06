@@ -59,9 +59,7 @@
                 maxlength="40"
                 required
               />
-              <span
-                class="popup-form__error-text name-error"
-              ></span>
+              <span class="popup-form__error-text name-error"></span>
               <input
                 class="popup-form__input"
                 name="about"
@@ -71,10 +69,13 @@
                 maxlength="200"
                 required
               />
-              <span
-                class="popup-form__error-text about-error"
-              ></span>
-              <button name="submit" type="submit" class="submit-button" id="edit-submit">
+              <span class="popup-form__error-text about-error"></span>
+              <button
+                name="submit"
+                type="submit"
+                class="submit-button"
+                id="edit-submit"
+              >
                 Save
               </button>
             </form>
@@ -95,9 +96,7 @@
                 maxlength="30"
                 required
               />
-              <span
-                class="popup-form__error-text title-error"
-              ></span>
+              <span class="popup-form__error-text title-error"></span>
               <input
                 class="popup-form__input"
                 name="link"
@@ -107,9 +106,7 @@
                 pattern="https://.*|http://.*"
                 required
               />
-              <span
-                class="popup-form__error-text image-link-error"
-              ></span>
+              <span class="popup-form__error-text image-link-error"></span>
               <button
                 type="submit"
                 class="submit-button"
@@ -155,10 +152,12 @@
         <section class="popup-form" id="profile-picture-popup">
           <div class="popup-form__container">
             <button type="button" class="close-button"></button>
-            <h2 class="popup-form__title">
-              Change profile picture
-            </h2>
-            <form class="popup-form__input-container" name="profile pic" id="profile-input-container">
+            <h2 class="popup-form__title">Change profile picture</h2>
+            <form
+              class="popup-form__input-container"
+              name="profile pic"
+              id="profile-input-container"
+            >
               <input
                 class="popup-form__input"
                 name="url"
@@ -168,9 +167,7 @@
                 pattern="https://.*|http://.*"
                 required
               />
-              <span
-                class="popup-form__error-text profile-pic-error"
-              ></span>
+              <span class="popup-form__error-text profile-pic-error"></span>
               <button
                 type="submit"
                 class="submit-button"
@@ -181,6 +178,7 @@
                 Save
               </button>
             </form>
+          </div>
         </section>
       </main>
 
@@ -200,7 +198,11 @@
         <div class="element__card">
           <h2 class="element__title"></h2>
           <div class="element__like-container">
-            <button arial-label="like" type="button" class="like-button"></button>
+            <button
+              arial-label="like"
+              type="button"
+              class="like-button"
+            ></button>
             <p class="like-button__counter">0</p>
           </div>
         </div>
