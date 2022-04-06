@@ -7,7 +7,7 @@ export class Card {
     this._data = data;
     this._handleCardClick = handleCardClick;
     this._handleTrashClick = handleTrashClick;
-    this._handleLikeButtonClick = handleLikeClick;
+    this._handleLikeClick = handleLikeClick;
     this._currentId = currentId;
   }
 
@@ -36,8 +36,13 @@ export class Card {
   }
 
   _updateLikeCount() {
-    this._liked = this._card.querySelector(".like-button__counter");
-    this._liked.textContent = this._liked.length;
+    this._likes = this._card.querySelector(".like-button__counter");
+    this._likes.textContent = this._likes.length;
+  }
+
+  setLikesInfo() {
+    this._likes = likes;
+    this._updateLikeCount();
   }
 
   _setEventListeners() {
@@ -55,29 +60,14 @@ export class Card {
 
     // like/unlike button
     this._card.querySelector(".like-button").addEventListener("click", () => {
-      //this._toggleLike();
       this._handleLikeClick();
+      this._toggleLike();
     });
   }
 
-  isLike() {
+  _toggleLike() {
     this._card
       .querySelector(".like-button")
-      .classList.add("like-button_active");
-    this._updateLikeCount();
+      .classList.toggle("like-button_active");
   }
-
-  isUnLike() {
-    this._card
-      .querySelector(".like-button")
-      .classList.remove("like-button_active");
-    this._updateLikeCount();
-  }
-
-  //_toggleLike() {
-    //this._card
-      //.querySelector(".like-button")
-      //.classList.toggle("like-button_active");
-    //this._updateLikeCount();
-  //}
 }

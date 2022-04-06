@@ -83,14 +83,10 @@ const createCard = (data) => {
         });
       },
       handleLikeClick: () => {
-        const likeButton = document.querySelector(".like-button");
-        const likeCounter = document.querySelector(".like-button__counter");
-        const isLiked = document.querySelector(".like-button_active");
-
         api
-          .toggleLikeCardStatus(currentLikeData)
+          .toggleLikeCardStatus(data._id)
           .then(() => {
-
+            card.setLikesInfo(data.likes);
           })
       }
     },
