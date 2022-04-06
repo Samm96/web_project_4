@@ -35,14 +35,14 @@ export class Card {
     return this._card;
   }
 
-  _updateLikeCount() {
-    this._likes = this._card.querySelector(".like-button__counter");
-    this._likes.textContent = this._likes.length;
-  }
-
-  setLikesInfo() {
+  setLikesInfo(likes) {
     this._likes = likes;
     this._updateLikeCount();
+  }
+
+  _updateLikeCount() {
+    this._likesCounter = this._card.querySelector(".like-button__counter");
+    this._likesCounter.textContent = this._likes.length;
   }
 
   _setEventListeners() {
