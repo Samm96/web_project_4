@@ -14,7 +14,7 @@ import { validationConfig, renderLoading } from "../utils/Constants.js";
 //buttons
 const editProfileButton = document.querySelector("#edit-button");
 const addCardButton = document.querySelector(".add-button");
-const editProfilePicButton = document.querySelector("#profile-pic-button");
+const editProfilePicButton = document.querySelector("#edit-pic-button");
 const createCardSubmitButton = document.querySelector("#create-button");
 const editPopupSubmitButton = document.querySelector("#edit-submit");
 
