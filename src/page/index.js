@@ -84,11 +84,11 @@ const createCard = (data) => {
       },
       handleLikeClick: () => {
         api
-          .toggleLikeCardStatus(data._id)
-          .then(() => {
-            card.setLikesInfo(data.likes);
+          .toggleLikeCardStatus(data._id, card.isLiked())
+          .then((newData) => {
+            card.setLikesInfo(newData.likes);
           })
-      }
+      },
     },
     "card-template"
   );
