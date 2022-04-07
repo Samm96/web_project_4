@@ -61,11 +61,10 @@ export class Card {
     // like/unlike button
     this._card.querySelector(".like-button").addEventListener("click", () => {
       this._handleLikeClick();
-      this._toggleLike();
     });
   }
 
-  _toggleLike() {
+  toggleLike() {
     this._card
       .querySelector(".like-button")
       .classList.toggle("like-button_active");

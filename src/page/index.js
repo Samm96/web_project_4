@@ -83,9 +83,14 @@ const createCard = (data) => {
         });
       },
       handleLikeClick: () => {
-        api.toggleLikeCardStatus(data._id, card.isLiked()).then((newData) => {
+        api.toggleLikeCardStatus(data._id, card.isLiked())
+        .then((newData) => {
           card.setLikesInfo(newData.likes);
-        });
+          card.toggleLike();
+        })
+        .catch((err) => {
+          console.log(`There was an issue liking this card: ${err}`)
+        })
       },
     },
     "card-template"
@@ -118,10 +123,12 @@ const editProfilePopupForm = new PopupWithForm({
           avatar: profilePicture.src,
         });
         editProfilePopupForm.close();
+        editProfileValidator.resetValidation();
       })
-      .catch((err) =>
+      .catch((err) => {
         console.log(`An error occurred updating user information: ${err}`)
-      )
+        editProfilePopupForm.open();
+      })
 
       .finally(() => {
         renderLoading(editProfilePicButton, false);
@@ -137,12 +144,15 @@ const createCardPopupForm = new PopupWithForm({
       .addCard(data)
       .then((cardData) => {
         cardList.addItem(createCard(cardData));
+        createCardPopupForm.close();
+        createCardValidator.resetValidation();
         createCardPopupForm.resetForm();
       })
 
-      .catch((err) =>
+      .catch((err) => {
         console.log(`An error had occurred while adding your card :( : ${err}`)
-      )
+        createCardPopupForm.open();
+      })
 
       .finally(() => {
         renderLoading(createCardSubmitButton, false);
@@ -161,6 +171,7 @@ const deleteConfirmPopupForm = new PopupWithDeleteConfirm({
       })
       .then(() => {
         deleteConfirmPopupForm.deleteCard();
+        deleteConfirmPopupForm.close();
       })
       .catch((err) =>
         console.log(`An error had occurred while trying to delete card: ${err}`)
@@ -178,11 +189,14 @@ const profilePicPopupForm = new PopupWithForm({
       })
       .then(() => {
         profilePicture.src = inputPicture.value;
+        profilePicPopupForm.close();
+        profilePicValidator.resetValidation();
         profilePicPopupForm.resetForm();
       })
-      .catch((err) =>
+      .catch((err) => {
         console.log(`An error had occurred updating profile picture: ${err}`)
-      )
+        profilePicPopupForm.open();
+      })
       .finally(() => {
         renderLoading(editPopupSubmitButton, false);
       });
@@ -212,18 +226,13 @@ editProfileButton.addEventListener("click", () => {
   const { name, about } = userInfo.getUserInfo();
   inputName.value = name;
   inputJob.value = about;
-  editProfilePopupForm.resetForm();
-  editProfileValidator.resetValidation();
 });
 
 addCardButton.addEventListener("click", () => {
-  createCardPopupForm.resetForm();
-  createCardValidator.resetValidation();
   createCardPopupForm.open();
 });
 
 editProfilePicButton.addEventListener("click", () => {
-  profilePicValidator.resetValidation();
   profilePicPopupForm.open();
 });
 
