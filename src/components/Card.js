@@ -16,19 +16,22 @@ export class Card {
       .cloneNode(true)
       .querySelector(".element");
 
-    const titleElement = this._card.querySelector(".element__title");
-    const imgElement = this._card.querySelector(".element__image");
-    const trashButton = this._card.querySelector(".delete-button");
+    this._titleElement = this._card.querySelector(".element__title");
+    this._imgElement = this._card.querySelector(".element__image");
+    this._trashButton = this._card.querySelector(".delete-button");
+    this._likesCounter = this._card.querySelector(".like-button__counter");
+    this._likeButton = this._card.querySelector(".like-button");
+
 
     this._ownerId = this._data.owner._id;
 
     if (this._currentId !== this._ownerId) {
-      trashButton.classList.add("delete-button_hidden");
+      this._trashButton.classList.add("delete-button_hidden");
     }
 
-    imgElement.src = this._data.link;
-    imgElement.alt = this._data.name;
-    titleElement.textContent = this._data.name;
+    this._imgElement.src = this._data.link;
+    this._imgElement.alt = this._data.name;
+    this._titleElement.textContent = this._data.name;
 
     // click on img to open img modal (causes initial cards not to show up)
     this._setEventListeners();
@@ -41,38 +44,33 @@ export class Card {
   }
 
   _updateLikeCount() {
-    this._likesCounter = this._card.querySelector(".like-button__counter");
     this._likesCounter.textContent = this._likes.length;
   }
 
   _setEventListeners() {
-    const imgElement = this._card.querySelector(".element__image");
-
-    imgElement.addEventListener("click", (data) => {
+    this._imgElement.addEventListener("click", (data) => {
       this._handleCardClick(data);
     });
 
-    this._card.querySelector(".delete-button").addEventListener("click", () => {
+    this._trashButton.addEventListener("click", () => {
       if (this._currentId === this._ownerId) {
+        this._trashButton.classList.remove("delete-button_hidden");
         this._handleTrashClick();
       }
     });
 
     // like/unlike button
-    this._card.querySelector(".like-button").addEventListener("click", () => {
+    this._likeButton.addEventListener("click", () => {
       this._handleLikeClick();
     });
   }
 
   toggleLike() {
-    this._card
-      .querySelector(".like-button")
-      .classList.toggle("like-button_active");
+    this._likeButton.classList.toggle("like-button_active");
   }
 
   isLiked() {
-    const buttonStatus = this._card
-      .querySelector(".like-button")
+    const buttonStatus = this._likeButton
       .classList.contains("like-button_active");
 
     if (buttonStatus === true) {
