@@ -15,7 +15,7 @@ export default class PopupWithDeleteConfirm extends Popup {
   setEventListeners() {
     super.setEventListeners();
 
-    const deleteConfirmButton = document.querySelector("#confirmation-button");
+    const deleteConfirmButton = this._popupElement.querySelector("#confirmation-button");
 
     deleteConfirmButton.addEventListener("click", () => {
       this.deleteCard();
