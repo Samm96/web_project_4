@@ -171,11 +171,10 @@ const deleteConfirmPopupForm = new PopupWithDeleteConfirm({
       })
       .then(() => {
         deleteConfirmPopupForm.deleteCard();
-        deleteConfirmPopupForm.close();
       })
-      .catch((err) =>
+      .catch((err) => {
         console.log(`An error had occurred while trying to delete card: ${err}`)
-      );
+      });
   },
 });
 
