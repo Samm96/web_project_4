@@ -75,7 +75,7 @@ const createCard = (data) => {
           api
             .removeCard({ _id: data._id })
             .then(() => {
-              card._card.remove();
+              card.deleteCard();
             })
             .catch((err) => {
               console.log(`There was an issue deleting this card: ${err}`);
@@ -114,13 +114,14 @@ const editProfilePopupForm = new PopupWithForm({
       .setUserInfo({
         name: data.name,
         about: data.about,
+        avatar: data.avatar,
       })
 
       .then((info) => {
         userInfo.setUserInfo({
           name: info.name,
           about: info.about,
-          avatar: profilePicture.src,
+          avatar: info.avatar,
         });
         editProfilePopupForm.close();
         editProfileValidator.resetValidation();
@@ -146,7 +147,6 @@ const createCardPopupForm = new PopupWithForm({
         cardList.addItem(createCard(cardData));
         createCardPopupForm.close();
         createCardValidator.resetValidation();
-        createCardPopupForm.resetForm();
       })
 
       .catch((err) => {
@@ -160,37 +160,24 @@ const createCardPopupForm = new PopupWithForm({
   },
 });
 
-//NOTE:: MAY NOT BE CORRECT
+
 const deleteConfirmPopupForm = new PopupWithDeleteConfirm({
   popupSelector: "delete-confirmation-popup",
-  handleDeleteCard: () => {
-    const imgElement = document.querySelector(".element__image");
-    api
-      .removeCard({
-        _id: imgElement.src,
-      })
-      .then(() => {
-        deleteConfirmPopupForm.deleteCard();
-      })
-      .catch((err) => {
-        console.log(`An error had occurred while trying to delete card: ${err}`)
-      });
-  },
+  handleDeleteCard: () => {},
 });
 
 const profilePicPopupForm = new PopupWithForm({
   popupSelector: "profile-picture-popup",
-  handleFormSubmit: () => {
+  handleFormSubmit: (data) => {
     renderLoading(editPopupSubmitButton, true);
     api
       .updateProfilePicture({
-        avatar: inputPicture.value,
+        avatar: data,
       })
       .then(() => {
         profilePicture.src = inputPicture.value;
         profilePicPopupForm.close();
         profilePicValidator.resetValidation();
-        profilePicPopupForm.resetForm();
       })
       .catch((err) => {
         console.log(`An error had occurred updating profile picture: ${err}`)

@@ -16,10 +16,10 @@ export default class UserInfo {
     };
   }
   //takes new user data and adds it on the page
-  setUserInfo({ name, about, id, avatar }) {
+  setUserInfo({ name, about, _id, avatar }) {
     this._nameElement.textContent = name;
     this._descriptionElement.textContent = about;
-    this._userId = id;
+    this._userId = _id;
     this._avatarElement.src = avatar;
   }
 }

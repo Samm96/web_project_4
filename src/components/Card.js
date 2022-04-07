@@ -65,6 +65,10 @@ export class Card {
     });
   }
 
+  deleteCard() {
+    this._card.remove();
+  }
+
   toggleLike() {
     this._likeButton.classList.toggle("like-button_active");
   }
