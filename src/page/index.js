@@ -36,28 +36,42 @@ const api = new Api({
 //fetches the user's info including id. Declare let and set it as null, then change it's value in the api below
 
 let userId = null;
+const cardList = new Section("elements");
 
-api.getUserInfo().then((info) => {
+api.getAppInfo()
+.then(([info, cardData]) => {
   userId = info._id;
   userInfo.setUserInfo(info);
+
+  cardData.reverse();
+  cardData.forEach((data) => {
+    cardList.addItem(createCard(data));
+  })
+})
+.catch(err => {
+  console.log(`An error occurred getting user info and adding the initial cards: ${err}`);
 });
+
+
+//api.getUserInfo().then((info) => {
+  //userId = info._id;
+  //userInfo.setUserInfo(info);
+//});
 
 //
 
-const cardList = new Section("elements");
+//api
+  //.getInitialCardList()
 
-api
-  .getInitialCardList()
-
-  .then((cardData) => {
-    cardData.reverse();
-    cardData.forEach((data) => {
-      cardList.addItem(createCard(data));
-    });
-  })
-  .catch((err) =>
-    console.log(`An error occurred adding the initial cards: ${err}`)
-  );
+  //.then((cardData) => {
+    //cardData.reverse();
+    //cardData.forEach((data) => {
+      //cardList.addItem(createCard(data));
+    //});
+  //})
+  //.catch((err) =>
+    //console.log(`An error occurred adding the initial cards: ${err}`)
+  //);
 
 const createCard = (data) => {
   const card = new Card(
@@ -168,11 +182,11 @@ const deleteConfirmPopupForm = new PopupWithDeleteConfirm({
 
 const profilePicPopupForm = new PopupWithForm({
   popupSelector: "profile-picture-popup",
-  handleFormSubmit: (data) => {
+  handleFormSubmit: () => {
     renderLoading(editPopupSubmitButton, true);
     api
       .updateProfilePicture({
-        avatar: data,
+        avatar: inputPicture.value,
       })
       .then(() => {
         profilePicture.src = inputPicture.value;
@@ -220,6 +234,8 @@ addCardButton.addEventListener("click", () => {
 
 editProfilePicButton.addEventListener("click", () => {
   profilePicPopupForm.open();
+  const { avatar } = userInfo.getUserInfo();
+  inputPicture.value = avatar;
 });
 
 imagePopup.setEventListeners();
@@ -227,7 +243,3 @@ editProfilePopupForm.setEventListeners();
 createCardPopupForm.setEventListeners();
 deleteConfirmPopupForm.setEventListeners();
 profilePicPopupForm.setEventListeners();
-
-api.getAppInfo().then(([userInfoData, cardsData]) => {
-  userInfo.setUserInfo(userInfoData);
-});
