@@ -11,15 +11,15 @@ export default class UserInfo {
     return {
       name: this._nameElement.textContent,
       about: this._descriptionElement.textContent,
-      id: this._userId,
+      _id: this._userId,
       avatar: this._avatarElement.src,
     };
   }
   //takes new user data and adds it on the page
   setUserInfo({ name, about, _id, avatar }) {
-    this._nameElement.textContent = name;
-    this._descriptionElement.textContent = about;
-    this._userId = _id;
-    this._avatarElement.src = avatar;
+    if (name) this._nameElement.textContent = name;
+    if (about) this._descriptionElement.textContent = about;
+    if (_id) this._id = _id;
+    if (avatar) this._avatarElement.src = avatar;
   }
 }

@@ -104,18 +104,9 @@ const editProfilePopupForm = new PopupWithForm({
   handleFormSubmit: (data) => {
     renderLoading(editProfilePicButton, true);
     api
-      .setUserInfo({
-        name: data.name,
-        about: data.about,
-        avatar: data.avatar,
-      })
-
+      .setUserInfo(data)
       .then((info) => {
-        userInfo.setUserInfo({
-          name: info.name,
-          about: info.about,
-          avatar: info.avatar,
-        });
+        userInfo.setUserInfo(info);
         editProfilePopupForm.close();
         editProfileValidator.resetValidation();
       })
@@ -163,14 +154,14 @@ const profilePicPopupForm = new PopupWithForm({
   popupSelector: "profile-picture-popup",
   handleFormSubmit: (data) => {
     renderLoading(editPopupSubmitButton, true);
+    debugger
     api
       .updateProfilePicture({
-        avatar: data.value,
+        avatar: data.url,
+        _id: data._id
       })
       .then((info) => {
         userInfo.setUserInfo(info);
-        profilePicPopupForm.close();
-        profilePicValidator.resetValidation();
       })
       .catch((err) => {
         console.log(`An error had occurred updating profile picture: ${err}`)
@@ -178,6 +169,8 @@ const profilePicPopupForm = new PopupWithForm({
       })
       .finally(() => {
         renderLoading(editPopupSubmitButton, false);
+        profilePicPopupForm.close();
+        profilePicValidator.resetValidation();
       });
   },
 });
@@ -213,8 +206,6 @@ addCardButton.addEventListener("click", () => {
 
 editProfilePicButton.addEventListener("click", () => {
   profilePicPopupForm.open();
-  const { avatar } = userInfo.getUserInfo();
-  inputPicture.value = avatar;
 });
 
 imagePopup.setEventListeners();
