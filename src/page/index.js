@@ -17,13 +17,11 @@ const addCardButton = document.querySelector(".add-button");
 const editProfilePicButton = document.querySelector("#edit-pic-button");
 const createCardSubmitButton = document.querySelector("#create-button");
 const editPopupSubmitButton = document.querySelector("#edit-submit");
+const editProfilePicSubmitButton = document.querySelector("#profile-pic-button");
 
 //inputs
 const inputName = document.querySelector("#name");
 const inputJob = document.querySelector("#about");
-const inputPicture = document.querySelector("#profile-pic");
-
-const profilePicture = document.querySelector(".profile__image");
 
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
@@ -102,7 +100,7 @@ const userInfo = new UserInfo({
 const editProfilePopupForm = new PopupWithForm({
   popupSelector: "edit-popup-form",
   handleFormSubmit: (data) => {
-    renderLoading(editProfilePicButton, true);
+    renderLoading(editPopupSubmitButton, true);
     api
       .setUserInfo(data)
       .then((info) => {
@@ -116,7 +114,7 @@ const editProfilePopupForm = new PopupWithForm({
       })
 
       .finally(() => {
-        renderLoading(editProfilePicButton, false);
+        renderLoading(editPopupSubmitButton, false);
       });
   },
 });
@@ -153,8 +151,7 @@ const deleteConfirmPopupForm = new PopupWithDeleteConfirm({
 const profilePicPopupForm = new PopupWithForm({
   popupSelector: "profile-picture-popup",
   handleFormSubmit: (data) => {
-    renderLoading(editPopupSubmitButton, true);
-    debugger
+    renderLoading(editProfilePicSubmitButton, true);
     api
       .updateProfilePicture({
         avatar: data.url,
@@ -168,7 +165,7 @@ const profilePicPopupForm = new PopupWithForm({
         profilePicPopupForm.open();
       })
       .finally(() => {
-        renderLoading(editPopupSubmitButton, false);
+        renderLoading(editProfilePicSubmitButton, false);
         profilePicPopupForm.close();
         profilePicValidator.resetValidation();
       });
