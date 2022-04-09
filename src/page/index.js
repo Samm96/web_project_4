@@ -52,27 +52,6 @@ api.getAppInfo()
   console.log(`An error occurred getting user info and adding the initial cards: ${err}`);
 });
 
-
-//api.getUserInfo().then((info) => {
-  //userId = info._id;
-  //userInfo.setUserInfo(info);
-//});
-
-//
-
-//api
-  //.getInitialCardList()
-
-  //.then((cardData) => {
-    //cardData.reverse();
-    //cardData.forEach((data) => {
-      //cardList.addItem(createCard(data));
-    //});
-  //})
-  //.catch((err) =>
-    //console.log(`An error occurred adding the initial cards: ${err}`)
-  //);
-
 const createCard = (data) => {
   const card = new Card(
     {
@@ -182,14 +161,14 @@ const deleteConfirmPopupForm = new PopupWithDeleteConfirm({
 
 const profilePicPopupForm = new PopupWithForm({
   popupSelector: "profile-picture-popup",
-  handleFormSubmit: () => {
+  handleFormSubmit: (data) => {
     renderLoading(editPopupSubmitButton, true);
     api
       .updateProfilePicture({
-        avatar: inputPicture.value,
+        avatar: data.value,
       })
-      .then(() => {
-        profilePicture.src = inputPicture.value;
+      .then((info) => {
+        userInfo.setUserInfo(info);
         profilePicPopupForm.close();
         profilePicValidator.resetValidation();
       })
