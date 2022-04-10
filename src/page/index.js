@@ -67,6 +67,7 @@ const createCard = (data) => {
             .removeCard({ _id: data._id })
             .then(() => {
               card.deleteCard();
+              deleteConfirmPopupForm.close();
             })
             .catch((err) => {
               console.log(`There was an issue deleting this card: ${err}`);
@@ -106,11 +107,9 @@ const editProfilePopupForm = new PopupWithForm({
       .then((info) => {
         userInfo.setUserInfo(info);
         editProfilePopupForm.close();
-        editProfileValidator.resetValidation();
       })
       .catch((err) => {
         console.log(`An error occurred updating user information: ${err}`)
-        editProfilePopupForm.open();
       })
 
       .finally(() => {
@@ -128,12 +127,9 @@ const createCardPopupForm = new PopupWithForm({
       .then((cardData) => {
         cardList.addItem(createCard(cardData));
         createCardPopupForm.close();
-        createCardValidator.resetValidation();
       })
-
       .catch((err) => {
         console.log(`An error had occurred while adding your card :( : ${err}`)
-        createCardPopupForm.open();
       })
 
       .finally(() => {
@@ -159,15 +155,13 @@ const profilePicPopupForm = new PopupWithForm({
       })
       .then((info) => {
         userInfo.setUserInfo(info);
+        profilePicPopupForm.close();
       })
       .catch((err) => {
         console.log(`An error had occurred updating profile picture: ${err}`)
-        profilePicPopupForm.open();
       })
       .finally(() => {
         renderLoading(editProfilePicSubmitButton, false);
-        profilePicPopupForm.close();
-        profilePicValidator.resetValidation();
       });
   },
 });
@@ -195,13 +189,16 @@ editProfileButton.addEventListener("click", () => {
   const { name, about } = userInfo.getUserInfo();
   inputName.value = name;
   inputJob.value = about;
+  editProfileValidator.resetValidation();
 });
 
 addCardButton.addEventListener("click", () => {
+  createCardValidator.resetValidation();
   createCardPopupForm.open();
 });
 
 editProfilePicButton.addEventListener("click", () => {
+  profilePicValidator.resetValidation();
   profilePicPopupForm.open();
 });
 
