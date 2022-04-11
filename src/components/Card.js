@@ -29,11 +29,6 @@ export class Card {
       this._trashButton.classList.add("delete-button_hidden");
     }
 
-    if (this._data.likes._id === this._ownerId) {
-      this._likeButton.classList.add("like-button_active");
-      this.setLikesInfo();
-    }
-
     this._imgElement.src = this._data.link;
     this._imgElement.alt = this._data.name;
     this._titleElement.textContent = this._data.name;
@@ -51,7 +46,11 @@ export class Card {
 
   _updateLikeCount() {
     this._likesCounter.textContent = this._likes.length;
+
+    const isHearted = this._likes.some((like) => like._id === this._currentId);
+    this.toggleLike(isHearted);
   }
+
 
   _setEventListeners() {
     this._imgElement.addEventListener("click", (data) => {

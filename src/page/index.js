@@ -78,7 +78,6 @@ const createCard = (data) => {
         api.toggleLikeCardStatus(data._id, card.isLiked())
         .then((newData) => {
           card.setLikesInfo(newData.likes);
-          card.toggleLike();
         })
         .catch((err) => {
           console.log(`There was an issue liking this card: ${err}`)
