@@ -29,9 +29,15 @@ export class Card {
       this._trashButton.classList.add("delete-button_hidden");
     }
 
+    if (this._data.likes._id === this._ownerId) {
+      this._likeButton.classList.add("like-button_active");
+      this.setLikesInfo();
+    }
+
     this._imgElement.src = this._data.link;
     this._imgElement.alt = this._data.name;
     this._titleElement.textContent = this._data.name;
+    this._likesCounter.textContent = this._data.likes.length;
 
     // click on img to open img modal (causes initial cards not to show up)
     this._setEventListeners();
