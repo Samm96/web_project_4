@@ -29,10 +29,11 @@ export class Card {
       this._trashButton.classList.add("delete-button_hidden");
     }
 
+    this.setLikesInfo(this._data.likes);
+
     this._imgElement.src = this._data.link;
     this._imgElement.alt = this._data.name;
     this._titleElement.textContent = this._data.name;
-    this._likesCounter.textContent = this._data.likes.length;
 
     // click on img to open img modal (causes initial cards not to show up)
     this._setEventListeners();
@@ -48,9 +49,8 @@ export class Card {
     this._likesCounter.textContent = this._likes.length;
 
     const isHearted = this._likes.some((like) => like._id === this._currentId);
-    this.toggleLike(isHearted);
+    this._likeButton.classList.toggle("like-button_active", isHearted);
   }
-
 
   _setEventListeners() {
     this._imgElement.addEventListener("click", (data) => {
@@ -72,10 +72,6 @@ export class Card {
 
   deleteCard() {
     this._card.remove();
-  }
-
-  toggleLike() {
-    this._likeButton.classList.toggle("like-button_active");
   }
 
   isLiked() {
